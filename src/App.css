@@ -1,18 +1,71 @@
-@media screen and (max-width: 400px) {
-  #features {
-    padding: 20px;
-    width: 111%;
-  }
+/* 권장: 전역 리셋 */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body { width: 100%; max-width: 100%; overflow-x: hidden; } /* 안전장치 */
+
+/* 공통 컨테이너 유틸: 섹션에 className="section" 을 쓸 수 있으면 더 좋음 */
+.section {
+  width: 100%;
+  max-width: 1120px;
+  margin-inline: auto;
+  padding-inline: 16px; /* 좌우 여백 */
+  padding-block: 40px;  /* 위아래 여백 */
+}
+
+/* 이미지가 부모를 넘지 않도록 */
+img, svg, video { max-width: 100%; height: auto; display: block; }
+
+/* === 기존 ID 섹션들에 바로 적용 (class 사용 못할 때) === */
+#features,
+#about,
+#services,
+#testimonials,
+#team,
+#contact,
+#footer,
+#portfolio {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 16px;
+}
+
+@media (max-width: 480px) {
+  #features,
   #about,
   #services,
   #testimonials,
   #team,
   #contact,
-  #footer {
-    width: 111%;
+  #footer,
+  #portfolio {
+    padding-inline: 12px; /* 모바일에선 여백 조금 줄이기 */
   }
 
-  #portfolio {
-    width: 110%;
+  /* 본문/입력 폰트는 최소 16px로(iOS 확대 방지) */
+  body, p, li, input, select, textarea, button { font-size: 16px; }
+
+  /* 필요 시 타이틀도 자동 축소 */
+  h1 { font-size: clamp(24px, 7vw, 44px); }
+  h2 { font-size: clamp(20px, 5.5vw, 32px); }
+}
+
+/* (선택) 갤러리/카드형 레이아웃이 있다면: 모바일 1열 → 점차 다열 */
+#portfolio .grid,
+#features .grid,
+#services .grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;          /* 모바일 1열 */
+}
+@media (min-width: 640px) {
+  #portfolio .grid,
+  #features .grid,
+  #services .grid {
+    grid-template-columns: repeat(2, 1fr);
   }
+}
+@media (min-width: 1024px) {
+  #portfolio .grid { grid-template-columns: repeat(3, 1fr); } /* 필요에 맞게 */
 }

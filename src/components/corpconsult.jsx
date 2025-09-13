@@ -235,6 +235,23 @@ export const CorpConsultForm = () => {
           border-radius:50%; margin-right:8px; vertical-align:-2px; animation: spin .8s linear infinite;
         }
         @keyframes spin { to { transform: rotate(360deg); } }
+        /* CorpConsultForm.jsx의 <style> 끝에 추가 */
+@media (max-width: 480px) {
+  .form-container {
+    margin: 24px 12px;   /* 좌우 여백 확보 */
+    padding: 16px;       /* 내부 여백 축소 */
+    border-radius: 12px;
+  }
+  .form-container h2 { font-size: 20px; }
+  input, select, textarea, button { font-size: 16px; } /* iOS 입력 확대 방지 */
+}
+@media (min-width: 481px) and (max-width: 768px) {
+  .form-container {
+    margin: 32px 16px;
+    padding: 20px;
+  }
+  .form-container h2 { font-size: 22px; }
+}
       `}</style>
 
         <h2>법인 상담 신청</h2>
