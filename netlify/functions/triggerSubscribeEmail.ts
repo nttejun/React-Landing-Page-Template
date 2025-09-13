@@ -66,9 +66,8 @@ export const handler: Handler = async function (event) {
         submittedAt: new Date().toISOString(),
     };
 
-    console.error(">> 3");
     // Netlify Emails 함수 호출
-    const emailRes = await fetch(`http://127.0.0.1:8888/.netlify/functions/emails/subscribed`, {
+    const emailRes = await fetch(process.env.REAL_HOST_URL+`/.netlify/functions/emails/subscribed`, {
         method: "POST",
         headers: {
             "netlify-emails-secret": secret as string,
