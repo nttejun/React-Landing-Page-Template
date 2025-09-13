@@ -1,8 +1,7 @@
-// src/components/ConsultForm.jsx
 import React, { useState } from "react";
 
-const ENDPOINT =
-    process.env.REACT_APP_CONSULT_ENDPOINT || "/.netlify/functions/triggerSubscribeEmail";
+// 개발/배포 자동 분기: 로컬은 8888 프록시, 배포는 상대 경로
+const ENDPOINT = "/.netlify/functions/triggerSubscribeEmail";
 
 export const CorpConsultForm = () => {
   const [formData, setFormData] = useState({
@@ -27,7 +26,6 @@ export const CorpConsultForm = () => {
     e.preventDefault();
     setNotice(null);
 
-    // 필수값 검증
     if (!formData.name || !formData.phone || !formData.category) {
       setNotice({ type: "error", text: "성함, 연락처, 상담 항목은 필수입니다." });
       return;
@@ -54,7 +52,7 @@ export const CorpConsultForm = () => {
       setNotice({ type: "success", text: "상담 신청이 전송되었습니다. 곧 연락드리겠습니다!" });
       resetForm();
     } catch (err) {
-      console.error(err);
+      console.error("Submit error:", err);
       setNotice({ type: "error", text: "전송에 실패했습니다. 잠시 후 다시 시도해주세요." });
     } finally {
       setSending(false);

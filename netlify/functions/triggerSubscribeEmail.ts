@@ -9,7 +9,6 @@
 // 로컬/프리뷰 환경에서도 동작하도록 process.env.URL 없으면 호스트 헤더로 기본 URL 구성.
 
 import type { Handler } from "@netlify/functions";
-import fetch from "node-fetch"; // Node 18은 전역 fetch 제공. 원하시면 이 줄 제거 가능.
 
 type RequestBody = {
     name: string;
@@ -19,7 +18,7 @@ type RequestBody = {
     message?: string;
 };
 
-const handler: Handler = async function (event) {
+export const handler: Handler = async function (event) {
     if (event.httpMethod !== "POST") {
         return json(405, { error: "Method Not Allowed" });
     }
@@ -44,7 +43,7 @@ const handler: Handler = async function (event) {
     const secret = process.env.NETLIFY_EMAILS_SECRET;
     const from = process.env.NETLIFY_FROM_EMAILS || "no-reply@example.com";
     const to = process.env.NETLIFY_FROM_EMAILS || "owner@example.com";
-    const templateName = "consult-request"; // emails/consult-request.* 템플릿 필요
+    const templateName = "subscribed"; // emails/consult-request.* 템플릿 필요
 
     if (!secret) {
         return json(500, { error: "Missing NETLIFY_EMAILS_SECRET" });
@@ -67,8 +66,9 @@ const handler: Handler = async function (event) {
         submittedAt: new Date().toISOString(),
     };
 
+    console.error(">> 3");
     // Netlify Emails 함수 호출
-    const emailRes = await fetch(`${baseUrl}/.netlify/functions/emails/${templateName}`, {
+    const emailRes = await fetch(`http://127.0.0.1:8888/.netlify/functions/emails/subscribed`, {
         method: "POST",
         headers: {
             "netlify-emails-secret": secret as string,
@@ -98,4 +98,4 @@ function json(statusCode: number, obj: unknown) {
     };
 }
 
-export { handler };
+export default handler;
