@@ -11,7 +11,7 @@ const mainSlides = [
             "배당 vs 급여, 어떤 방식이 유리한가?",
             "법인세, 상속세, 증여세 절세 방법"
         ],
-        cta: { href: "/consult", label: "무료 컨설팅" }
+        cta: { href: "/consult", label: "상담 요청" }
     },
     {
         bg: "img/intro-bg.jpg",
@@ -22,7 +22,7 @@ const mainSlides = [
             "대표자 보증 부담 줄이는 방법",
             "법인자금 운용 (안전자산 vs 투자자산 분산)"
         ],
-        cta: { href: "/consult", label: "상담 요청" }
+        cta: { href: "/consult", label: "문의 요청" }
     },
     {
         bg: "img/intro-bg.jpg",
@@ -34,7 +34,7 @@ const mainSlides = [
             "법인 소유 보험의 회계 처리 (손금 산입 가능 여부)",
             "대표이사 상해/질병 리스크 대비 보험 구조"
         ],
-        cta: { href: "/consult", label: "문의하기" }
+        cta: { href: "/consult", label: "상담 요청" }
     },
     {
         bg: "img/intro-bg.jpg",

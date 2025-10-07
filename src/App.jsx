@@ -3,6 +3,7 @@ import {Route, Switch} from "react-router-dom"; // ★ v5 문법
 import {Navigation} from "./components/navigation";
 import {CorpConsultForm} from "./components/corpconsult"; // ★ 폼 임포트
 import HeaderMainSlide from "./sections/HeaderMainSlide"; // ★ 메인 슬라이드 섹션
+import ConsultTopCTA from "./components/ConsultTopCTA"; // ✅ 추가
 import JsonData from "./data/data.json";
 import SmoothScroll from "smooth-scroll";
 import "./App.css";
@@ -16,6 +17,7 @@ export const scroll = new SmoothScroll('a[href*="#"]', {
 const Home = ({ landingPageData }) => (
   <div>
     <Navigation />
+    <ConsultTopCTA />
     <HeaderMainSlide />
 {/*
     <Header data={landingPageData.Header} />

@@ -41,7 +41,7 @@ export const Navigation = () => {
               <li><a href="#team" className="page-scroll" onClick={close}>Team</a></li>
               <li><a href="#contact" className="page-scroll" onClick={close}>Contact</a></li>
 */}
-              <li><Link to="/consult" onClick={close}>법인 상담</Link></li>
+              <li><Link to="/consult" onClick={close}>법인 세무·자금 컨설팅 신청</Link></li>
             </ul>
           </div>
         </div>
