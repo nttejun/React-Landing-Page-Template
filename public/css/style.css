@@ -365,8 +365,8 @@ header .intro-text {
   .btn-custom { font-size: 14px; padding: 10px 20px; }
 }
 @media (max-width: 480px) {
-  .intro h1 { font-size: clamp(26px, 8vw, 32px); }
-  .intro p { font-size: clamp(14px, 4vw, 18px); margin-bottom: 40px; }
+  .intro h1 { font-size: clamp(26px, 8vw, 44px); }
+  .intro p { font-size: clamp(16px, 4vw, 20px); margin-bottom: 40px; }
   #features, #about, #services, #portfolio, #testimonials, #team, #contact {
     padding: 60px 0;
   }
