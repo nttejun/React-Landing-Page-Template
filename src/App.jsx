@@ -24,7 +24,8 @@ export const scroll = new SmoothScroll('a[href*="#"]', {
 const Home = ({ landingPageData }) => (
   <div>
     <Navigation />
-    <HeaderMainSlide /> {/* ★ 기존 <Header .../> 대체 */}
+    <HeaderMainSlide />
+    {/* 사용하지 않는 네비게이션 목차
     <Header data={landingPageData.Header} />
     <Features data={landingPageData.Features} />
     <About data={landingPageData.About} />
@@ -33,6 +34,7 @@ const Home = ({ landingPageData }) => (
     <Testimonials data={landingPageData.Testimonials} />
     <Team data={landingPageData.Team} />
     <Contact data={landingPageData.Contact} />
+      */}
   </div>
 );
 
