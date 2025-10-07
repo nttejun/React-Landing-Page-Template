@@ -12,7 +12,7 @@ export const Navigation = () => {
         <div className="container">
           <div className="navbar-header">
             {/* 브랜드 */}
-            <a className="navbar-brand" href="/">Brand</a>
+            <a className="navbar-brand" href="/">Dream & Joy</a>
 
             {/* 햄버거 버튼 (부트스트랩 아이콘바 스타일 활용) */}
             <button
