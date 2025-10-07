@@ -307,6 +307,39 @@ img, svg, video { max-width: 100%; height: auto; display: block; }
   }
 }
 
+/* 리스트 아이콘 스타일 */
+.main-list {
+  list-style: none;
+  margin: 0 auto 22px;
+  padding-left: 0;
+  max-width: 720px;
+}
+
+.main-list li {
+  position: relative;
+  padding-left: 28px; /* 아이콘 여백 */
+  margin-bottom: 10px;
+  line-height: 1.6;
+  font-size: clamp(14px, 1.8vw + 0.2rem, 18px);
+}
+
+/* ✅ 체크 표시 스타일 */
+.main-list li::before {
+  content: "✓"; /* 또는 "\2713" */
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #5ca9fb;  /* 브랜드 포인트 컬러 */
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* (선택) 밝은 배경용 대비 보정 */
+.main-slide .overlay .main-list li::before {
+  color: #20a4f4; /* 필요 시 배경에 따라 보정 */
+}
+
 /* ================================
    ⬅️➡️ 페이지가 옆으로 넘어가는 전환 (slide-mode)
    ================================ */
