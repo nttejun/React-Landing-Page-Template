@@ -32,6 +32,7 @@ export const Navigation = () => {
           {/* collapse: 부트스트랩 JS 대신 'in' 클래스를 리액트로 제어 */}
           <div id="site-nav" className={`collapse navbar-collapse ${open ? "in" : ""}`}>
             <ul className="nav navbar-nav navbar-right">
+{/*
               <li><a href="#features" className="page-scroll" onClick={close}>Features</a></li>
               <li><a href="#about" className="page-scroll" onClick={close}>About</a></li>
               <li><a href="#services" className="page-scroll" onClick={close}>Services</a></li>
@@ -39,6 +40,7 @@ export const Navigation = () => {
               <li><a href="#testimonials" className="page-scroll" onClick={close}>Testimonials</a></li>
               <li><a href="#team" className="page-scroll" onClick={close}>Team</a></li>
               <li><a href="#contact" className="page-scroll" onClick={close}>Contact</a></li>
+*/}
               <li><Link to="/consult" onClick={close}>법인 상담</Link></li>
             </ul>
           </div>
