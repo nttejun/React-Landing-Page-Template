@@ -38,10 +38,10 @@ const SolutionBands = () => {
     return (
         <section id="solution-bands" className="biz-section biz-bands-area">
             <div className="container">
-                <p className="biz-eyebrow">중소기업과 개인의 동반자</p>
+                <p className="biz-eyebrow">중소기업과 대표의 든든한 파트너</p>
                 <h2 className="biz-hero-title">Dream And Joy</h2>
                 <p className="biz-sub">
-                    정부지원자금 찾기부터 안정적인 사업운영까지 D&J와 함께하세요.
+                    세금 고민부터 자금 운용까지 D&J와 함께하세요.
                 </p>
             </div>
 
