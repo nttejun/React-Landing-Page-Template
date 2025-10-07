@@ -6,7 +6,7 @@ const ServicesCards = () => {
     return (
         <section id="consulting-services" className="biz-section biz-cards-area">
             <div className="container">
-                <p className="biz-eyebrow">기업을 위한</p>
+                <p className="biz-eyebrow">법인 대표님들을 위한</p>
                 <h2 className="biz-hero-title">
                     종합 자문 <span className="hi">컨설팅 서비스</span>
                 </h2>
