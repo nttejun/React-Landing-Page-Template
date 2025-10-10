@@ -160,7 +160,7 @@ hr {
   font-size: clamp(30px, 10vw, 82px);
   font-weight: 700;
   text-transform: uppercase;
-  margin: 0 0 10px;
+  margin: 0 0 20px;
 }
 
 .intro h1 span {
