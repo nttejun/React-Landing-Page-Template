@@ -11,8 +11,10 @@ export const Navigation = () => {
       <nav id="menu" className="navbar navbar-default navbar-fixed-top">
         <div className="container">
           <div className="navbar-header">
-            {/* 브랜드 */}
-            <a className="navbar-brand" href="/">Dream And Joy</a>
+            <img src="/img/logo-row.jpeg" className="navbar-img-logo"/>
+            <a className="navbar-brand" href="/">
+              <span className="brand-text">Dream And Joy</span>
+            </a>
 
             {/* 햄버거 버튼 (부트스트랩 아이콘바 스타일 활용) */}
             <button
@@ -23,16 +25,16 @@ export const Navigation = () => {
                 onClick={toggle}
             >
               <span className="sr-only">Toggle navigation</span>
-              <span className="icon-bar" />
-              <span className="icon-bar" />
-              <span className="icon-bar" />
+              <span className="icon-bar"/>
+              <span className="icon-bar"/>
+              <span className="icon-bar"/>
             </button>
           </div>
 
           {/* collapse: 부트스트랩 JS 대신 'in' 클래스를 리액트로 제어 */}
           <div id="site-nav" className={`collapse navbar-collapse ${open ? "in" : ""}`}>
             <ul className="nav navbar-nav navbar-right">
-{/*
+              {/*
               <li><a href="#features" className="page-scroll" onClick={close}>Features</a></li>
               <li><a href="#about" className="page-scroll" onClick={close}>About</a></li>
               <li><a href="#services" className="page-scroll" onClick={close}>Services</a></li>

@@ -373,3 +373,11 @@ img, svg, video { max-width: 100%; height: auto; display: block; }
           rgba(0,0,0,.45) 100%
   );
 }
+
+.navbar-img-logo {
+  float: left;
+  height: 50px;
+  padding: 4px 10px 4px 5px;
+  font-size: 18px;
+  line-height: 20px;
+}

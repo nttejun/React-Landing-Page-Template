@@ -323,7 +323,7 @@ header .intro-text {
 }
 
 #footer p {
-  color: #888;
+  color: #0e4c7a;
   font-size: clamp(12px, 2.6vw, 14px);
 }
 #footer a {
