@@ -96,8 +96,7 @@ hr {
   font-family: "Raleway", sans-serif;
   font-size: clamp(20px, 3vw, 24px);
   font-weight: 700;
-  color: #333;
-  text-transform: uppercase;
+  color: #01101b;
 }
 
 #menu.navbar-default .navbar-nav > li > a {

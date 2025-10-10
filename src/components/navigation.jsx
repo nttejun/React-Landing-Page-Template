@@ -13,7 +13,7 @@ export const Navigation = () => {
           <div className="navbar-header">
             <img src="/img/logo-row.jpeg" className="navbar-img-logo"/>
             <a className="navbar-brand" href="/">
-              <span className="brand-text">Dream And Joy</span>
+              <span className="brand-text">Dream & Joy</span>
             </a>
 
             {/* 햄버거 버튼 (부트스트랩 아이콘바 스타일 활용) */}
