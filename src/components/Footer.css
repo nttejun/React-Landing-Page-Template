@@ -35,6 +35,13 @@
     margin: 6px 0;
     line-height: 1.6;
 }
+
+@media (min-width: 768px) {
+    .ft-contact li {
+        font-size: 12px;
+    }
+}
+
 .ft-contact i { width: 18px; text-align: center; margin-right: 6px; color: #93c5fd; }
 .ft-contact a { color: #dbeafe; text-decoration: none; }
 .ft-contact a:hover { text-decoration: underline; }

@@ -29,7 +29,7 @@ const Footer = () => {
             <div className="container">
                 <div className="row footer-top">
                     {/* 3) 연락처 */}
-                    <div className="col-xs-12 col-sm-12 col-md-4 footer-col">
+                    <div className="">
                         {/*<h5 className="ft-sub">연락처</h5>*/}
                         <ul className="ft-contact">
                             <li><i className="fa fa-map-marker" aria-hidden="true" /> {ci.address}</li>
