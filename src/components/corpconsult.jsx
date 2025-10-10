@@ -259,14 +259,14 @@ export const CorpConsultForm = () => {
         <form action={ENDPOINT} method="POST" onSubmit={handleSubmit} noValidate>
           <div className="form-group">
             <label htmlFor="name">대표자 성함</label>
-            <input type="text" id="name" name="name" placeholder="홍길동"
+            <input type="text" id="name" name="name" placeholder="김OO"
                    value={formData.name} onChange={handleChange}
                    required disabled={sending} autoComplete="name" />
           </div>
 
           <div className="form-group">
             <label htmlFor="phone">연락처</label>
-            <input type="tel" id="phone" name="phone" placeholder="010-1234-5678"
+            <input type="tel" id="phone" name="phone" placeholder="010-0000-0000"
                    value={formData.phone} onChange={handleChange}
                    required disabled={sending} autoComplete="tel" />
           </div>
