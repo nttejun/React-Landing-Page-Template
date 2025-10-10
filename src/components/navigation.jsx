@@ -11,7 +11,7 @@ export const Navigation = () => {
       <nav id="menu" className="navbar navbar-default navbar-fixed-top">
         <div className="container">
           <div className="navbar-header">
-            <img src="../../public/img/logo-row.jpeg" alt="Dream & Joy" className="navbar-img-logo"/>
+            <img src="img/logo-row.jpeg" alt="Dream & Joy" className="navbar-img-logo"/>
             <a className="navbar-brand" href="/">
               <span className="brand-text">Dream & Joy</span>
             </a>
