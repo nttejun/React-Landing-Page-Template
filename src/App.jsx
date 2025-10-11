@@ -5,6 +5,7 @@ import {CorpConsultForm} from "./components/corpconsult"; // ★ 폼 임포트
 import HeaderMainSlide from "./sections/HeaderMainSlide"; // ★ 메인 슬라이드 섹션
 import ConsultTopCTA from "./components/ConsultTopCTA"; // ✅ 추가
 import BusinessConsulting from "./sections/BusinessConsulting";
+import SolutionDetail from "./pages/SolutionDetail";
 import JsonData from "./data/data.json";
 import SmoothScroll from "smooth-scroll";
 import "./App.css";
@@ -45,6 +46,7 @@ const App = () => {
   return (
     <Switch>
       <Route exact path="/" render={() => <Home landingPageData={landingPageData} />} />
+      <Route path="/solutions/:key" component={SolutionDetail} />   {/* 상세 라우트 */}
       <Route path="/consult" component={CorpConsultForm} /> {/* ★ /consult 라우트 */}
       <Route render={() => <Home landingPageData={landingPageData} />} />
     </Switch>

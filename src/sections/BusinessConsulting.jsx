@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { consultingServices, solutionBands, fallbackTileBg } from "../content/consultingContent";
 import "./BusinessConsulting.css";
 
@@ -40,16 +41,14 @@ const SolutionBands = () => {
             <div className="container">
                 <p className="biz-eyebrow">중소기업과 대표의 든든한 파트너</p>
                 <h2 className="biz-hero-title">Dream And Joy</h2>
-                <p className="biz-sub">
-                    세금 고민부터 자금 운용까지 D&J와 함께하세요.
-                </p>
+                <p className="biz-sub">세금 고민부터 자금 운용까지 D&J와 함께하세요.</p>
             </div>
 
             <div className="biz-bands-grid">
                 {solutionBands.map((b, i) => (
-                    <a
+                    <Link
                         key={b.key}
-                        href={b.cta.href}
+                        to={`/solutions/${b.key}`}                // ✅ /solutions/:key 로 이동
                         className="biz-band"
                         data-idx={i}
                         style={{ backgroundImage: `url(${b.bg || fallbackTileBg})` }}
@@ -62,11 +61,11 @@ const SolutionBands = () => {
                             </div>
 
                             <div className="biz-band__btn">
-                                <span>{b.cta.label}</span>
+                                <span>자세히보기</span>
                                 <span className="arrow">›</span>
                             </div>
                         </div>
-                    </a>
+                    </Link>
                 ))}
             </div>
         </section>
