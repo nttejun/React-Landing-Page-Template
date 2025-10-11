@@ -641,6 +641,7 @@ const SolutionDetail = () => {
         <main>
             <Hero title={hero.title} subtitle={hero.subtitle} />
             <div className="container sol-container">
+                {/* eslint-disable-next-line react/jsx-pascal-case */}
                 {key === "startup" && <Article_FinanceTax />}
                 {key === "policy"  && <Article_FundOps />}
                 {key === "cert"    && <Article_InsuranceRisk />}
