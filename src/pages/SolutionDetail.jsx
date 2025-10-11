@@ -18,7 +18,7 @@ const Hero = ({ title, subtitle }) => (
 );
 
 /* ───────── (1) 재무/세무 상세 ───────── */
-const Article_FinanceTax = () => (
+const ArticleFinanceTax = () => (
     <article className="article-card" itemScope itemType="https://schema.org/Article">
         <header className="article-header">
             <p className="eyebrow">재무 · 세무 인사이트</p>
@@ -117,7 +117,7 @@ const Article_FinanceTax = () => (
 );
 
 /** ② 자금조달 / 운용 (policy) — 법인자금 운용 콘텐츠 */
-const Article_FundOps = () => (
+const ArticleFundOps = () => (
     <article className="article-card" itemScope itemType="https://schema.org/Article">
         <header className="article-header">
             <p className="eyebrow">자금조달 · 운용 인사이트</p>
@@ -268,7 +268,7 @@ const Article_FundOps = () => (
 );
 
 /** ③ 보험 / 리스크 (cert) — 직원이 있다면 보험이 필요합니다 */
-const Article_InsuranceRisk = () => (
+const ArticleInsuranceRisk = () => (
     <article className="article-card" itemScope itemType="https://schema.org/Article">
         <header className="article-header">
             <p className="eyebrow">보험 · 리스크 인사이트</p>
@@ -467,7 +467,7 @@ const Article_InsuranceRisk = () => (
 );
 
 /** ④ 인사 (bp) — 4대보험 부담 줄이는 합법적 방법 */
-const Article_HR = () => (
+const ArticleHR = () => (
     <article className="article-card" itemScope itemType="https://schema.org/Article">
         <header className="article-header">
             <p className="eyebrow">인사 · 노무 인사이트</p>
@@ -642,10 +642,10 @@ const SolutionDetail = () => {
             <Hero title={hero.title} subtitle={hero.subtitle} />
             <div className="container sol-container">
                 {/* eslint-disable-next-line react/jsx-pascal-case */}
-                {key === "startup" && <Article_FinanceTax />}
-                {key === "policy"  && <Article_FundOps />}
-                {key === "cert"    && <Article_InsuranceRisk />}
-                {key === "bp"      && <Article_HR />}
+                {key === "startup" && <ArticleFinanceTax />}
+                {key === "policy"  && <ArticleFundOps />}
+                {key === "cert"    && <ArticleInsuranceRisk />}
+                {key === "bp"      && <ArticleHR />}
 
                 {!["startup","policy","cert","bp"].includes(key) && (
                     <section className="article-card">
