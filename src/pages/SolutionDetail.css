@@ -136,7 +136,7 @@
 /* 목록 헤더 */
 .sol-list-header {
     display: flex;
-    align-items: end;
+    align-items: flex-end; /* ✅ 기존 end → flex-end 로 교체 */
     justify-content: space-between;
     gap: 12px;
     margin: 4px 0 12px;
