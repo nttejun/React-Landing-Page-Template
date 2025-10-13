@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from "react";
-import {Route, Switch} from "react-router-dom"; // ★ v5 문법
-import {Navigation} from "./components/navigation";
-import {CorpConsultForm} from "./components/corpconsult"; // ★ 폼 임포트
-import HeaderMainSlide from "./sections/HeaderMainSlide"; // ★ 메인 슬라이드 섹션
-import ConsultTopCTA from "./components/ConsultTopCTA"; // ✅ 추가
+// App.jsx
+import React, { useEffect, useState } from "react";
+import { Route, Switch } from "react-router-dom"; // v5
+import { Navigation } from "./components/navigation";
+import { CorpConsultForm } from "./components/corpconsult";
+import HeaderMainSlide from "./sections/HeaderMainSlide";
+import ConsultTopCTA from "./components/ConsultTopCTA";
 import BusinessConsulting from "./sections/BusinessConsulting";
 import SolutionDetail from "./pages/SolutionDetail";
 import JsonData from "./data/data.json";
@@ -12,47 +13,42 @@ import "./App.css";
 import Footer from "./components/Footer";
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
-  speed: 1000,
-  speedAsDuration: true,
+    speed: 1000,
+    speedAsDuration: true,
 });
 
-// 기존 랜딩 묶음
 const Home = ({ landingPageData }) => (
-  <div>
-    <Navigation />
-    <ConsultTopCTA />
-    <HeaderMainSlide />
-    <BusinessConsulting />
-    <Footer />
-{/*
-    <Header data={landingPageData.Header} />
-    <Features data={landingPageData.Features} />
-    <About data={landingPageData.About} />
-    <Services data={landingPageData.Services} />
-    <Gallery data={landingPageData.Gallery} />
-    <Testimonials data={landingPageData.Testimonials} />
-    <Team data={landingPageData.Team} />
-    <Contact data={landingPageData.Contact} />
-*/}
-  </div>
+    <div>
+        <Navigation />
+        <ConsultTopCTA />
+        <HeaderMainSlide />
+        <BusinessConsulting />
+        <Footer />
+    </div>
 );
 
 const App = () => {
-  const [landingPageData, setLandingPageData] = useState({});
-  useEffect(() => {
-    setLandingPageData(JsonData);
-  }, []);
+    const [landingPageData, setLandingPageData] = useState({});
+    useEffect(() => {
+        setLandingPageData(JsonData);
+    }, []);
 
-  return (
-    <Switch>
-      <Route exact path="/" render={() => <Home landingPageData={landingPageData} />} />
-      <Route path="/solutions/:key" component={SolutionDetail} />   {/* 상세 라우트 */}
-      <Route path="/consult" component={CorpConsultForm} /> {/* ★ /consult 라우트 */}
-      <Route render={() => <Home landingPageData={landingPageData} />} />
-        <Route exact path="/solutions/:key" component={SolutionDetail} />
-        <Route exact path="/solutions/:key/:slug" component={SolutionDetail} />
-    </Switch>
-  );
+    return (
+        <Switch>
+            {/* 홈 */}
+            <Route exact path="/" render={() => <Home landingPageData={landingPageData} />} />
+
+            {/* 솔루션 상세(더 구체적인 경로를 먼저) */}
+            <Route exact path="/solutions/:key/:slug" component={SolutionDetail} />
+            <Route exact path="/solutions/:key" component={SolutionDetail} />
+
+            {/* 상담 폼 */}
+            <Route path="/consult" component={CorpConsultForm} />
+
+            {/* 마지막: 기타 경로는 홈으로 */}
+            <Route render={() => <Home landingPageData={landingPageData} />} />
+        </Switch>
+    );
 };
 
 export default App;
