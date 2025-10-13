@@ -49,6 +49,8 @@ const App = () => {
       <Route path="/solutions/:key" component={SolutionDetail} />   {/* 상세 라우트 */}
       <Route path="/consult" component={CorpConsultForm} /> {/* ★ /consult 라우트 */}
       <Route render={() => <Home landingPageData={landingPageData} />} />
+        <Route exact path="/solutions/:key" component={SolutionDetail} />
+        <Route exact path="/solutions/:key/:slug" component={SolutionDetail} />
     </Switch>
   );
 };

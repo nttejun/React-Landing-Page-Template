@@ -1,6 +1,12 @@
+// src/pages/SolutionDetail.jsx
 import React, { useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import "./SolutionDetail.css";
+
+/* ─────────────────────────────────────────
+   공통: 쿼리 헬퍼
+   ───────────────────────────────────────── */
+const useQuery = () => new URLSearchParams(useLocation().search);
 
 /* ───────── 상단 Hero ───────── */
 const Hero = ({ title, subtitle }) => (
@@ -10,7 +16,7 @@ const Hero = ({ title, subtitle }) => (
             <h1 className="sol-title">{title}</h1>
             <div className="sol-breadcrumb">
                 <Link to="/">홈</Link> <span>›</span>{" "}
-                <Link to="/#solution-bands">솔루션</Link> <span>›</span>{" "}
+                <a href="/#solution-bands">솔루션</a> <span>›</span>{" "}
                 <strong>{title}</strong>
             </div>
         </div>
@@ -116,7 +122,7 @@ const ArticleFinanceTax = () => (
     </article>
 );
 
-/** ② 자금조달 / 운용 (policy) — 법인자금 운용 콘텐츠 */
+/* ───────── (2) 자금조달/운용 상세 ───────── */
 const ArticleFundOps = () => (
     <article className="article-card" itemScope itemType="https://schema.org/Article">
         <header className="article-header">
@@ -142,7 +148,7 @@ const ArticleFundOps = () => (
             </ol>
         </nav>
 
-        {/* 핵심지표 */}
+        {/* KPI */}
         <section className="kpi-strip">
             <div className="kpi"><span className="num">40~60%</span><span className="label">추천 안전자산 비중</span></div>
             <div className="kpi"><span className="num">3~6개월</span><span className="label">비상자금 권장 규모</span></div>
@@ -150,22 +156,15 @@ const ArticleFundOps = () => (
         </section>
 
         <section className="article-body" itemProp="articleBody">
-
             <p className="lead">
                 “법인 통장에 현금이 쌓이는데, 그냥 예금으로 묶어두는 게 맞을까요?”
                 회사의 유보금은 단순히 쌓아두는 돈이 아니라, <strong>기업의 성장과 리스크 관리에 직접적인 영향을 미치는 ‘운용 자산’</strong>입니다.
             </p>
 
             <h2 id="why">1️⃣ 법인 유보금, 왜 운용이 필요할까?</h2>
-            <p>
-                중소법인은 매년 이익이 쌓이며 이익잉여금(유보금)이 발생합니다.
-                하지만 대부분의 법인이 이 자금을 보통예금 계좌에 방치하고 있습니다.
-            </p>
+            <p>중소법인은 매년 이익이 쌓이며 이익잉여금(유보금)이 발생합니다. 하지만 대부분의 법인이 이 자금을 보통예금 계좌에 방치하고 있습니다.</p>
             <div className="callout info">
-                <p>
-                    💡 <strong>문제점:</strong> 2%대 금리로는 물가상승률을 따라가지 못해 실질가치가 감소하며,
-                    일정 수준 이상이 되면 ‘초과유보금’으로 간주되어 <b>법인세 부담이 증가</b>할 수 있습니다.
-                </p>
+                <p>💡 <strong>문제점:</strong> 2%대 금리로는 물가상승률을 따라가지 못해 실질가치가 감소하며, 일정 수준 이상이 되면 ‘초과유보금’으로 간주되어 <b>법인세 부담이 증가</b>할 수 있습니다.</p>
             </div>
 
             <h2 id="principles">2️⃣ 법인 자금 운용의 기본 원칙</h2>
@@ -179,10 +178,8 @@ const ArticleFundOps = () => (
 
             <h3>원칙 2. 법인 명의 투자도 합법적이다</h3>
             <p>
-                법인 정관에 <strong>‘투자·자금 운용 관련 조항’</strong>이 포함되어 있다면,
-                법인 명의의 금융투자·부동산 투자도 가능합니다.
-                다만, <b>투자 목적이 대표 개인의 이익이 아닌 법인의 이익</b>이어야 하며,
-                정관에 ‘금융자산 운용’, ‘유가증권 투자’, ‘부동산 임대’ 등의 문구가 포함되어야 합니다.
+                법인 정관에 <strong>‘투자·자금 운용 관련 조항’</strong>이 포함되어 있다면, 법인 명의의 금융투자·부동산 투자도 가능합니다.
+                다만, <b>투자 목적이 대표 개인의 이익이 아닌 법인의 이익</b>이어야 하며, 정관에 ‘금융자산 운용’, ‘유가증권 투자’, ‘부동산 임대’ 등의 문구가 포함되어야 합니다.
             </p>
 
             <h2 id="safe">3️⃣ 안전자산 운용 전략</h2>
@@ -200,23 +197,17 @@ const ArticleFundOps = () => (
                 <li><b>단점:</b> 중도해지 시 불이익 존재</li>
                 <li><b>활용 포인트:</b> 퇴직충당금 적립 + 절세 효과</li>
             </ul>
-            <p>
-                특히 <strong>대표이사 퇴직금 구조</strong>로 활용하면 매년 비용처리가 가능하며,
-                법인세 절감과 안정적 자산 확보를 동시에 달성할 수 있습니다.
-            </p>
+            <p>특히 <strong>대표이사 퇴직금 구조</strong>로 활용하면 매년 비용처리가 가능하며, 법인세 절감과 안정적 자산 확보를 동시에 달성할 수 있습니다.</p>
 
             <h2 id="invest">4️⃣ 투자자산 운용 전략</h2>
             <h3>① 채권 / 회사채 / 국공채</h3>
             <p>위험도 낮고 수익률 3~4%. 원금 손실 거의 없으며 회계상 관리가 명확합니다.</p>
 
             <h3>② 펀드 / ETF (지수형)</h3>
-            <p>중위험·중수익 (5~10%), 장기 보유 중심 권장.
-                단기 매매는 잡이익 과세로 불리할 수 있습니다.</p>
+            <p>중위험·중수익 (5~10%), 장기 보유 중심 권장. 단기 매매는 잡이익 과세로 불리할 수 있습니다.</p>
 
             <h3>③ 부동산 / 상가 분양권 투자</h3>
-            <p>고위험·고수익 (6~10%).
-                단, <strong>법인 정관에 부동산임대 목적 포함</strong> 및
-                사업자 등록 필요합니다.</p>
+            <p>고위험·고수익 (6~10%). 단, <strong>법인 정관에 부동산임대 목적 포함</strong> 및 사업자 등록 필요합니다.</p>
 
             <h2 id="tax">5️⃣ 법인 자금 운용 시 세무 포인트</h2>
             <div className="table-wrap">
@@ -256,7 +247,7 @@ const ArticleFundOps = () => (
             </ul>
 
             <div className="callout success">
-                <p>돈을 ‘보유’가 아닌 ‘운용’으로 바꾸는 순간, 기업은 성장합니다.<br/>
+                <p>돈을 ‘보유’가 아닌 ‘운용’으로 바꾸는 순간, 기업은 성장합니다.<br />
                     법인의 돈은 회사 성장의 엔진입니다. 예금이 아닌 ‘운용의 관점’으로 바라보세요.</p>
             </div>
 
@@ -267,7 +258,7 @@ const ArticleFundOps = () => (
     </article>
 );
 
-/** ③ 보험 / 리스크 (cert) — 직원이 있다면 보험이 필요합니다 */
+/* ───────── (3) 보험/리스크 상세 ───────── */
 const ArticleInsuranceRisk = () => (
     <article className="article-card" itemScope itemType="https://schema.org/Article">
         <header className="article-header">
@@ -294,7 +285,7 @@ const ArticleInsuranceRisk = () => (
             </ol>
         </nav>
 
-        {/* 핵심 지표 */}
+        {/* KPI */}
         <section className="kpi-strip" aria-label="핵심 지표">
             <div className="kpi"><span className="num">1명↑</span><span className="label">근로자 있으면 산재 의무</span></div>
             <div className="kpi"><span className="num">100%</span><span className="label">산재 보험료 회사 부담</span></div>
@@ -315,26 +306,10 @@ const ArticleInsuranceRisk = () => (
                     <tr><th>리스크 유형</th><th>발생 상황</th><th>결과</th></tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>산업재해</td>
-                        <td>근무 중 사고, 출장 중 교통사고 등</td>
-                        <td>산재 보상 청구, 형사처벌 가능</td>
-                    </tr>
-                    <tr>
-                        <td>직원 질병/부상</td>
-                        <td>근무 외 질병으로 장기휴직</td>
-                        <td>인건비 부담, 대체인력 비용 증가</td>
-                    </tr>
-                    <tr>
-                        <td>업무 중 실수</td>
-                        <td>고객 손해, 계약 누락 등</td>
-                        <td>손해배상 소송, 거래 중단</td>
-                    </tr>
-                    <tr>
-                        <td>노무분쟁</td>
-                        <td>퇴직금·해고·연차 미지급 등</td>
-                        <td>노동청 진정, 법적 비용 발생</td>
-                    </tr>
+                    <tr><td>산업재해</td><td>근무 중 사고, 출장 중 교통사고 등</td><td>산재 보상 청구, 형사처벌 가능</td></tr>
+                    <tr><td>직원 질병/부상</td><td>근무 외 질병으로 장기휴직</td><td>인건비 부담, 대체인력 비용 증가</td></tr>
+                    <tr><td>업무 중 실수</td><td>고객 손해, 계약 누락 등</td><td>손해배상 소송, 거래 중단</td></tr>
+                    <tr><td>노무분쟁</td><td>퇴직금·해고·연차 미지급 등</td><td>노동청 진정, 법적 비용 발생</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -374,31 +349,19 @@ const ArticleInsuranceRisk = () => (
             </ul>
 
             <div className="callout info">
-                <p>
-                    <b>포인트:</b> 4대보험 미가입은 <b>세금 미납 못지않게 중대</b>하게 처리됩니다.
-                    산재 발생 시 회사가 직접 보상 + 형사상 처벌 + 과태료 + 보험료 추징이 한꺼번에 올 수 있습니다.
-                </p>
+                <p><b>포인트:</b> 4대보험 미가입은 <b>세금 미납 못지않게 중대</b>하게 처리됩니다. 산재 발생 시 회사가 직접 보상 + 형사상 처벌 + 과태료 + 보험료 추징이 한꺼번에 올 수 있습니다.</p>
             </div>
 
             <h2 id="corp">3️⃣ 4대보험 외, 꼭 필요한 법인형 ‘기업 보험’ 구조</h2>
-
             <h3>🔹 근재보험(근로자재해보장보험)</h3>
-            <p>
-                <b>보장:</b> 산재 외 업무·통근 중 사고의 <b>민사책임</b> 보전(초과 위자료 등).<br/>
-                <b>핵심:</b> 산재보험은 <i>공적 보상</i>, 근재보험은 <i>민사 보상</i> — <b>둘 다 필요</b>.
-            </p>
+            <p><b>보장:</b> 산재 외 업무·통근 중 사고의 <b>민사책임</b> 보전(초과 위자료 등).<br />
+                <b>핵심:</b> 산재보험은 <i>공적 보상</i>, 근재보험은 <i>민사 보상</i> — <b>둘 다 필요</b>.</p>
 
             <h3>🔹 고용주 배상책임보험</h3>
-            <p>
-                직원 과실로 회사 손해 발생 시 법적 책임 보전. 제조·물류·서비스업 등 <b>실수 리스크 업종 필수</b>.
-                분쟁 시 변호사 비용·합의금 보전.
-            </p>
+            <p>직원 과실로 회사 손해 발생 시 법적 책임 보전. 제조·물류·서비스업 등 <b>실수 리스크 업종 필수</b>. 분쟁 시 변호사 비용·합의금 보전.</p>
 
             <h3>🔹 단체상해보험 / 단체질병보험</h3>
-            <p>
-                근무 중 상해·질병·입원 등 보장. <b>보험료 전액 손금</b> 처리 가능 → 복지 제공 + 절세 동시 달성.
-                스타트업/IT는 복지 브랜드로 활용 사례 다수.
-            </p>
+            <p>근무 중 상해·질병·입원 등 보장. <b>보험료 전액 손금</b> 처리 가능 → 복지 제공 + 절세 동시 달성. 스타트업/IT는 복지 브랜드로 활용 사례 다수.</p>
 
             <h2 id="benefit">4️⃣ 직원 복지와 리스크 관리는 함께 설계</h2>
             <div className="table-wrap">
@@ -407,39 +370,18 @@ const ArticleInsuranceRisk = () => (
                     <tr><th>항목</th><th>단기 효과</th><th>장기 효과</th></tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>4대보험 완비</td>
-                        <td>행정 리스크 차단</td>
-                        <td>정부지원금·정책자금 자격 확보</td>
-                    </tr>
-                    <tr>
-                        <td>단체보험 운영</td>
-                        <td>직원 복지 만족도 상승</td>
-                        <td>채용 경쟁력 강화</td>
-                    </tr>
-                    <tr>
-                        <td>근재보험 가입</td>
-                        <td>사고 시 즉시 보상</td>
-                        <td>기업 이미지 보호</td>
-                    </tr>
-                    <tr>
-                        <td>리스크 시스템화</td>
-                        <td>분쟁 예방</td>
-                        <td>법적·재무적 안정성 강화</td>
-                    </tr>
+                    <tr><td>4대보험 완비</td><td>행정 리스크 차단</td><td>정부지원금·정책자금 자격 확보</td></tr>
+                    <tr><td>단체보험 운영</td><td>직원 복지 만족도 상승</td><td>채용 경쟁력 강화</td></tr>
+                    <tr><td>근재보험 가입</td><td>사고 시 즉시 보상</td><td>기업 이미지 보호</td></tr>
+                    <tr><td>리스크 시스템화</td><td>분쟁 예방</td><td>법적·재무적 안정성 강화</td></tr>
                     </tbody>
                 </table>
             </div>
 
             <h2 id="case">5️⃣ 실제 사례 — 직원 한 명의 사고가 만든 차이</h2>
             <div className="case-box">
-                <p>
-                    <b>A사(직원 8명)</b>: 물류센터 작업 중 골절. 산재보상 외 <b>위자료 4,000만 원</b> 추가 청구.
-                    <b>근재보험</b>으로 전액 보전 → 경영 차질 최소화.
-                </p>
-                <p>
-                    <b>B사</b>: 동일 사고, 근재보험 없음. 대표 개인 통장에서 <b>3,800만 원</b> 지출 → 유동성 악화로 일시 휴업.
-                </p>
+                <p><b>A사(직원 8명)</b>: 물류센터 작업 중 골절. 산재보상 외 <b>위자료 4,000만 원</b> 추가 청구. <b>근재보험</b>으로 전액 보전 → 경영 차질 최소화.</p>
+                <p><b>B사</b>: 동일 사고, 근재보험 없음. 대표 개인 통장에서 <b>3,800만 원</b> 지출 → 유동성 악화로 일시 휴업.</p>
             </div>
 
             <h2 id="consult">6️⃣ 컨설팅 포인트 — “보험은 비용이 아닌, 경영의 방패”</h2>
@@ -450,23 +392,18 @@ const ArticleInsuranceRisk = () => (
             </ul>
 
             <div className="callout success">
-                <p>
-                    직원이 있다면 보험은 ‘선택’이 아니라 <b>‘책임’</b>입니다.
-                    “사고가 나면 대응”이 아닌, “사고가 나도 멈추지 않는 구조”를 지금 만드세요 — 그 첫걸음이 <b>법인 보험 구조화</b>입니다.
-                </p>
+                <p>직원이 있다면 보험은 ‘선택’이 아니라 <b>‘책임’</b>입니다. “사고가 나면 대응”이 아닌, “사고가 나도 멈추지 않는 구조”를 지금 만드세요 — 그 첫걸음이 <b>법인 보험 구조화</b>입니다.</p>
             </div>
 
             <div className="article-cta">
                 <p>중소법인 리스크 관리 컨설팅</p>
-                <a href="/consult?topic=cert" className="btn btn-custom" itemProp="url">
-                    법인 맞춤형 보험 진단 리포트 무료 신청
-                </a>
+                <a href="/consult?topic=cert" className="btn btn-custom" itemProp="url">법인 맞춤형 보험 진단 리포트 무료 신청</a>
             </div>
         </section>
     </article>
 );
 
-/** ④ 인사 (bp) — 4대보험 부담 줄이는 합법적 방법 */
+/* ───────── (4) 인사 상세 ───────── */
 const ArticleHR = () => (
     <article className="article-card" itemScope itemType="https://schema.org/Article">
         <header className="article-header">
@@ -492,7 +429,7 @@ const ArticleHR = () => (
             </ol>
         </nav>
 
-        {/* KPI 카드 */}
+        {/* KPI */}
         <section className="kpi-strip" aria-label="핵심 지표">
             <div className="kpi"><span className="num">9~10%</span><span className="label">월 급여 대비 회사부담 비율</span></div>
             <div className="kpi"><span className="num">400만 원</span><span className="label">직원 10명 기준 월 부담액</span></div>
@@ -500,7 +437,6 @@ const ArticleHR = () => (
         </section>
 
         <section className="article-body" itemProp="articleBody">
-
             <p className="lead">
                 4대보험은 피할 수 없습니다. 그러나 <strong>법적 구조 설계</strong>를 통해 부담을 줄이는 것은 가능합니다.
                 단순히 보험료를 “적게 내는” 것이 아니라, <b>급여 체계·제도·지원금</b>을 활용한 절세 전략이 핵심입니다.
@@ -513,12 +449,7 @@ const ArticleHR = () => (
             </p>
 
             <div className="callout info">
-                <p>
-                    예시:
-                    기본급 300만 원 → 보험료 기준액 300만 원
-                    기본급 260만 원 + 식대 10만 원 + 차량유지비 20만 원 → 기준액 260만 원
-                    약 <b>13% 절감</b> 가능
-                </p>
+                <p>예시: 기본급 300만 원 → 기준액 300만 원 / 기본급 260만 + 식대 10만 + 차량유지비 20만 → 기준액 260만 → 약 <b>13%</b> 절감</p>
             </div>
 
             <h3>활용 가능한 주요 비과세 항목</h3>
@@ -531,10 +462,7 @@ const ArticleHR = () => (
             <p className="muted">단, 명세서·근로계약서 항목 일치 필수. 형식적 비과세는 세무조사 시 부인될 수 있습니다.</p>
 
             <h2 id="bonus">② 상여금·성과급 지급주기 조정</h2>
-            <p>
-                상여금이 매월 정기 지급되면 4대보험 기준에 포함됩니다.
-                반면, <b>비정기적·성과연동형</b> 인센티브는 제외될 수 있습니다.
-            </p>
+            <p>상여금이 매월 정기 지급되면 4대보험 기준에 포함됩니다. 반면, <b>비정기적·성과연동형</b> 인센티브는 제외될 수 있습니다.</p>
             <ul className="blue-bullets">
                 <li>매월 30만 원 정기상여 → 보험료 기준 포함</li>
                 <li>반기·연간 성과급 → 제외 가능</li>
@@ -542,91 +470,220 @@ const ArticleHR = () => (
             <p>근로계약서와 인사규정에 <b>“성과기준에 따른 비정기 지급”</b>으로 명시하면 합법 절감이 가능합니다.</p>
 
             <h2 id="family">③ 가족 근로자·단시간 근로자 설계</h2>
-            <p>
-                가족이 함께 일한다면 모든 4대보험 가입이 필요한지 검토하세요.
-                배우자·자녀 등 가족보조 형태는 고용·산재보험 제외 가능(실근무 증빙 필수).
-            </p>
-
+            <p>가족이 함께 일한다면 모든 4대보험 가입이 필요한지 검토하세요. 배우자·자녀 등 가족보조 형태는 고용·산재보험 제외 가능(실근무 증빙 필수).</p>
             <h3>단시간 근로자 (주 15시간 미만)</h3>
             <ul className="blue-bullets">
                 <li>국민연금·건강보험 가입 의무 없음</li>
                 <li>고용보험·산재보험은 일부 적용 가능</li>
                 <li>근로시간·급여명세서 명시로 추후 분쟁 예방</li>
             </ul>
-            <div className="callout success">
-                <p>단시간 보조인력 활용 시 보험료를 <b>절반 이하</b>로 줄일 수 있습니다.</p>
-            </div>
+            <div className="callout success"><p>단시간 보조인력 활용 시 보험료를 <b>절반 이하</b>로 줄일 수 있습니다.</p></div>
 
             <h2 id="govsupport">④ 정부지원 제도를 통한 보험료 보전</h2>
             <p>정부는 중소기업의 4대보험 부담을 완화하기 위해 다양한 보조 프로그램을 운영 중입니다.</p>
-
             <div className="table-wrap">
                 <table className="finance-table">
-                    <thead>
-                    <tr><th>제도명</th><th>주요 대상</th><th>지원 내용</th></tr>
-                    </thead>
+                    <thead><tr><th>제도명</th><th>주요 대상</th><th>지원 내용</th></tr></thead>
                     <tbody>
-                    <tr>
-                        <td>두루누리 사회보험 지원</td>
-                        <td>근로자 10인 미만, 월 260만 원 이하</td>
-                        <td>국민연금·고용보험료 60~80% 지원</td>
-                    </tr>
-                    <tr>
-                        <td>일자리 안정자금 / 고용안정장려금</td>
-                        <td>최저임금 근로자 고용 기업</td>
-                        <td>인건비 및 사회보험료 일부 보전</td>
-                    </tr>
-                    <tr>
-                        <td>청년일자리 도약장려금</td>
-                        <td>청년 신규채용 후 6개월 근속</td>
-                        <td>최대 960만 원 지원 (4대보험 필수)</td>
-                    </tr>
+                    <tr><td>두루누리 사회보험 지원</td><td>근로자 10인 미만, 월 260만 원 이하</td><td>국민연금·고용보험료 60~80% 지원</td></tr>
+                    <tr><td>일자리 안정자금 / 고용안정장려금</td><td>최저임금 근로자 고용 기업</td><td>인건비 및 사회보험료 일부 보전</td></tr>
+                    <tr><td>청년일자리 도약장려금</td><td>청년 신규채용 후 6개월 근속</td><td>최대 960만 원 지원 (4대보험 필수)</td></tr>
                     </tbody>
                 </table>
             </div>
             <p className="muted">지원금은 신청 시점·자격요건 충족 필요. 전문가 검토를 권장합니다.</p>
 
             <h2 id="outsourcing">⑤ 외주·용역 인력 활용 시 주의점</h2>
-            <p>
-                보험료 절감을 위해 프리랜서를 활용할 때,
-                실질적으로 근로자이면 4대보험 소급 부과 및 과태료가 발생합니다.
-            </p>
+            <p>프리랜서로 계약했더라도 실질이 근로자이면 4대보험 소급 부과 및 과태료가 발생합니다.</p>
             <ul className="check-list">
-                <li>근무시간이 고정되어 있다면 근로자로 간주</li>
-                <li>회사의 지휘·감독 하 근무 시 근로계약 전환 대상</li>
-                <li>정기 급여 지급 시 프리랜서로 인정 어려움</li>
+                <li>근무시간 고정 → 근로자로 간주 가능</li>
+                <li>지휘·감독 하 근무 → 근로계약 전환 대상</li>
+                <li>정기 급여 지급 → 프리랜서 인정 어려움</li>
             </ul>
 
             <h2 id="automation">⑥ 급여 자동화 및 시뮬레이션 도입</h2>
-            <p>
-                4대보험 자동계산·ERP 솔루션을 통해
-                상여금 비정기화, 비과세 확대, 근로형태 변경 등의 시나리오를 미리 계산할 수 있습니다.
-            </p>
-            <div className="callout info">
-                <p>
-                    매월 납부액 변화를 실시간 확인하면,
-                    연간 인건비 계획 + 세무·재무 건전성까지 함께 관리할 수 있습니다.
-                </p>
-            </div>
+            <p>자동계산·ERP로 상여 비정기화, 비과세 확대, 근로형태 변경의 효과를 사전에 시뮬레이션하세요.</p>
+            <div className="callout info"><p>월 납부액 변화를 실시간 확인 → 연간 인건비 계획 + 세무·재무 건전성 동시 관리.</p></div>
 
             <div className="article-cta">
-                <p>
-                    4대보험 절감 & 인건비 구조 컨설팅<br />
-                    급여체계 진단 · 절감 시뮬레이션 · 정부지원금 연계 · 노무·세무 통합관리
-                </p>
-                <a href="/consult?topic=hr" className="btn btn-custom" itemProp="url">
-                    인건비 절감 컨설팅 신청
-                </a>
+                <p>4대보험 절감 & 인건비 구조 컨설팅 — 급여체계 진단 · 절감 시뮬레이션 · 정부지원금 연계 · 노무·세무 통합관리</p>
+                <a href="/consult?topic=hr" className="btn btn-custom" itemProp="url">인건비 절감 컨설팅 신청</a>
             </div>
         </section>
     </article>
 );
 
+/* ─────────────────────────────────────────
+   레지스트리(목록/페이징용): 카테고리별 메타 + 슬러그 → 컴포넌트
+   ───────────────────────────────────────── */
+const articlesByCategory = {
+    startup: [
+        {
+            slug: "ceo-deposit-must-fix",
+            title: "대표이사 가지급금, 왜 반드시 정리해야 할까?",
+            date: "2025-10-11",
+            excerpt: "가지급금은 세금·신용·상속 리스크로 이어집니다. 합법적·전략적으로 정리해야 하는 이유와 3단계 해소법.",
+            component: "ArticleFinanceTax",
+        },
+        // 필요 시 더 추가
+    ],
+    policy: [
+        {
+            slug: "corp-fund-allocation",
+            title: "법인자금 운용 — 안전자산 vs 투자자산의 균형",
+            date: "2025-10-11",
+            excerpt: "운영/비상/투자자금 3분할 원칙과 채권·ETF·보험형 운용으로 유동성과 수익성 동시 달성.",
+            component: "ArticleFundOps",
+        },
+    ],
+    cert: [
+        {
+            slug: "insurance-for-employees",
+            title: "직원이 있다면 보험이 필요합니다",
+            date: "2025-10-11",
+            excerpt: "근재·배상·단체보험 포트폴리오와 4대보험을 함께 설계해 리스크를 막고 복지를 강화.",
+            component: "ArticleInsuranceRisk",
+        },
+    ],
+    bp: [
+        {
+            slug: "lower-4majors-legally",
+            title: "4대보험 부담 줄이는 합법적 방법",
+            date: "2025-10-11",
+            excerpt: "비과세 구조, 상여 비정기화, 근로형태 설계, 정부지원으로 인건비를 합법적으로 절감.",
+            component: "ArticleHR",
+        },
+    ],
+};
+
+const componentRegistry = {
+    ArticleFinanceTax,
+    ArticleFundOps,
+    ArticleInsuranceRisk,
+    ArticleHR,
+};
+
+/* ───────── 목록뷰(4개/페이지) ───────── */
+const PER_PAGE = 4;
+
+const ListView = ({ categoryKey }) => {
+    const query = useQuery();
+    const page = Math.max(1, parseInt(query.get("page") || "1", 10));
+    const list = articlesByCategory[categoryKey] || [];
+    const total = list.length;
+    const pages = Math.max(1, Math.ceil(total / PER_PAGE));
+
+    const start = (page - 1) * PER_PAGE;
+    const pageItems = list.slice(start, start + PER_PAGE);
+
+    return (
+        <section className="sol-list container sol-container" aria-label="카테고리 글 목록">
+            <div className="sol-list-header">
+                <h2 className="sol-list-title">카테고리 글 목록</h2>
+                <p className="sol-list-count">총 {total}건</p>
+            </div>
+
+            <div className="sol-list-grid">
+                {pageItems.map((item) => (
+                    <article key={item.slug} className="sol-card" itemScope itemType="https://schema.org/Article">
+                        <header className="sol-card-header">
+                            <h3 className="sol-card-title" itemProp="headline">
+                                <Link to={`/solutions/${categoryKey}/${item.slug}`}>{item.title}</Link>
+                            </h3>
+                            <time className="sol-card-date" itemProp="datePublished" dateTime={item.date}>
+                                {item.date}
+                            </time>
+                        </header>
+                        <p className="sol-card-excerpt" itemProp="description">{item.excerpt}</p>
+                        <div className="sol-card-cta">
+                            <Link className="btn btn-custom" to={`/solutions/${categoryKey}/${item.slug}`}>자세히 보기</Link>
+                        </div>
+                    </article>
+                ))}
+            </div>
+
+            {pages > 1 && (
+                <nav className="sol-pager" aria-label="목록 페이지네이션">
+                    <ul>
+                        <li>
+                            <Link
+                                to={`/solutions/${categoryKey}?view=list&page=${Math.max(1, page - 1)}`}
+                                aria-disabled={page === 1}
+                                className={page === 1 ? "disabled" : ""}
+                            >
+                                ‹ 이전
+                            </Link>
+                        </li>
+                        {Array.from({ length: pages }).map((_, i) => {
+                            const p = i + 1;
+                            return (
+                                <li key={p}>
+                                    <Link
+                                        to={`/solutions/${categoryKey}?view=list&page=${p}`}
+                                        className={p === page ? "active" : ""}
+                                        aria-current={p === page ? "page" : undefined}
+                                    >
+                                        {p}
+                                    </Link>
+                                </li>
+                            );
+                        })}
+                        <li>
+                            <Link
+                                to={`/solutions/${categoryKey}?view=list&page=${Math.min(pages, page + 1)}`}
+                                aria-disabled={page === pages}
+                                className={page === pages ? "disabled" : ""}
+                            >
+                                다음 ›
+                            </Link>
+                        </li>
+                    </ul>
+                </nav>
+            )}
+        </section>
+    );
+};
+
+/* ───────── 상세뷰(slug) ───────── */
+const DetailView = ({ categoryKey, slug }) => {
+    const item =
+        (articlesByCategory[categoryKey] || []).find((a) => a.slug === slug) ||
+        (articlesByCategory[categoryKey] || [])[0];
+
+    if (!item) {
+        return (
+            <section className="container sol-container">
+                <div className="article-card">
+                    <div className="article-header">
+                        <h2 className="article-title">준비중입니다</h2>
+                    </div>
+                    <div className="article-body">
+                        <p>해당 카테고리의 상세 콘텐츠가 곧 업데이트 됩니다.</p>
+                        <Link to={`/solutions/${categoryKey}?view=list`} className="btn btn-custom">목록 보기</Link>
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
+    const Comp = componentRegistry[item.component];
+    return (
+        <section className="container sol-container">
+            <div className="sol-detail-toolbar">
+                <Link to={`/solutions/${categoryKey}?view=list`} className="sol-list-link">← 목록보기</Link>
+            </div>
+            {Comp ? <Comp /> : null}
+        </section>
+    );
+};
 
 /* ───────── 페이지 컨테이너 ───────── */
 const SolutionDetail = () => {
-    const { key } = useParams();
-    useEffect(() => { window.scrollTo(0, 0); }, [key]);
+    const { key, slug } = useParams(); // /solutions/:key/:slug?
+    const query = useQuery();
+    const view = query.get("view");     // "list" 이면 목록, 아니면 상세
+
+    useEffect(() => { window.scrollTo(0, 0); }, [key, view, slug]);
 
     const titleMap = {
         startup: { title: "재무 / 세무", subtitle: "" },
@@ -634,31 +691,32 @@ const SolutionDetail = () => {
         cert:    { title: "보험 / 리스크", subtitle: "" },
         bp:      { title: "인사", subtitle: "" },
     };
-
     const hero = titleMap[key] || { title: "솔루션", subtitle: "" };
 
     return (
         <main>
             <Hero title={hero.title} subtitle={hero.subtitle} />
-            <div className="container sol-container">
-                {/* eslint-disable-next-line react/jsx-pascal-case */}
-                {key === "startup" && <ArticleFinanceTax />}
-                {key === "policy"  && <ArticleFundOps />}
-                {key === "cert"    && <ArticleInsuranceRisk />}
-                {key === "bp"      && <ArticleHR />}
 
-                {!["startup","policy","cert","bp"].includes(key) && (
-                    <section className="article-card">
-                        <div className="article-header">
-                            <h2 className="article-title">준비중입니다</h2>
-                        </div>
-                        <div className="article-body">
-                            <p>요청하신 항목의 상세 콘텐츠가 곧 업데이트 됩니다.</p>
-                            <Link to="/" className="btn btn-custom">홈으로</Link>
-                        </div>
-                    </section>
-                )}
+            {/* 상단 토글 */}
+            <div className="container sol-container sol-toggle">
+                <Link
+                    to={`/solutions/${key}`}
+                    className={!view ? "toggle-item active" : "toggle-item"}
+                >
+                    상세보기
+                </Link>
+                <Link
+                    to={`/solutions/${key}?view=list`}
+                    className={view === "list" ? "toggle-item active" : "toggle-item"}
+                >
+                    목록보기
+                </Link>
             </div>
+
+            {/* 뷰 전환 */}
+            {view === "list"
+                ? <ListView categoryKey={key} />
+                : <DetailView categoryKey={key} slug={slug} />}
         </main>
     );
 };

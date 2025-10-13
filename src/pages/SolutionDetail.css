@@ -111,3 +111,103 @@
 @media (max-width:720px){
     .finance-table th,.finance-table td{ font-size:14px; padding:6px; }
 }
+
+/* 목록 상단 토글 */
+.sol-toggle {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    margin-bottom: 8px;
+}
+.toggle-item {
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 1px solid #e6eaf2;
+    text-decoration: none;
+    color: #334155;
+    background: #fff;
+}
+.toggle-item.active {
+    background: linear-gradient(to right, #5ca9fb 0%, #6372ff 100%);
+    color: #fff;
+    border-color: transparent;
+}
+
+/* 목록 헤더 */
+.sol-list-header {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 4px 0 12px;
+}
+.sol-list-title {
+    font-size: clamp(18px, 2.4vw, 24px);
+    font-weight: 800;
+    margin: 0;
+    color: #1e2a5a;
+}
+.sol-list-count { color: #64748b; }
+
+/* 목록 그리드 */
+.sol-list-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+@media (max-width: 720px) {
+    .sol-list-grid { grid-template-columns: 1fr; }
+}
+
+/* 카드 */
+.sol-card {
+    background: #fff;
+    border: 1px solid #e6eaf2;
+    border-radius: 14px;
+    padding: 16px 16px 14px;
+    box-shadow: 0 8px 20px rgba(0,0,0,.04);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.sol-card-header { display: flex; flex-direction: column; gap: 2px; }
+.sol-card-title {
+    margin: 0;
+    font-weight: 700;
+    font-size: clamp(16px, 2.1vw, 18px);
+}
+.sol-card-title a { color: #0f275d; text-decoration: none; }
+.sol-card-title a:hover { text-decoration: underline; }
+.sol-card-date { font-size: 12px; color: #94a3b8; }
+.sol-card-excerpt { color: #334155; line-height: 1.6; margin: 4px 0 8px; }
+.sol-card-cta { margin-top: auto; }
+.sol-card-cta .btn.btn-custom {
+    padding: 8px 14px; border-radius: 999px; font-size: 14px;
+}
+
+/* 페이징 */
+.sol-pager { margin-top: 16px; }
+.sol-pager ul {
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    padding: 0; margin: 0; list-style: none;
+}
+.sol-pager a {
+    display: inline-block; padding: 8px 12px; border-radius: 10px;
+    border: 1px solid #e6eaf2; text-decoration: none; color: #0f275d; background: #fff;
+}
+.sol-pager a.active {
+    background: linear-gradient(to right, #5ca9fb 0%, #6372ff 100%);
+    color: #fff; border-color: transparent;
+}
+.sol-pager a.disabled {
+    pointer-events: none; opacity: .45;
+}
+
+/* 상세 상단 툴바 */
+.sol-detail-toolbar {
+    display: flex; justify-content: flex-end; margin-bottom: 8px;
+}
+.sol-list-link {
+    color: #0f275d; text-decoration: none; font-weight: 600;
+}
+.sol-list-link:hover { text-decoration: underline; }
