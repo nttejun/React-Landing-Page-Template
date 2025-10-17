@@ -1,6 +1,4 @@
-// src/content/startup/ArticleFinanceTax.jsx
 import React from "react";
-import { Link } from "react-router-dom";
 
 const ArticleFinanceTax = () => (
     <article className="article-card" itemScope itemType="https://schema.org/Article">

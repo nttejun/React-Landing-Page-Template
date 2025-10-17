@@ -1,6 +1,3 @@
-// src/content/registry.js
-import React from "react";
-
 /**
  * categories: 각 카테고리별 글 메타 + loader
  *  - slug, title, date, excerpt: 목록/SEO용
