@@ -33,5 +33,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "overrides": {
+    "eslint": "8.57.0"
+  },
+  "devDependencies": {
+    "eslint": "8.57.0"
   }
 }
