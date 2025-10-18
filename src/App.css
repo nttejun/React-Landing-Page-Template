@@ -325,11 +325,11 @@ img, svg, video { max-width: 100%; height: auto; display: block; }
 
 /* ✅ 체크 표시 스타일 */
 .main-list li::before {
-  content: "✓"; /* 또는 "\2713" */
+  content: "✓";
   position: absolute;
   left: 0;
   top: 0;
-  color: #5ca9fb;  /* 브랜드 포인트 컬러 */
+  color: #5ca9fb;
   font-weight: bold;
   font-size: 18px;
   line-height: 1.6;
@@ -337,7 +337,7 @@ img, svg, video { max-width: 100%; height: auto; display: block; }
 
 /* (선택) 밝은 배경용 대비 보정 */
 .main-slide .overlay .main-list li::before {
-  color: #20a4f4; /* 필요 시 배경에 따라 보정 */
+  color: #20a4f4;
 }
 
 /* ================================
@@ -349,13 +349,13 @@ img, svg, video { max-width: 100%; height: auto; display: block; }
   display: flex;
   width: 100%;
   height: 100%;
-  transition: transform 0.6s ease-in-out; /* 이동 부드럽게 */
+  transition: transform 0.6s ease-in-out;
 }
 
 .slide-page {
   flex-shrink: 0;
   width: 100%;
-  height: 100vh;               /* 한 페이지 = 한 화면 */
+  height: 100vh;
   background-size: cover;
   background-position: center;
   position: relative;
@@ -372,12 +372,4 @@ img, svg, video { max-width: 100%; height: auto; display: block; }
           rgba(0,0,0,.30) 40%,
           rgba(0,0,0,.45) 100%
   );
-}
-
-.navbar-img-logo {
-  float: left;
-  height: 50px;
-  padding: 4px 10px 4px 5px;
-  font-size: 18px;
-  line-height: 20px;
 }

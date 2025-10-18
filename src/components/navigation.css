@@ -1,0 +1,65 @@
+/* ================================
+   Navigation 전용 스타일
+   (부트스트랩 클래스와 공존 전제)
+   ================================ */
+
+/* 브랜드(로고 + 텍스트) 정렬/간격 */
+#menu .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 50px;
+    padding: 10px 15px;
+    line-height: 20px;
+}
+
+/* 로고 이미지 크기 */
+#menu .navbar-img-logo {
+    height: 28px;
+    width: auto;
+    padding: 0;
+    margin: 0;
+    display: block;
+}
+
+/* 브랜드 텍스트 */
+#menu .brand-text {
+    font-weight: 700;
+    font-size: 16px;
+    color: #1e2a5a;
+}
+
+/* 우측 메뉴 링크 간격 */
+#menu .navbar-nav > li > a {
+    padding: 15px 12px;
+    color: #2b3451;
+}
+
+/* 활성/호버 컬러 */
+#menu .navbar-nav > li.active > a,
+#menu .navbar-nav > li > a:focus,
+#menu .navbar-nav > li > a:hover {
+    color: #5a6cff;
+    background: transparent;
+}
+
+/* CTA 버튼 */
+#menu .navbar-nav .nav-cta {
+    border: 1px solid #5ca9fb;
+    border-radius: 999px;
+    padding: 8px 14px !important;
+    margin: 10px 0;
+    line-height: 1;
+    white-space: nowrap;
+}
+#menu .navbar-nav .nav-cta:hover {
+    background-image: linear-gradient(to right, #5ca9fb 0%, #6372ff 100%);
+    color: #fff !important;
+    border-color: transparent;
+}
+
+/* 모바일 보정 */
+@media (max-width: 767px) {
+    #menu .navbar-brand { padding: 10px 0; }
+    #menu .navbar-nav > li > a { padding: 10px 15px; }
+}
