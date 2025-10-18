@@ -1,7 +1,7 @@
 // src/components/navigation.jsx (또는 Navigation.jsx)
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import "./Navigation.css";
+import "./navigation.css";
 
 export const Navigation = () => {
   const [open, setOpen] = useState(false);
