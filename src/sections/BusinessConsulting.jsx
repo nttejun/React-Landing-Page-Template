@@ -74,8 +74,8 @@ const SolutionBands = () => {
 
 const BusinessConsulting = () => (
     <>
-        <ServicesCards />
         <SolutionBands />
+        {/*<ServicesCards />*/}
     </>
 );
 
