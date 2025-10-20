@@ -33,9 +33,9 @@ const ListView = ({ categoryKey }) => {
     const pageItems = list.slice(start, start + PER_PAGE);
 
     return (
-        <section className="sol-list container sol-container" aria-label="카테고리 글 목록">
+        <section className="sol-list container sol-container" aria-label="글 목록">
             <div className="sol-list-header">
-                <h2 className="sol-list-title">카테고리 글 목록</h2>
+                <h2 className="sol-list-title">글 목록</h2>
                 <p className="sol-list-count">총 {total}건</p>
             </div>
 
