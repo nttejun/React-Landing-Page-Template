@@ -12,6 +12,7 @@ import SmoothScroll from "smooth-scroll";
 import "./App.css";
 import Footer from "./components/Footer";
 import ServicesCards from "./sections/ServicesCards";
+import ConsultingFixedButton from "./components/ConsultingFixedButton";
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
     speed: 1000,
@@ -26,6 +27,7 @@ const Home = ({ landingPageData }) => (
         <ServicesCards />
         <ConsultTopCTA />
         <Footer />
+        <ConsultingFixedButton />
     </div>
 );
 
