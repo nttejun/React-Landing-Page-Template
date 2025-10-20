@@ -5,7 +5,7 @@ const ArticleFinanceTax = () => (
         <header className="article-header">
             <p className="eyebrow">재무 · 세무 인사이트</p>
             <h1 className="article-title" itemProp="headline">
-                [1편] 대표이사 가지급금, 왜 반드시 정리해야 할까?
+                대표이사 가지급금, 왜 반드시 정리해야 할까?
             </h1>
             <p className="article-subtitle">💡 대표님들이 가장 자주 하는 세무 질문 TOP 1</p>
             <meta itemProp="author" content="온비즈컨설팅 세무팀"/>
