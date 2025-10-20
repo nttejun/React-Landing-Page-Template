@@ -2,7 +2,7 @@
 const mainSlides = [
     {
         bg: "img/intro-bg.jpg",
-        title: "재무, 세무",
+        title: "재무 세무",
         items: [
             "가지급금 해결 (세무조사 리스크, 상속세 이슈)",
             "명목상 퇴직금·퇴직연금 설계 (대표이사 퇴직금 극대화)",
@@ -15,7 +15,7 @@ const mainSlides = [
     },
     {
         bg: "img/intro-bg.jpg",
-        title: "자금조달, 운용",
+        title: "자금조달 운용",
         items: [
             "정책자금(중소기업진흥공단, 신용보증기금 등) 활용 방법",
             "법인 신용등급 관리 & 대출 전략",
@@ -26,7 +26,7 @@ const mainSlides = [
     },
     {
         bg: "img/intro-bg.jpg",
-        title: "보험, 리스크",
+        title: "보험 리스크",
         items: [
             "퇴직연금(DB/DC형) 도입 시 장단점",
             "임원 보장성 보험(건강/상해) 세법 처리",
@@ -38,7 +38,7 @@ const mainSlides = [
     },
     {
         bg: "img/intro-bg.jpg",
-        title: "인사, 노무",
+        title: "인사 노무",
         items: [
             "4대보험 부담 줄이는 방법",
             "직원 복리후생비 세무 처리",
