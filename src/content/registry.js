@@ -39,6 +39,14 @@ const categories = {
                 "운영/비상/투자자금 3분할 원칙과 채권·ETF·보험형 운용으로 유동성과 수익성 동시 달성.",
             loader: () => import("./policy/ArticleFundOps"),
         },
+        {
+            slug: "policy-funds-growth-accelerator",
+            title: "정책자금, 중소기업의 성장 촉진제 — 중진공·신보 활용 전략",
+            date: "2025-10-18",
+            excerpt: "중진공·신보·기보 정책자금으로 저금리·장기 상환을 확보하고 설비·운전 자금을 유연하게 조달하는 실전 가이드.",
+            component: "ArticlePolicyFunds",
+            loader: () => import("./policy/ArticlePolicyFunds"),
+        }
     ],
     cert: [
         {
