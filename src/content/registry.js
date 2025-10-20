@@ -66,9 +66,9 @@ export const PER_PAGE = 4;
 
 // 타이틀 매핑도 한곳에 보관하면 편합니다
 export const titleMap = {
-    startup: { title: "재무 / 세무", subtitle: "" },
-    policy: { title: "자금조달 / 운용", subtitle: "" },
-    cert: { title: "보험 / 리스크", subtitle: "" },
+    startup: { title: "재무 세무", subtitle: "" },
+    policy: { title: "자금조달 운용", subtitle: "" },
+    cert: { title: "보험 리스크", subtitle: "" },
     bp: { title: "인사", subtitle: "" },
 };
 

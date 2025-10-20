@@ -13,9 +13,9 @@ export const Navigation = () => {
 
   // 카테고리 정의
   const categories = [
-    { key: "startup", label: "재무 / 세무" },
-    { key: "policy",  label: "자금조달 / 운용" },
-    { key: "cert",    label: "보험 / 리스크" },
+    { key: "startup", label: "재무 세무" },
+    { key: "policy",  label: "자금조달 운용" },
+    { key: "cert",    label: "보험 리스크" },
     { key: "bp",      label: "인사" },
   ];
 
