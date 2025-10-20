@@ -21,6 +21,14 @@ const categories = {
                 "정관 설계와 보수 조정으로 법인세 절감과 대표 개인 자산이전을 동시에 달성하는 구조.",
             loader: () => import("./startup/ArticleFinanceRetirement"),
         },
+        {
+            slug: "deposit-capital-recovery",
+            title: "가수금·자본잠식 해소 방법 — 중소법인 재무건전성 회복 전략",
+            date: "2025-10-18",
+            excerpt: "출자전환/감자·증자/배당·급여상계 등으로 가수금과 자본잠식을 해소해 부채비율·신용등급을 개선하는 구조 설계.",
+            component: "ArticleFinanceRecovery",
+            loader: () => import("./startup/ArticleFinanceRecovery"),
+        },
     ],
     policy: [
         {
