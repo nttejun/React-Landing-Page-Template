@@ -11,6 +11,7 @@ import JsonData from "./data/data.json";
 import SmoothScroll from "smooth-scroll";
 import "./App.css";
 import Footer from "./components/Footer";
+import ServicesCards from "./sections/ServicesCards";
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
     speed: 1000,
@@ -19,10 +20,11 @@ export const scroll = new SmoothScroll('a[href*="#"]', {
 
 const Home = ({ landingPageData }) => (
     <div>
-        <Navigation />
-        <ConsultTopCTA />
-        <HeaderMainSlide />
         <BusinessConsulting />
+        <Navigation />
+        <HeaderMainSlide />
+        <ServicesCards />
+        <ConsultTopCTA />
         <Footer />
     </div>
 );

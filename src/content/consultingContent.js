@@ -26,7 +26,7 @@ export const consultingServices = [
 export const solutionBands = [
     {
         key: "startup",
-        title: "재무",
+        title: "재무 세무",
         subtitle: "세무 리스크와 절세 전략",
         bg: "img/tiles/tile-startup.jpg",   // 없으면 공통 배경 사용
         cta: { href: "/consult?topic=startup", label: "자세히보기" },

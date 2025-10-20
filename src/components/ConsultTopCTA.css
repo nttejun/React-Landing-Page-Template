@@ -3,7 +3,6 @@
    ========================== */
 
 .consult-top-cta {
-    margin-top: clamp(60px, 7vh, 90px); /* 화면 크기에 따라 자연스럽게 */
     background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
     color: #fff;
     text-align: center;

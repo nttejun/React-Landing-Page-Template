@@ -1,7 +1,7 @@
 // 회사/사업자 정보 한 곳에서 관리
 const companyInfo = {
-    nameKo: "라이징브로커즈",
-    nameEn: "Dream And Joy Co., Ltd.",
+    nameKo: "라이징브로커즈 주식회사",
+    nameEn: "라이징브로커즈 주식회사",
     ceo: "김준수",
     businessNo: "352-81-03886",               // 사업자등록번호
     tel: "02-1234-5678",
@@ -33,7 +33,7 @@ const companyInfo = {
 
     // 저작권 표기
     copyright:
-        "© " + new Date().getFullYear() + " Dream And Joy Co., Ltd. All rights reserved.",
+        "© " + new Date().getFullYear() + " 라이징브로커즈 주식회사. All rights reserved.",
 };
 
 export default companyInfo;

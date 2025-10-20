@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import "./MainSlide.css";
 
 const MainSlide = ({ slides = [], intervalMs = 3000, pauseOnHover = true }) => {
     const [index, setIndex] = useState(0);

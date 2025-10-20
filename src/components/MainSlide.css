@@ -1,0 +1,229 @@
+/* ================================
+   MainSlide.css  (전용 스타일)
+   ================================ */
+
+/* 기존 템플릿의 .intro 배경 무력화 */
+.intro.main-slide { background: none !important; }
+
+/* 히어로 래퍼 */
+.main-slide {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+}
+
+/* 배경 레이어 (옵션) */
+.main-slide .main-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image .6s ease-in-out, opacity .3s ease-in-out;
+    z-index: 0;
+}
+
+/* 중앙 정렬 + 오버레이(기본) */
+.main-slide .overlay {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    min-height: var(--slide-min-h, 100svh);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+            linear-gradient(180deg, rgba(0,0,0,.52) 0%, rgba(0,0,0,.30) 40%, rgba(0,0,0,.55) 100%);
+    padding-top: max(env(safe-area-inset-top), 12px);
+    padding-bottom: max(env(safe-area-inset-bottom), 12px);
+    padding-left: max(env(safe-area-inset-left), 12px);
+    padding-right: max(env(safe-area-inset-right), 12px);
+}
+@supports not (min-height: 100svh) {
+    .main-slide .overlay { min-height: 100vh; }
+}
+
+/* 중앙 래퍼 */
+.intro-center {
+    width: 100%;
+    max-width: none;
+    padding-inline: clamp(16px, 4vw, 48px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* 본문 박스 (가독성 스크림 + 블러) */
+.main-slide .intro-text {
+    margin: 0 auto;
+    width: min(92vw, 900px);
+    color: #fff;
+    background: rgba(0, 0, 0, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: saturate(1.05) blur(2px);
+    -webkit-backdrop-filter: saturate(1.05) blur(2px);
+    border-radius: 14px;
+    padding: clamp(14px, 3.2vw, 24px);
+    box-shadow: 0 12px 26px rgba(0, 0, 0, 0.25);
+}
+
+/* 타이포 */
+.main-title {
+    color: #fff;
+    text-shadow: 0 2px 12px rgba(0,0,0,.45), 0 1px 2px rgba(0,0,0,.55);
+    letter-spacing: .01em;
+    font-size: clamp(26px, 6.5vw + 0.35rem, 58px);
+    line-height: 1.22;
+    margin: 0 0 18px;
+}
+.main-list {
+    list-style: none;
+    text-align: left;
+    margin: 0 auto 22px;
+    padding-left: 0;
+    max-width: 720px;
+}
+.main-list li {
+    position: relative;
+    padding-left: 28px;
+    margin-bottom: clamp(6px, 1.4vw, 10px);
+    line-height: 1.6;
+    color: #eef2ff;
+    text-shadow: 0 1px 2px rgba(0,0,0,.45);
+    font-weight: 500;
+    font-size: clamp(14px, 2.2vw, 18px);
+}
+.main-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0; top: 0;
+    color: #79b7ff;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* 컨트롤/도트/페이저 */
+.main-controls {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: clamp(64px, 9vh, 100px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(10px, 2.6vw, 18px);
+    z-index: 5;
+}
+.main-arrow {
+    border: none;
+    background: rgba(255,255,255,.22);
+    width: clamp(36px, 7vw, 48px);
+    height: clamp(36px, 7vw, 48px);
+    border-radius: 999px;
+    font-size: clamp(22px, 4.8vw, 32px);
+    line-height: 1;
+    display: grid; place-items: center;
+    color: #fff;
+    cursor: pointer;
+    transition: background .2s ease;
+}
+.main-arrow:hover { background: rgba(255,255,255,.35); }
+.main-arrow:focus { outline: 2px solid rgba(255,255,255,.7); outline-offset: 2px; }
+
+.main-dots { display: flex; gap: clamp(6px, 1.4vw, 10px); }
+.main-dot {
+    width: clamp(8px, 2vw, 12px);
+    height: clamp(8px, 2vw, 12px);
+    border-radius: 999px;
+    background: rgba(255,255,255,.45);
+    border: 0;
+    cursor: pointer;
+    transition: transform .15s ease, background .15s ease;
+}
+.main-dot:hover { transform: scale(1.1); }
+.main-dot.active { background: #fff; }
+.main-dot:focus { outline: 2px solid rgba(255,255,255,.7); outline-offset: 2px; }
+
+.main-pager {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: clamp(24px, 4vh, 40px);
+    font-size: clamp(12px, 1.9vw, 14px);
+    color: rgba(255,255,255,.9);
+    letter-spacing: .08em;
+    z-index: 5;
+    text-align: center;
+    text-shadow: 0 1px 2px rgba(0,0,0,.45);
+}
+
+/* 슬라이드 전환 레일 */
+.main-slide.slide-mode { overflow: hidden; }
+.slide-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s ease-in-out;
+}
+.slide-page {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.slide-page .overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 반응형 보정 */
+@media (max-width: 1024px) { :root { --slide-min-h: 92svh; } }
+@media (max-width: 768px)  { :root { --slide-min-h: 86svh; } }
+@media (max-width: 600px)  { :root { --slide-min-h: 82svh; } }
+
+@media (max-width: 767px) {
+    .main-slide .overlay {
+        align-items: center;
+        justify-content: center;
+        padding: 60px 20px;
+    }
+    .main-slide .intro-text { padding: clamp(12px, 3vw, 18px); }
+    .main-title { font-size: clamp(24px, 6.2vw, 40px); }
+}
+
+/* 세로 짧은 환경 */
+@media (max-height: 640px) {
+    .main-title { font-size: clamp(22px, 5.2vw, 34px); }
+    .main-slide .overlay { padding-top: 6px; padding-bottom: 6px; }
+}
+
+/* 가로 모드 보정 */
+@media (orientation: landscape) and (max-height: 480px) {
+    .main-slide .overlay {
+        justify-content: center;
+        align-items: center;
+        padding-left: clamp(24px, 6vw, 56px);
+        padding-right: clamp(24px, 6vw, 56px);
+    }
+}
+
+/* 모션 최소화 */
+@media (prefers-reduced-motion: reduce) {
+    .main-slide .main-bg,
+    .main-dot,
+    .main-arrow { transition: none !important; }
+}
+
+/* 터치 환경 hover 완화 */
+@media (hover: none) {
+    .main-arrow:hover { background: rgba(255,255,255,.22); }
+}
