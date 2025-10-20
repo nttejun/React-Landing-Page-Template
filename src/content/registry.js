@@ -57,6 +57,14 @@ const categories = {
                 "근재·배상·단체보험 포트폴리오와 4대보험을 함께 설계해 리스크를 막고 복지를 강화.",
             loader: () => import("./cert/ArticleInsuranceRisk"),
         },
+        {
+            slug: "executive-insurance-tax",
+            title: "임원 보장성 보험 세법 처리 — 비용 인정과 절세의 경계선",
+            date: "2025-10-18",
+            excerpt: "계약자·수익자·상품유형에 따라 손금/상여가 갈립니다. 단체형·법인 수익자 구조로 안전지대를 만드세요.",
+            component: "ArticleExecutiveInsuranceTax",
+            loader: () => import("./cert/ArticleExecutiveInsuranceTax"),
+        }
     ],
     bp: [
         {
