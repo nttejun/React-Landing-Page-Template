@@ -30,7 +30,6 @@ export const Navigation = () => {
                   alt="Dream & Joy"
                   className="navbar-img-logo"
               />
-              <span className="brand-text">Dream &amp; Joy</span>
             </Link>
 
             {/* 햄버거 버튼 */}
