@@ -7,6 +7,7 @@ import HeaderMainSlide from "./sections/HeaderMainSlide";
 import ConsultTopCTA from "./components/ConsultTopCTA";
 import BusinessConsulting from "./sections/BusinessConsulting";
 import SolutionDetail from "./pages/SolutionDetail";
+import NJob from "./pages/NJob";
 import JsonData from "./data/data.json";
 import SmoothScroll from "smooth-scroll";
 import "./App.css";
@@ -45,6 +46,9 @@ const App = () => {
             {/* 솔루션 상세(더 구체적인 경로를 먼저) */}
             <Route exact path="/solutions/:key/:slug" component={SolutionDetail} />
             <Route exact path="/solutions/:key" component={SolutionDetail} />
+
+            {/* N잡 랜딩페이지 */}
+            <Route exact path="/n-job" component={NJob} />
 
             {/* 상담 폼 */}
             <Route path="/consult" component={CorpConsultForm} />

@@ -1,0 +1,893 @@
+/* ==========================
+   드림앤조이 N잡크루 랜딩페이지
+   ========================== */
+
+/* 공통 */
+.njob-page {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #222;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.section-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* 로고 스타일 */
+.logo-samsung, .logo-samsung-big {
+    color: #0066cc;
+    font-weight: 700;
+}
+
+.logo-njob, .logo-njob-big {
+    color: #00bcd4;
+    font-weight: 700;
+}
+
+.logo-samsung-big, .logo-njob-big {
+    font-size: clamp(32px, 6vw, 48px);
+}
+
+/* ========================
+   네비게이션
+   ======================== */
+.njob-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-size: 20px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.nav-link {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+.nav-icon {
+    color: #333;
+    font-size: 22px;
+    text-decoration: none;
+}
+
+/* ========================
+   섹션 1: 히어로
+   ======================== */
+.njob-hero-section {
+    background: linear-gradient(135deg, #2d7ff9 0%, #1a5cd6 50%, #0d47a1 100%);
+    min-height: 100vh;
+    padding: 100px 20px 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-bg-shapes .shape {
+    position: absolute;
+    pointer-events: none;
+}
+
+.shape-ring {
+    width: 80px;
+    height: 80px;
+    border: 15px solid #4fc3f7;
+    border-radius: 50%;
+    top: 15%;
+    left: 30%;
+}
+
+.shape-coin {
+    font-size: 40px;
+}
+
+.coin-1 {
+    top: 10%;
+    right: 15%;
+}
+
+.coin-2 {
+    top: 25%;
+    right: 5%;
+}
+
+.shape-cone {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 40px solid #fff;
+    top: 20%;
+    right: 25%;
+    transform: rotate(15deg);
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    min-height: 70vh;
+}
+
+.hero-content {
+    flex: 1;
+    color: #fff;
+}
+
+.hero-title {
+    font-size: clamp(36px, 7vw, 56px);
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    font-style: italic;
+}
+
+.title-job {
+    font-style: italic;
+}
+
+.hero-subtitle {
+    font-size: clamp(16px, 3vw, 22px);
+    margin-bottom: 40px;
+    opacity: 0.95;
+    line-height: 1.7;
+}
+
+.hero-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    color: #1a5cd6 !important;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 18px 36px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hero-cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+}
+
+.hero-visual {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.phone-mockup {
+    background: linear-gradient(180deg, #1e88e5 0%, #1565c0 100%);
+    border-radius: 30px;
+    padding: 15px;
+    width: 280px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform: perspective(1000px) rotateY(-5deg);
+}
+
+.phone-screen {
+    background: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    min-height: 350px;
+}
+
+.phone-header {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.phone-amount {
+    font-size: 32px;
+    font-weight: 800;
+    color: #1a5cd6;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.phone-history {
+    background: #f5f7fa;
+    border-radius: 12px;
+    padding: 15px;
+}
+
+.history-item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 12px;
+}
+
+.history-item .date {
+    color: #999;
+}
+
+.history-item .desc {
+    color: #333;
+    flex: 1;
+}
+
+.history-item .amount {
+    color: #1a5cd6;
+    font-weight: 700;
+}
+
+.hero-disclaimer {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 13px;
+    margin-top: 30px;
+}
+
+/* ========================
+   섹션 2: 고민
+   ======================== */
+.njob-concern-section {
+    background: linear-gradient(180deg, #e3f2fd 0%, #fff 100%);
+    padding: 100px 20px;
+}
+
+.section-title, .concern-section .section-title {
+    font-size: clamp(24px, 5vw, 38px);
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.concern-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.concern-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 28px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease;
+}
+
+.concern-card:hover {
+    transform: translateX(5px);
+}
+
+.concern-title {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.concern-highlight {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2196f3;
+    white-space: pre-line;
+    line-height: 1.5;
+}
+
+.concern-suffix {
+    font-size: 18px;
+    font-weight: 700;
+    color: #222;
+    margin-top: 4px;
+}
+
+.concern-emoji {
+    font-size: 60px;
+}
+
+/* ========================
+   섹션 3: 소개
+   ======================== */
+.njob-intro-section {
+    background: #fff;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.intro-pretitle {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.intro-title {
+    font-size: clamp(22px, 4.5vw, 34px);
+    font-weight: 800;
+    margin-bottom: 50px;
+    line-height: 1.4;
+}
+
+.intro-logo {
+    margin-bottom: 30px;
+}
+
+.intro-desc {
+    font-size: clamp(16px, 2.5vw, 20px);
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 50px;
+}
+
+.intro-desc .highlight {
+    color: #2196f3;
+    font-weight: 700;
+}
+
+.intro-visual {
+    position: relative;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.visual-icon {
+    position: absolute;
+    font-size: 60px;
+    background: #e3f2fd;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-train { left: 5%; top: 20%; }
+.icon-money { left: 15%; top: 60%; font-size: 40px; }
+.icon-clock { right: 15%; top: 60%; }
+.icon-house { right: 5%; top: 20%; }
+
+.visual-character {
+    font-size: 150px;
+    z-index: 1;
+}
+
+/* ========================
+   섹션 4: 차별점
+   ======================== */
+.njob-difference-section {
+    background: linear-gradient(180deg, #e3f2fd 0%, #e3f2fd 100%);
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.difference-pretitle {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 12px;
+}
+
+.difference-title {
+    font-size: clamp(22px, 4.5vw, 34px);
+    font-weight: 800;
+    margin-bottom: 50px;
+}
+
+.difference-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.difference-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 40px 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease;
+}
+
+.difference-card:hover {
+    transform: translateY(-5px);
+}
+
+.difference-card:nth-child(2) {
+    margin-top: -30px;
+}
+
+.card-emoji {
+    font-size: 80px;
+    margin-bottom: 24px;
+}
+
+.card-text p {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+    margin: 4px 0;
+}
+
+.card-text p:first-child {
+    font-weight: 700;
+}
+
+/* ========================
+   섹션 5: 지원 혜택
+   ======================== */
+.njob-benefit-section {
+    background: #fff;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.benefit-title {
+    font-size: clamp(24px, 5vw, 38px);
+    font-weight: 800;
+    margin-bottom: 16px;
+}
+
+.benefit-subtitle {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 60px;
+    line-height: 1.7;
+}
+
+.benefit-items {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    text-align: left;
+}
+
+.benefit-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.benefit-text {
+    flex: 1;
+}
+
+.benefit-text h3 {
+    font-size: clamp(20px, 3vw, 26px);
+    font-weight: 800;
+    margin-bottom: 16px;
+    line-height: 1.4;
+}
+
+.benefit-text p {
+    font-size: 16px;
+    color: #666;
+    margin: 4px 0;
+}
+
+.benefit-visual {
+    flex: 1;
+    background: #e3f2fd;
+    border-radius: 24px;
+    padding: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.benefit-emoji {
+    font-size: 80px;
+}
+
+/* ========================
+   섹션 6: 시작하기
+   ======================== */
+.njob-step-section {
+    background: linear-gradient(180deg, #e3f2fd 0%, #fff 100%);
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.step-logo {
+    margin-bottom: 16px;
+}
+
+.step-title {
+    font-size: clamp(24px, 5vw, 38px);
+    font-weight: 800;
+    margin-bottom: 50px;
+}
+
+.step-card {
+    background: #fff;
+    border-radius: 32px;
+    padding: 60px 40px;
+    max-width: 900px;
+    margin: 0 auto 40px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+}
+
+.steps {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.step-emoji {
+    font-size: 80px;
+}
+
+.step-badge {
+    background: #2196f3;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px 24px;
+    border-radius: 50px;
+}
+
+.step-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.step-line {
+    width: 60px;
+    height: 2px;
+    background: #ddd;
+    margin-top: -40px;
+}
+
+.step-notes {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.step-notes p {
+    font-size: 14px;
+    color: #888;
+    margin: 8px 0;
+}
+
+/* ========================
+   섹션 7: FAQ
+   ======================== */
+.njob-faq-section {
+    background: #fff;
+    padding: 100px 20px;
+}
+
+.faq-title {
+    font-size: clamp(24px, 5vw, 38px);
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.faq-item {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    border-color: #ddd;
+}
+
+.faq-item.open {
+    background: #f8fafc;
+}
+
+.faq-question {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24px;
+}
+
+.q-badge {
+    background: #333;
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.q-text {
+    flex: 1;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.q-arrow {
+    font-size: 18px;
+    color: #999;
+}
+
+.faq-answer {
+    display: flex;
+    gap: 16px;
+    padding: 0 24px 24px;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.a-badge {
+    background: #2196f3;
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.a-text {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.7;
+}
+
+/* ========================
+   플로팅 버튼
+   ======================== */
+.floating-buttons {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 999;
+}
+
+.float-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100px;
+    padding: 16px 12px;
+    border-radius: 16px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    line-height: 1.3;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.apply-btn {
+    background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+    color: #fff !important;
+}
+
+.apply-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 30px rgba(33, 150, 243, 0.4);
+}
+
+.scroll-btn {
+    background: linear-gradient(135deg, #42a5f5 0%, #2196f3 100%);
+    color: #fff !important;
+}
+
+.scroll-btn:hover {
+    transform: translateY(-3px);
+}
+
+/* ========================
+   반응형
+   ======================== */
+@media (max-width: 900px) {
+    .difference-cards {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+    }
+
+    .difference-card:nth-child(2) {
+        margin-top: 0;
+    }
+
+    .steps {
+        flex-direction: column;
+    }
+
+    .step-line {
+        width: 2px;
+        height: 30px;
+        margin: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-visual {
+        order: -1;
+    }
+
+    .phone-mockup {
+        width: 240px;
+        transform: none;
+    }
+
+    .benefit-item,
+    .benefit-item.reverse {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .benefit-visual {
+        width: 100%;
+        max-width: 300px;
+        padding: 40px;
+    }
+
+    .concern-card {
+        padding: 20px;
+    }
+
+    .concern-emoji {
+        font-size: 40px;
+    }
+
+    .intro-visual {
+        height: 200px;
+    }
+
+    .visual-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+    }
+
+    .visual-character {
+        font-size: 80px;
+    }
+
+    .floating-buttons {
+        right: 16px;
+        bottom: 16px;
+    }
+
+    .float-btn {
+        width: 80px;
+        padding: 12px 8px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 12px 16px;
+    }
+
+    .nav-logo {
+        font-size: 16px;
+    }
+
+    .nav-links {
+        gap: 16px;
+    }
+
+    .nav-link {
+        font-size: 14px;
+    }
+
+    .njob-hero-section {
+        padding: 80px 16px 30px;
+    }
+
+    .hero-title {
+        font-size: 28px;
+    }
+
+    .hero-cta-btn {
+        padding: 14px 28px;
+        font-size: 16px;
+    }
+
+    .section-title,
+    .intro-title,
+    .difference-title,
+    .benefit-title,
+    .step-title,
+    .faq-title {
+        font-size: 22px;
+    }
+
+    .step-card {
+        padding: 40px 20px;
+    }
+
+    .step-emoji {
+        font-size: 50px;
+    }
+
+    .faq-question {
+        padding: 16px;
+    }
+
+    .faq-answer {
+        padding: 0 16px 16px;
+    }
+
+    .q-text {
+        font-size: 14px;
+    }
+}
