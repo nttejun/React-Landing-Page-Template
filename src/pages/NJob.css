@@ -557,7 +557,7 @@
 }
 
 .review-tag {
-    background: linear-gradient(135deg, #2196f3 0%, #1976d2 100%);
+    background: linear-gradient(135deg, #2c42ea 0%, #2136f3 100%);
     color: #fff;
     font-size: 12px;
     font-weight: 700;
@@ -622,7 +622,7 @@
 }
 
 .review-highlight {
-    background: linear-gradient(135deg, #1976d2 0%, #2196f3 100%);
+    background: linear-gradient(135deg, #2c42ea 0%, #2136f3 100%);
     color: #fff;
     font-size: 14px;
     font-weight: 700;
