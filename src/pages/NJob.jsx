@@ -24,28 +24,68 @@ const NJobNav = () => (
 );
 
 // 섹션 1: 히어로
-const HeroSection = () => (
-    <section className="njob-hero-section">
+const HeroSection = () => {
+    const qaItems = [
+        { question: "출근은 매일?", answer: "원할 때 언제든지" },
+        { question: "N잡 소득은?", answer: "일하고 싶은 만큼만" },
+        { question: "실적압박은?", answer: "영업 압박 No!" },
+        { question: "투자금?", answer: "단돈 0원으로 가능!" },
+    ];
+
+    return (
+        <section className="njob-hero-section">
+            <div className="hero-container">
+                <div className="hero-content">
+                    <p className="hero-tagline">N잡 필수시대! 스마트한 보험 N잡 시작하세요</p>
+                    <h1 className="hero-title">
+                        보험N잡<br />이젠 <span className="title-highlight">필수!</span>
+                    </h1>
+                    <p className="hero-subtitle">
+                        내가 원하는 시간에 자유롭게 일할 수 있다고?
+                    </p>
+                    <div className="hero-qa-grid">
+                        {qaItems.map((item, idx) => (
+                            <div className="qa-item" key={idx}>
+                                <span className="qa-question">{item.question}</span>
+                                <span className="qa-answer">{item.answer}</span>
+                            </div>
+                        ))}
+                    </div>
+                    <Link to="/consult" className="hero-cta-btn">
+                        N잡크루 지원하기 <span className="arrow">→</span>
+                    </Link>
+                </div>
+            </div>
+            <p className="hero-disclaimer">*수익은 개인의 활동에 따라 달라질 수 있으며, 해당 금액은 예시입니다.</p>
+        </section>
+    );
+};
+
+// 섹션 1.5: 수익 소개 (기존 히어로 콘텐츠)
+const IncomeSection = () => (
+    <section className="njob-income-section">
         <div className="hero-bg-shapes">
             <div className="shape shape-ring"></div>
             <div className="shape shape-coin coin-1">⭐</div>
             <div className="shape shape-coin coin-2">🪙</div>
             <div className="shape shape-cone"></div>
         </div>
-        <div className="hero-container">
-            <div className="hero-content">
-                <h1 className="hero-title">
-                    <span className="title-job">잡(JOB)</span>았다, 새로운 기회
-                </h1>
-                <p className="hero-subtitle">
-                    원하는 곳에서, 원하는 시간에<br />
-                    쉽고 편하게, 난 N잡으로 보험해!
+        <div className="income-container">
+            <div className="income-content">
+                <h2 className="income-title">
+                    <span className="title-job">N잡도 찾고, </span>수익도 찾았다
+                </h2>
+                <p className="income-subtitle">
+                    <b>
+                    출퇴근 없이, 내 일정에 맞춰<br/>
+                    부담 없이 시작하는 N잡 보험!<br/>
+                    </b>
                 </p>
-                <Link to="/consult" className="hero-cta-btn">
+                <Link to="/consult" className="income-cta-btn">
                     N잡크루 지원하기 <span className="arrow">→</span>
                 </Link>
             </div>
-            <div className="hero-visual">
+            <div className="income-visual">
                 <div className="phone-mockup">
                     <div className="phone-screen">
                         <div className="phone-header">드림앤조이N잡크루</div>
@@ -61,7 +101,7 @@ const HeroSection = () => (
                 </div>
             </div>
         </div>
-        <p className="hero-disclaimer">*수익은 개인의 활동에 따라 달라질 수 있으며, 해당 금액은 예시입니다.</p>
+        <p className="income-disclaimer">*수익은 개인의 활동에 따라 달라질 수 있으며, 해당 금액은 예시입니다.</p>
     </section>
 );
 
@@ -70,26 +110,26 @@ const ConcernSection = () => {
     const concerns = [
         {
             title: "퇴근 후에도 부담 없는",
-            highlight: "내 체력과 스케줄에 맞춰\n할 수 있는 N잡",
-            suffix: "이 필요해요",
+            highlight: "내 체력과 스케줄에 맞춰\n할 수 있는 N잡이 필요해요",
+            suffix: "일정, 체력 걱정 No!",
             emoji: "📅"
         },
         {
             title: "하루 종일 육아로 바쁜데...",
-            highlight: "내 집에서도 할 수 있는\n편안한 N잡",
-            suffix: ", 어디 없을까요?",
+            highlight: "내 집에서도 할 수 있는\n편안한 N잡, 어디 없을까요?",
+            suffix: "언제, 어디서든 가능해요!",
             emoji: "💻"
         },
         {
             title: "스펙도, 지갑도 채우고 싶어!",
-            highlight: "학업과 병행하면서 경험도\n쌓을 수 있는 N잡",
-            suffix: "이 필요해요",
+            highlight: "학업과 병행하면서 경험도\n쌓을 수 있는 N잡이 필요해요",
+            suffix: "시간 제약도 없어요!",
             emoji: "🎓"
         },
         {
             title: "사회 초년생의 적은 월급",
-            highlight: "수익에 보탬이 되는\n쉬운 N잡",
-            suffix: "을 찾고 있어요",
+            highlight: "수익에 보탬이 되는\n쉬운 N잡을 찾고 있어요",
+            suffix: "높은 수익도 가능!",
             emoji: "💵"
         }
     ];
@@ -340,6 +380,7 @@ const NJob = () => {
     return (
         <div id="top" className="njob-page">
             <NJobNav />
+            <IncomeSection />
             <HeroSection />
             <ConcernSection />
             <IntroSection />

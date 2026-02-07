@@ -80,19 +80,145 @@
    섹션 1: 히어로
    ======================== */
 .njob-hero-section {
-    background: linear-gradient(135deg, #2d7ff9 0%, #1a5cd6 50%, #0d47a1 100%);
+    background: linear-gradient(180deg, #0f0f23 0%, #1a1a2e 100%);
     min-height: 100vh;
     padding: 100px 20px 40px;
     position: relative;
     overflow: hidden;
 }
 
-.hero-bg-shapes .shape {
+.hero-container {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+    text-align: center;
+}
+
+.hero-content {
+    color: #fff;
+}
+
+.hero-tagline {
+    font-size: clamp(14px, 2.5vw, 18px);
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 24px;
+    letter-spacing: 0.5px;
+}
+
+.hero-title {
+    font-size: clamp(40px, 8vw, 64px);
+    font-weight: 900;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: #fff;
+}
+
+.title-highlight {
+    color: #4ade80;
+}
+
+.hero-subtitle {
+    font-size: clamp(16px, 3vw, 22px);
+    margin-bottom: 48px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+}
+
+.hero-qa-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 48px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.qa-item {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.qa-item:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.qa-question {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.qa-answer {
+    display: inline-block;
+    background: #4ade80;
+    color: #0f0f23;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 8px 16px;
+    border-radius: 50px;
+    align-self: center;
+}
+
+.hero-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #4ade80;
+    color: #0f0f23 !important;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 18px 36px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(74, 222, 128, 0.3);
+}
+
+.hero-cta-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 30px rgba(74, 222, 128, 0.5);
+    background: #22c55e;
+}
+
+.hero-disclaimer {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 13px;
+    margin-top: 30px;
+}
+
+/* ========================
+   섹션 1.5: 수익 소개 (기존 히어로)
+   ======================== */
+.njob-income-section {
+    background: linear-gradient(135deg, #2d7ff9 0%, #1a5cd6 50%, #0d47a1 100%);
+    min-height: 100vh;
+    padding: 100px 20px 40px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.njob-income-section .hero-bg-shapes .shape {
     position: absolute;
     pointer-events: none;
 }
 
-.shape-ring {
+.njob-income-section .shape-ring {
     width: 80px;
     height: 80px;
     border: 15px solid #4fc3f7;
@@ -101,21 +227,21 @@
     left: 30%;
 }
 
-.shape-coin {
+.njob-income-section .shape-coin {
     font-size: 40px;
 }
 
-.coin-1 {
+.njob-income-section .coin-1 {
     top: 10%;
     right: 15%;
 }
 
-.coin-2 {
+.njob-income-section .coin-2 {
     top: 25%;
     right: 5%;
 }
 
-.shape-cone {
+.njob-income-section .shape-cone {
     width: 0;
     height: 0;
     border-left: 20px solid transparent;
@@ -126,41 +252,41 @@
     transform: rotate(15deg);
 }
 
-.hero-container {
+.income-container {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 40px;
-    min-height: 70vh;
 }
 
-.hero-content {
+.income-content {
     flex: 1;
     color: #fff;
 }
 
-.hero-title {
+.income-title {
     font-size: clamp(36px, 7vw, 56px);
     font-weight: 800;
     margin-bottom: 20px;
     line-height: 1.2;
     font-style: italic;
+    color: #fff;
 }
 
 .title-job {
     font-style: italic;
 }
 
-.hero-subtitle {
+.income-subtitle {
     font-size: clamp(16px, 3vw, 22px);
     margin-bottom: 40px;
     opacity: 0.95;
     line-height: 1.7;
 }
 
-.hero-cta-btn {
+.income-cta-btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -175,12 +301,12 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
-.hero-cta-btn:hover {
+.income-cta-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
 }
 
-.hero-visual {
+.income-visual {
     flex: 1;
     display: flex;
     justify-content: center;
@@ -244,7 +370,7 @@
     font-weight: 700;
 }
 
-.hero-disclaimer {
+.income-disclaimer {
     text-align: center;
     color: rgba(255, 255, 255, 0.7);
     font-size: 13px;
@@ -772,18 +898,23 @@
 }
 
 @media (max-width: 768px) {
-    .hero-container {
+    .income-container {
         flex-direction: column;
         text-align: center;
     }
 
-    .hero-visual {
+    .income-visual {
         order: -1;
     }
 
     .phone-mockup {
         width: 240px;
         transform: none;
+    }
+
+    .hero-qa-grid {
+        grid-template-columns: 1fr;
+        max-width: 320px;
     }
 
     .benefit-item,
@@ -853,13 +984,35 @@
         padding: 80px 16px 30px;
     }
 
-    .hero-title {
+    .njob-income-section {
+        padding: 60px 16px 30px;
+    }
+
+    .income-title {
         font-size: 28px;
+    }
+
+    .income-cta-btn {
+        padding: 14px 28px;
+        font-size: 16px;
+    }
+
+    .hero-title {
+        font-size: 32px;
     }
 
     .hero-cta-btn {
         padding: 14px 28px;
         font-size: 16px;
+    }
+
+    .qa-item {
+        padding: 16px;
+    }
+
+    .qa-answer {
+        font-size: 13px;
+        padding: 6px 12px;
     }
 
     .section-title,
