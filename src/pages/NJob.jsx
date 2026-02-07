@@ -1,5 +1,51 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import "./NJob.css";
+
+// 커스텀 셀렉트 컴포넌트
+const CustomSelect = ({ value, onChange, options, placeholder, disabled }) => {
+    const [open, setOpen] = useState(false);
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const handleClick = (e) => {
+            if (ref.current && !ref.current.contains(e.target)) setOpen(false);
+        };
+        document.addEventListener("mousedown", handleClick);
+        return () => document.removeEventListener("mousedown", handleClick);
+    }, []);
+
+    const selected = options.find((o) => o.value === value);
+
+    return (
+        <div className={`custom-select${open ? ' open' : ''}${disabled ? ' disabled' : ''}`} ref={ref}>
+            <button
+                type="button"
+                className={`custom-select-trigger${!value ? ' placeholder' : ''}`}
+                onClick={() => !disabled && setOpen((p) => !p)}
+                disabled={disabled}
+            >
+                <span className="custom-select-value">{selected ? selected.label : placeholder}</span>
+                <span className="custom-select-arrow" />
+            </button>
+            {open && (
+                <ul className="custom-select-dropdown">
+                    {options.map((opt) => (
+                        <li
+                            key={opt.value}
+                            className={`custom-select-option${opt.value === value ? ' selected' : ''}`}
+                            onClick={() => {
+                                onChange(opt.value);
+                                setOpen(false);
+                            }}
+                        >
+                            {opt.label}
+                        </li>
+                    ))}
+                </ul>
+            )}
+        </div>
+    );
+};
 
 // 지역 데이터
 const regionData = {
@@ -568,10 +614,10 @@ const ApplyModal = ({ isOpen, onClose }) => {
                 </div>
 
                 <div className="apply-modal-body">
-                    <h3 className="apply-modal-title">
-                        1분이면 OK!<br />
-                        빠른 지원을 위한 필수정보만 받을게요
-                    </h3>
+                    <div className="apply-modal-title">
+                        <p className="modal-title-accent">1분이면 신청!</p>
+                        <p className="modal-title-sub"><em>꼭 필요한 정보</em>만 받고 있어요</p>
+                    </div>
 
                     <form onSubmit={handleSubmit} className="apply-form">
                         {/* 이름 */}
@@ -662,56 +708,41 @@ const ApplyModal = ({ isOpen, onClose }) => {
                         <div className="form-group">
                             <label className="form-label">지역</label>
                             <div className="form-row">
-                                <select
-                                    name="sido"
-                                    className="form-select"
+                                <CustomSelect
                                     value={form.sido}
-                                    onChange={handleChange}
-                                >
-                                    <option value="">시/도</option>
-                                    {Object.keys(regionData).map((s) => (
-                                        <option key={s} value={s}>{s}</option>
-                                    ))}
-                                </select>
-                                <select
-                                    name="sigungu"
-                                    className="form-select"
+                                    onChange={(v) => setForm((p) => ({ ...p, sido: v, sigungu: "" }))}
+                                    options={Object.keys(regionData).map((s) => ({ value: s, label: s }))}
+                                    placeholder="시/도"
+                                />
+                                <CustomSelect
                                     value={form.sigungu}
-                                    onChange={handleChange}
+                                    onChange={(v) => setForm((p) => ({ ...p, sigungu: v }))}
+                                    options={sigunguList.map((g) => ({ value: g, label: g }))}
+                                    placeholder="시/군/구"
                                     disabled={!form.sido}
-                                >
-                                    <option value="">시/군/구</option>
-                                    {sigunguList.map((g) => (
-                                        <option key={g} value={g}>{g}</option>
-                                    ))}
-                                </select>
+                                />
                             </div>
                         </div>
 
                         {/* 직업 */}
                         <div className="form-group">
                             <label className="form-label">직업</label>
-                            <select
-                                name="job"
-                                className="form-select"
+                            <CustomSelect
                                 value={form.job}
-                                onChange={handleChange}
-                            >
-                                <option value="">직업을 선택해 주세요.</option>
-                                {jobOptions.map((j) => (
-                                    <option key={j} value={j}>{j}</option>
-                                ))}
-                            </select>
+                                onChange={(v) => setForm((p) => ({ ...p, job: v }))}
+                                options={jobOptions.map((j) => ({ value: j, label: j }))}
+                                placeholder="직업을 선택해 주세요."
+                            />
                         </div>
 
-                        {/* 추천인코드 */}
+                        {/* 추천인정보 */}
                         <div className="form-group">
-                            <label className="form-label">추천인코드</label>
+                            <label className="form-label">추천인정보 <span className="label-hint">(닉네임, 이름, 검색, 블로그, 인스타 등)</span></label>
                             <input
                                 type="text"
                                 name="referralCode"
                                 className="form-input"
-                                placeholder="추천인코드"
+                                placeholder="추천인정보"
                                 value={form.referralCode}
                                 onChange={handleChange}
                             />
