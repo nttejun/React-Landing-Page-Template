@@ -461,7 +461,7 @@ const FAQSection = () => {
         },
         {
             q: "설계사 자격 취득에 들어가는 비용은 없나요?",
-            a: "교육비와 시험 응시료 모두 전액 지원됩니다. 초기 비용 0원으로 시작하세요!"
+            a: "교육비는 모두 전액 지원됩니다. 초기 비용 0원으로 시작하세요! (시험 응시료 20,000원은 발생)"
         }
     ];
 
@@ -497,16 +497,27 @@ const FAQSection = () => {
 };
 
 // 플로팅 버튼
-const FloatingButtons = ({ onApply }) => (
-    <div className="floating-buttons">
-        <button className="float-btn apply-btn" onClick={onApply}>
-            N잡크루<br />지원하기
-        </button>
-        <button className="float-btn scroll-btn" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
-            맨 위로<br />올라가기
-        </button>
-    </div>
-);
+const FloatingButtons = ({ onApply }) => {
+    const scrollToTop = () => {
+        const page = document.getElementById('top');
+        if (page) {
+            page.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    };
+
+    return (
+        <div className="floating-buttons">
+            <button className="float-btn apply-btn" onClick={onApply}>
+                N잡크루<br />지원하기
+            </button>
+            <button className="float-btn scroll-btn" onClick={scrollToTop}>
+                맨 위로<br />올라가기
+            </button>
+        </div>
+    );
+};
 
 // 신청 모달
 const ApplyModal = ({ isOpen, onClose }) => {
