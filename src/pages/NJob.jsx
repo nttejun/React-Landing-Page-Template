@@ -501,7 +501,7 @@ const ApplyModal = ({ isOpen, onClose }) => {
                 : form.sido || "-";
 
         try {
-            const res = await fetch(process.env.REAL_HOST_URL+`/.netlify/functions/triggerNjobApplyEmail`, {
+            const res = await fetch("/.netlify/functions/triggerNjobApplyEmail", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
