@@ -272,17 +272,11 @@ const IntroSection = () => (
     <section className="njob-intro-section">
         <div className="section-container">
             <p className="intro-pretitle">고민을 기회로 바꾸는 해답!</p>
-            <h2 className="intro-title">시간과 장소의 제약 없는, 쉽고 편안한 N잡을 소개합니다 🙋</h2>
 
             <div className="intro-logo">
                 <span className="logo-samsung-big">드림앤조이</span>
                 <span className="logo-njob-big">N잡크루</span>
             </div>
-
-            <p className="intro-desc">
-                드림앤조이 N잡크루는 시간과 장소에 구애받지 않고,<br />
-                자유롭게 활동하며 수익을 창출하는 <span className="highlight">'N잡러 보험 설계사'</span> 입니다.
-            </p>
 
             {/* N잡크루 후기 */}
             <div className="review-section">
