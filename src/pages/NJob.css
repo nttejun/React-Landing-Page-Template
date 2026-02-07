@@ -1078,8 +1078,36 @@
 }
 
 .q-arrow {
-    font-size: 18px;
-    color: #999;
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #f0f0f0;
+    position: relative;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.q-arrow::after {
+    content: '';
+    position: absolute;
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-right: 2.5px solid #666;
+    border-bottom: 2.5px solid #666;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+}
+
+.q-arrow.open {
+    background: #e3f2fd;
+}
+
+.q-arrow.open::after {
+    top: 12px;
+    transform: rotate(-135deg);
+    border-color: #2196f3;
 }
 
 .faq-answer {

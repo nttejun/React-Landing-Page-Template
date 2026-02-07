@@ -480,7 +480,7 @@ const FAQSection = () => {
                             <div className="faq-question">
                                 <span className="q-badge">Q</span>
                                 <span className="q-text">{faq.q}</span>
-                                <span className="q-arrow">{openIndex === idx ? '∧' : '∨'}</span>
+                                <span className={`q-arrow ${openIndex === idx ? 'open' : ''}`} />
                             </div>
                             {openIndex === idx && (
                                 <div className="faq-answer">
