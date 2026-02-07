@@ -1,6 +1,30 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Link } from "react-router-dom";
 import "./NJob.css";
+
+// 지역 데이터
+const regionData = {
+    "서울특별시": ["강남구","강동구","강북구","강서구","관악구","광진구","구로구","금천구","노원구","도봉구","동대문구","동작구","마포구","서대문구","서초구","성동구","성북구","송파구","양천구","영등포구","용산구","은평구","종로구","중구","중랑구"],
+    "부산광역시": ["강서구","금정구","기장군","남구","동구","동래구","부산진구","북구","사상구","사하구","서구","수영구","연제구","영도구","중구","해운대구"],
+    "대구광역시": ["남구","달서구","달성군","동구","북구","서구","수성구","중구"],
+    "인천광역시": ["강화군","계양구","남동구","동구","미추홀구","부평구","서구","연수구","옹진군","중구"],
+    "광주광역시": ["광산구","남구","동구","북구","서구"],
+    "대전광역시": ["대덕구","동구","서구","유성구","중구"],
+    "울산광역시": ["남구","동구","북구","울주군","중구"],
+    "세종특별자치시": ["세종시"],
+    "경기도": ["가평군","고양시","과천시","광명시","광주시","구리시","군포시","김포시","남양주시","동두천시","부천시","성남시","수원시","시흥시","안산시","안성시","안양시","양주시","양평군","여주시","연천군","오산시","용인시","의왕시","의정부시","이천시","파주시","평택시","포천시","하남시","화성시"],
+    "강원특별자치도": ["강릉시","고성군","동해시","삼척시","속초시","양구군","양양군","영월군","원주시","인제군","정선군","철원군","춘천시","태백시","평창군","홍천군","화천군","횡성군"],
+    "충청북도": ["괴산군","단양군","보은군","영동군","옥천군","음성군","제천시","증평군","진천군","청주시","충주시"],
+    "충청남도": ["계룡시","공주시","금산군","논산시","당진시","보령시","부여군","서산시","서천군","아산시","예산군","천안시","청양군","태안군","홍성군"],
+    "전북특별자치도": ["고창군","군산시","김제시","남원시","무주군","부안군","순창군","완주군","익산시","임실군","장수군","전주시","정읍시","진안군"],
+    "전라남도": ["강진군","고흥군","곡성군","광양시","구례군","나주시","담양군","목포시","무안군","보성군","순천시","신안군","여수시","영광군","영암군","완도군","장성군","장흥군","진도군","함평군","해남군","화순군"],
+    "경상북도": ["경산시","경주시","고령군","구미시","군위군","김천시","문경시","봉화군","상주시","성주군","안동시","영덕군","영양군","영주시","영천시","예천군","울릉군","울진군","의성군","청도군","청송군","칠곡군","포항시"],
+    "경상남도": ["거제시","거창군","고성군","김해시","남해군","밀양시","사천시","산청군","양산시","의령군","진주시","창녕군","창원시","통영시","하동군","함안군","함양군","합천군"],
+    "제주특별자치도": ["서귀포시","제주시"],
+};
+
+const jobOptions = [
+    "직장인", "자영업", "프리랜서", "대학생", "주부", "무직/구직중", "기타"
+];
 
 // 네비게이션
 const NJobNav = () => (
@@ -24,7 +48,7 @@ const NJobNav = () => (
 );
 
 // 섹션 1: 히어로
-const HeroSection = () => {
+const HeroSection = ({ onApply }) => {
     const qaItems = [
         { question: "출근은 매일?", answer: "원할 때 언제든지" },
         { question: "N잡 소득은?", answer: "일하고 싶은 만큼만" },
@@ -51,9 +75,9 @@ const HeroSection = () => {
                             </div>
                         ))}
                     </div>
-                    <Link to="/consult" className="hero-cta-btn">
+                    <button className="hero-cta-btn" onClick={onApply}>
                         N잡크루 지원하기 <span className="arrow">→</span>
-                    </Link>
+                    </button>
                 </div>
             </div>
             <p className="hero-disclaimer">*수익은 개인의 활동에 따라 달라질 수 있으며, 해당 금액은 예시입니다.</p>
@@ -69,7 +93,7 @@ const incomeSlides = [
     { header: "드림앤조이N잡크루", amount: "3,100,000원", date: "09.20", desc: "드림앤조이N잡크루 9월 입금", historyAmount: "3,100,000원" },
 ];
 
-const IncomeSection = () => {
+const IncomeSection = ({ onApply }) => {
     const [current, setCurrent] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false);
 
@@ -106,9 +130,9 @@ const IncomeSection = () => {
                         부담 없이 시작하는 N잡 보험!<br/>
                         </b>
                     </p>
-                    <Link to="/consult" className="income-cta-btn">
+                    <button className="income-cta-btn" onClick={onApply}>
                         N잡크루 지원하기 <span className="arrow">→</span>
-                    </Link>
+                    </button>
                 </div>
                 <div className="income-visual">
                     <div className="phone-mockup">
@@ -408,31 +432,355 @@ const FAQSection = () => {
 };
 
 // 플로팅 버튼
-const FloatingButtons = () => (
+const FloatingButtons = ({ onApply }) => (
     <div className="floating-buttons">
-        <Link to="/consult" className="float-btn apply-btn">
+        <button className="float-btn apply-btn" onClick={onApply}>
             N잡크루<br />지원하기
-        </Link>
+        </button>
         <a href="#top" className="float-btn scroll-btn">
             맨 위로<br />올라가기
         </a>
     </div>
 );
 
+// 신청 모달
+const ApplyModal = ({ isOpen, onClose }) => {
+    const [form, setForm] = useState({
+        name: "",
+        birthYear: "",
+        birthMonth: "",
+        birthDay: "",
+        phone: "",
+        email: "",
+        sido: "",
+        sigungu: "",
+        job: "",
+        referralCode: "",
+        experience: "",
+    });
+    const [sending, setSending] = useState(false);
+    const [result, setResult] = useState(null); // { type: 'success'|'error', msg }
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setForm((prev) => {
+            if (name === "sido") {
+                return { ...prev, sido: value, sigungu: "" };
+            }
+            return { ...prev, [name]: value };
+        });
+    };
+
+    const validate = () => {
+        if (!form.name.trim()) return "이름을 입력해주세요.";
+        if (!form.birthYear || !form.birthMonth || !form.birthDay)
+            return "생년월일을 입력해주세요.";
+        if (!/^01[0-9]\d{7,8}$/.test(form.phone.replace(/-/g, "")))
+            return "올바른 휴대전화 번호를 입력해주세요.";
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email))
+            return "올바른 이메일을 입력해주세요.";
+        if (!form.experience) return "설계사 경력 유무를 선택해주세요.";
+        return null;
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const error = validate();
+        if (error) {
+            setResult({ type: "error", msg: error });
+            return;
+        }
+
+        setSending(true);
+        setResult(null);
+
+        const birth = `${form.birthYear}-${form.birthMonth.padStart(2, "0")}-${form.birthDay.padStart(2, "0")}`;
+        const region =
+            form.sido && form.sigungu
+                ? `${form.sido} ${form.sigungu}`
+                : form.sido || "-";
+
+        try {
+            const res = await fetch(process.env.REAL_HOST_URL+`/.netlify/functions/triggerNjobApplyEmail`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    name: form.name.trim(),
+                    birth,
+                    phone: form.phone.replace(/-/g, ""),
+                    email: form.email.trim(),
+                    region,
+                    job: form.job || "-",
+                    referralCode: form.referralCode.trim() || "-",
+                    experience: form.experience,
+                }),
+            });
+
+            if (res.ok) {
+                setResult({ type: "success", msg: "신청이 완료되었습니다!" });
+                setForm({
+                    name: "", birthYear: "", birthMonth: "", birthDay: "",
+                    phone: "", email: "", sido: "", sigungu: "",
+                    job: "", referralCode: "", experience: "",
+                });
+            } else {
+                const data = await res.json();
+                setResult({
+                    type: "error",
+                    msg: data.error || "발송에 실패했습니다. 다시 시도해주세요.",
+                });
+            }
+        } catch {
+            setResult({ type: "error", msg: "네트워크 오류가 발생했습니다." });
+        } finally {
+            setSending(false);
+        }
+    };
+
+    const handleOverlayClick = (e) => {
+        if (e.target === e.currentTarget) onClose();
+    };
+
+    useEffect(() => {
+        if (isOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "";
+        }
+        return () => { document.body.style.overflow = ""; };
+    }, [isOpen]);
+
+    if (!isOpen) return null;
+
+    const sigunguList = form.sido ? regionData[form.sido] || [] : [];
+
+    return (
+        <div className="apply-overlay" onClick={handleOverlayClick}>
+            <div className="apply-modal">
+                <div className="apply-modal-header">
+                    <div className="apply-modal-logo">
+                        <span className="logo-samsung">드림앤조이</span>{" "}
+                        <span className="logo-njob">N잡크루</span>
+                    </div>
+                    <button className="apply-modal-close" onClick={onClose}>
+                        &times;
+                    </button>
+                </div>
+
+                <div className="apply-modal-body">
+                    <h3 className="apply-modal-title">
+                        1분이면 OK!<br />
+                        빠른 지원을 위한 필수정보만 받을게요
+                    </h3>
+
+                    <form onSubmit={handleSubmit} className="apply-form">
+                        {/* 이름 */}
+                        <div className="form-group">
+                            <label className="form-label">
+                                이름<span className="required">*</span>
+                            </label>
+                            <input
+                                type="text"
+                                name="name"
+                                className="form-input"
+                                placeholder="예) 홍길동"
+                                value={form.name}
+                                onChange={handleChange}
+                            />
+                        </div>
+
+                        {/* 생년월일 */}
+                        <div className="form-group">
+                            <label className="form-label">
+                                생년월일<span className="required">*</span>
+                            </label>
+                            <div className="form-row birth-row">
+                                <input
+                                    type="number"
+                                    name="birthYear"
+                                    className="form-input"
+                                    placeholder="년도"
+                                    value={form.birthYear}
+                                    onChange={handleChange}
+                                    min="1900"
+                                    max="2010"
+                                />
+                                <input
+                                    type="number"
+                                    name="birthMonth"
+                                    className="form-input"
+                                    placeholder="월"
+                                    value={form.birthMonth}
+                                    onChange={handleChange}
+                                    min="1"
+                                    max="12"
+                                />
+                                <input
+                                    type="number"
+                                    name="birthDay"
+                                    className="form-input"
+                                    placeholder="일"
+                                    value={form.birthDay}
+                                    onChange={handleChange}
+                                    min="1"
+                                    max="31"
+                                />
+                            </div>
+                        </div>
+
+                        {/* 휴대전화 */}
+                        <div className="form-group">
+                            <label className="form-label">
+                                휴대전화<span className="required">*</span>
+                            </label>
+                            <input
+                                type="tel"
+                                name="phone"
+                                className="form-input"
+                                placeholder="휴대전화"
+                                value={form.phone}
+                                onChange={handleChange}
+                            />
+                        </div>
+
+                        {/* 이메일 */}
+                        <div className="form-group">
+                            <label className="form-label">
+                                이메일<span className="required">*</span>
+                            </label>
+                            <input
+                                type="email"
+                                name="email"
+                                className="form-input"
+                                placeholder="이메일"
+                                value={form.email}
+                                onChange={handleChange}
+                            />
+                        </div>
+
+                        {/* 지역 */}
+                        <div className="form-group">
+                            <label className="form-label">지역</label>
+                            <div className="form-row">
+                                <select
+                                    name="sido"
+                                    className="form-select"
+                                    value={form.sido}
+                                    onChange={handleChange}
+                                >
+                                    <option value="">시/도</option>
+                                    {Object.keys(regionData).map((s) => (
+                                        <option key={s} value={s}>{s}</option>
+                                    ))}
+                                </select>
+                                <select
+                                    name="sigungu"
+                                    className="form-select"
+                                    value={form.sigungu}
+                                    onChange={handleChange}
+                                    disabled={!form.sido}
+                                >
+                                    <option value="">시/군/구</option>
+                                    {sigunguList.map((g) => (
+                                        <option key={g} value={g}>{g}</option>
+                                    ))}
+                                </select>
+                            </div>
+                        </div>
+
+                        {/* 직업 */}
+                        <div className="form-group">
+                            <label className="form-label">직업</label>
+                            <select
+                                name="job"
+                                className="form-select"
+                                value={form.job}
+                                onChange={handleChange}
+                            >
+                                <option value="">직업을 선택해 주세요.</option>
+                                {jobOptions.map((j) => (
+                                    <option key={j} value={j}>{j}</option>
+                                ))}
+                            </select>
+                        </div>
+
+                        {/* 추천인코드 */}
+                        <div className="form-group">
+                            <label className="form-label">추천인코드</label>
+                            <input
+                                type="text"
+                                name="referralCode"
+                                className="form-input"
+                                placeholder="추천인코드"
+                                value={form.referralCode}
+                                onChange={handleChange}
+                            />
+                        </div>
+
+                        {/* 설계사 경력 유무 */}
+                        <div className="form-group">
+                            <label className="form-label">
+                                설계사 경력 유무<span className="required">*</span>
+                            </label>
+                            <div className="form-row exp-row">
+                                <button
+                                    type="button"
+                                    className={`exp-btn ${form.experience === "있음" ? "active" : ""}`}
+                                    onClick={() => setForm((p) => ({ ...p, experience: "있음" }))}
+                                >
+                                    있음
+                                </button>
+                                <button
+                                    type="button"
+                                    className={`exp-btn ${form.experience === "없음" ? "active" : ""}`}
+                                    onClick={() => setForm((p) => ({ ...p, experience: "없음" }))}
+                                >
+                                    없음
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* 결과 메시지 */}
+                        {result && (
+                            <div className={`form-result ${result.type}`}>
+                                {result.msg}
+                            </div>
+                        )}
+
+                        {/* 제출 */}
+                        <button
+                            type="submit"
+                            className="apply-submit-btn"
+                            disabled={sending}
+                        >
+                            {sending ? "신청 중..." : "신청하기"}
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    );
+};
+
 // 메인 컴포넌트
 const NJob = () => {
+    const [modalOpen, setModalOpen] = useState(false);
+    const openModal = () => setModalOpen(true);
+    const closeModal = () => setModalOpen(false);
+
     return (
         <div id="top" className="njob-page">
             <NJobNav />
-            <IncomeSection />
-            <HeroSection />
+            <IncomeSection onApply={openModal} />
+            <HeroSection onApply={openModal} />
             <ConcernSection />
             <IntroSection />
             <DifferenceSection />
             <BenefitSection />
             <StepSection />
             <FAQSection />
-            <FloatingButtons />
+            <FloatingButtons onApply={openModal} />
+            <ApplyModal isOpen={modalOpen} onClose={closeModal} />
         </div>
     );
 };
