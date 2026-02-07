@@ -144,7 +144,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
-    margin-bottom: 48px;
+    margin-bottom: 28px;
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
@@ -1717,7 +1717,9 @@ button.float-btn {
     }
 
     .qa-item {
-        padding: 16px;
+        padding: 20px;
+        min-width: 200px;
+        margin: 0 auto;
     }
 
     .qa-answer {
