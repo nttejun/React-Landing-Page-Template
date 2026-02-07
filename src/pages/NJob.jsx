@@ -220,56 +220,54 @@ const IncomeSection = ({ onApply }) => {
 };
 
 // 섹션 2: 고민
-const ConcernSection = () => {
-    const concerns = [
-        {
-            title: "퇴근 후에도 부담 없는",
-            highlight: "내 체력과 스케줄에 맞춰\n할 수 있는 N잡이 필요해요",
-            suffix: "일정, 체력 걱정 No!",
-            emoji: "📅"
-        },
-        {
-            title: "하루 종일 육아로 바쁜데...",
-            highlight: "내 집에서도 할 수 있는\n편안한 N잡, 어디 없을까요?",
-            suffix: "언제, 어디서든 가능해요!",
-            emoji: "💻"
-        },
-        {
-            title: "스펙도, 지갑도 채우고 싶어!",
-            highlight: "학업과 병행하면서 경험도\n쌓을 수 있는 N잡이 필요해요",
-            suffix: "시간 제약도 없어요!",
-            emoji: "🎓"
-        },
-        {
-            title: "사회 초년생의 적은 월급",
-            highlight: "수익에 보탬이 되는\n쉬운 N잡을 찾고 있어요",
-            suffix: "높은 수익도 가능!",
-            emoji: "💵"
-        }
-    ];
-
-    return (
-        <section className="njob-concern-section">
-            <div className="section-container">
-                <h2 className="section-title">혹시 이런 고민, 갖고 계세요? 🤔</h2>
-                <div className="concern-cards">
-                    {concerns.map((item, idx) => (
-                        <div className="concern-card" key={idx}>
-                            <div className="concern-text">
-                                <p className="concern-title">{item.title}</p>
-                                <p className="concern-highlight">{item.highlight}</p>
-                                <p className="concern-suffix">{item.suffix}</p>
-                            </div>
-                            <div className="concern-emoji">{item.emoji}</div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
-};
-
 // 섹션 3: 소개
+const reviews = [
+    {
+        tag: "경력단절 → N잡 설계사",
+        profile: "40대 / 前 외국계 은행 근무",
+        quote: "내 보험은 내가 공부해 드는 시대, N잡 설계사로 건강과 노후를 동시에 챙기고 있어요",
+        points: [
+            "결혼·출산·육아 후 경력단절, 시간 자유로운 N잡을 찾다 설계사 도전",
+            "과거 가입한 간병보험이 중증만 보장 → 공부 후 직접 리모델링 성공",
+            "초고령화 시대, 어르신 간병보험 컨설팅으로 보람과 수익을 함께",
+        ],
+        highlight: "내 보험을 직접 점검하고 가족 건강까지 챙기는 N잡!",
+    },
+    {
+        tag: "가족 보험 전문가",
+        profile: "30대 / 육아맘",
+        quote: "월 80만원 보험료를 내면서도 받을 수 있는 게 없었던 언니를 보고 시작했어요",
+        points: [
+            "미국 거주 언니의 보험 — 사망·중증만 보장되는 엉터리 설계 발견",
+            "분노를 계기로 설계사 자격증 취득, 6자매 가족 보험을 직접 리모델링",
+            "디앤제이 지원으로 교재·시험비 무료, 한 번에 합격",
+        ],
+        highlight: "월 최대 500만원 부수입, 가족 보험은 내가 책임지는 시대!",
+    },
+    {
+        tag: "부모님 걱정에서 시작",
+        profile: "30대 / 직장인 겸업",
+        quote: "80대 부모님 간병보험을 알아보다 보험에 대해 얼마나 무지했는지 깨달았어요",
+        points: [
+            "부모님 간병·치매 보험 설명을 들어도 이해가 안 돼 직접 공부 결심",
+            "생명·손해보험 자격증 취득 후 가족 보험 전면 점검",
+            "주 1~2회 투자, 시간 대비 매우 만족스러운 성과",
+        ],
+        highlight: "월 부수입 100~200만원, 건강도 챙기고 돈도 버는 N잡!",
+    },
+    {
+        tag: "프리랜서 블로거의 선택",
+        profile: "30대 / 패션 블로거",
+        quote: "연봉 8천 회사를 퇴사하고 프리랜서가 됐는데, N잡 설계사가 인생을 바꿨어요",
+        points: [
+            "멋지게 퇴사했지만 블로그 수익만으론 부족, N잡을 고민하던 중 설계사 도전",
+            "1주 집중 공부로 생명·손해보험 자격증 동시 취득",
+            "내 보험 분석해보니 엉망 → 직접 리모델링 후 맞춤 설계로 전환",
+        ],
+        highlight: "월 6~8일 투자로 월 수익 최대 1,000만원 달성!",
+    },
+];
+
 const IntroSection = () => (
     <section className="njob-intro-section">
         <div className="section-container">
@@ -286,93 +284,120 @@ const IntroSection = () => (
                 자유롭게 활동하며 수익을 창출하는 <span className="highlight">'N잡러 보험 설계사'</span> 입니다.
             </p>
 
-            <div className="intro-visual">
-                <div className="visual-icon icon-train">🚄</div>
-                <div className="visual-icon icon-money">💸</div>
-                <div className="visual-character">👨‍💼</div>
-                <div className="visual-icon icon-clock">⏳</div>
-                <div className="visual-icon icon-house">🏠</div>
+            {/* N잡크루 후기 */}
+            <div className="review-section">
+                <h3 className="review-section-title">N잡크루원들의 <em>리얼 후기</em></h3>
+                <div className="review-cards">
+                    {reviews.map((r, idx) => (
+                        <div className="review-card" key={idx}>
+                            <div className="review-card-head">
+                                <span className="review-tag">{r.tag}</span>
+                                <span className="review-profile">{r.profile}</span>
+                            </div>
+                            <p className="review-quote">"{r.quote}"</p>
+                            <ul className="review-points">
+                                {r.points.map((p, i) => (
+                                    <li key={i}>{p}</li>
+                                ))}
+                            </ul>
+                            <div className="review-highlight">{r.highlight}</div>
+                        </div>
+                    ))}
+                </div>
+                <a
+                    href="https://www.instagram.com/dreamnjoy_official/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="review-insta-link"
+                >
+                    자세한 후기를 확인하실 수 있습니다
+                    <img src="/img/sns/insta.jpeg" alt="Instagram" className="review-insta-icon" />
+                </a>
             </div>
         </div>
     </section>
 );
 
-// 섹션 4: 차별점
-const DifferenceSection = () => {
-    const differences = [
-        {
-            emoji: "🏠",
-            lines: ["출퇴근 없이,", "내가 가능한 시간에", "원하는 만큼 자유롭게 일해요!"]
-        },
-        {
-            emoji: "😫",
-            lines: ["최소 실적 조건이 없어요!", "실적 압박 없이", "마음 편하게 활동해요"]
-        },
-        {
-            emoji: "🐷",
-            lines: ["본업이 있어도", "도전할 수 있어요!", "일하는 만큼 부수입을 만들어요"]
-        }
-    ];
+// 섹션 5: 지원 혜택
+const eduImages = [
+    { src: "/img/edu/class-01.png", alt: "원데이 스페셜 클래스" },
+    { src: "/img/edu/class-02.png", alt: "2월 원데이클래스" },
+    { src: "/img/edu/class-03.png", alt: "디앤제이 ONE DAY Special Class" },
+];
+
+const BenefitSection = () => {
+    const [eduIdx, setEduIdx] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setEduIdx((p) => (p + 1) % eduImages.length);
+        }, 4000);
+        return () => clearInterval(timer);
+    }, []);
 
     return (
-        <section className="njob-difference-section">
+        <section className="njob-benefit-section">
             <div className="section-container">
-                <p className="difference-pretitle">잠깐! 보험 설계사?</p>
-                <h2 className="difference-title">우리가 알고있는 설계사와는 이런 것들이 달라요 😮</h2>
+                <h2 className="benefit-title">여러분은 소중한 N잡크루원!</h2>
+                <p className="benefit-subtitle">
+                    부담 없이 시작하고 성공적으로 정착할 수 있도록<br />
+                    드림앤조이에서 아낌없이 도와드릴게요!
+                </p>
 
-                <div className="difference-cards">
-                    {differences.map((item, idx) => (
-                        <div className="difference-card" key={idx}>
-                            <div className="card-emoji">{item.emoji}</div>
-                            <div className="card-text">
-                                {item.lines.map((line, i) => (
-                                    <p key={i}>{line}</p>
-                                ))}
+                {/* 교육 프로그램 갤러리 */}
+                <div className="edu-gallery">
+                    <h3 className="edu-gallery-title">
+                        매월 진행되는 <em>원데이 스페셜 클래스</em>
+                    </h3>
+                    <p className="edu-gallery-desc">
+                        경제 동향, SNS 마케팅, 보험 전략 등 실전 중심의 교육을 무료로 제공합니다
+                    </p>
+                    <div className="edu-slider">
+                        {eduImages.map((img, idx) => (
+                            <div
+                                className={`edu-slide ${idx === eduIdx ? 'active' : ''}`}
+                                key={idx}
+                            >
+                                <img src={img.src} alt={img.alt} />
                             </div>
+                        ))}
+                    </div>
+                    <div className="edu-dots">
+                        {eduImages.map((_, idx) => (
+                            <button
+                                className={`edu-dot ${idx === eduIdx ? 'active' : ''}`}
+                                key={idx}
+                                onClick={() => setEduIdx(idx)}
+                            />
+                        ))}
+                    </div>
+                </div>
+
+                <div className="benefit-items">
+                    <div className="benefit-item">
+                        <div className="benefit-text">
+                            <span className="benefit-badge">멘토링</span>
+                            <h3>보험 지식이 전혀 없어도<br/><em>괜찮아요!</em></h3>
+                            <ul className="benefit-list">
+                                <li>1:1 전담 멘토가 배정됩니다</li>
+                                <li>교육 → 시험 → 등록 → 활동까지 전 과정 밀착 지원</li>
+                                <li>언제든 궁금한 점은 바로 질문 가능</li>
+                            </ul>
                         </div>
-                    ))}
+                        <div className="benefit-text">
+                            <span className="benefit-badge">비용 지원</span>
+                            <h3>초기 비용 0원!<br/><em>전액 무료로 시작하세요</em></h3>
+                            <ul className="benefit-list">
+                                <li>교육 수강료 전액 지원</li>
+                                <li>추가 비용 부담 없이 가볍게 도전</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     );
 };
-
-// 섹션 5: 지원 혜택
-const BenefitSection = () => (
-    <section className="njob-benefit-section">
-        <div className="section-container">
-            <h2 className="benefit-title">여러분은 소중한 N잡크루원! 💙💙</h2>
-            <p className="benefit-subtitle">
-                부담 없이 시작하고 성공적으로 정착할 수 있도록<br />
-                드림앤조이에서 아낌없이 도와드릴게요!
-            </p>
-
-            <div className="benefit-items">
-                <div className="benefit-item">
-                    <div className="benefit-text">
-                        <h3>보험 지식이<br />전혀 없어도 괜찮아요</h3>
-                        <p>1:1 담당 멘토 배정!</p>
-                        <p>교육, 시험, 등록, 활동까지 전 과정을 밀착 지원합니다.</p>
-                    </div>
-                    <div className="benefit-visual">
-                        <span className="benefit-emoji">💬❓</span>
-                    </div>
-                </div>
-
-                <div className="benefit-item reverse">
-                    <div className="benefit-visual">
-                        <span className="benefit-emoji">🆓</span>
-                    </div>
-                    <div className="benefit-text">
-                        <h3>초기 비용 0원<br />교육부터 자격시험 응시까지 모두 무료!</h3>
-                        <p>교육 수강료, 설계사 자격시험 응시료 전액 지원!</p>
-                        <p>초기 비용에 대한 부담없이, 가볍게 시작해보세요.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-);
 
 // 섹션 6: 시작하기
 const StepSection = () => {
@@ -803,11 +828,9 @@ const NJob = () => {
         <div id="top" className="njob-page">
             <NJobNav />
             <IncomeSection onApply={openModal} />
-            <HeroSection onApply={openModal} />
-            <ConcernSection />
             <IntroSection />
-            <DifferenceSection />
             <BenefitSection />
+            <HeroSection onApply={openModal} />
             <StepSection />
             <FAQSection />
             <FloatingButtons onApply={openModal} />
