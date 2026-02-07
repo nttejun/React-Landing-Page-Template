@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import "./NJob.css";
 
@@ -62,48 +62,92 @@ const HeroSection = () => {
 };
 
 // 섹션 1.5: 수익 소개 (기존 히어로 콘텐츠)
-const IncomeSection = () => (
-    <section className="njob-income-section">
-        <div className="hero-bg-shapes">
-            <div className="shape shape-ring"></div>
-            <div className="shape shape-coin coin-1">⭐</div>
-            <div className="shape shape-coin coin-2">🪙</div>
-            <div className="shape shape-cone"></div>
-        </div>
-        <div className="income-container">
-            <div className="income-content">
-                <h2 className="income-title">
-                    <span className="title-job">N잡도 찾고, </span>수익도 찾았다
-                </h2>
-                <p className="income-subtitle">
-                    <b>
-                    출퇴근 없이, 내 일정에 맞춰<br/>
-                    부담 없이 시작하는 N잡 보험!<br/>
-                    </b>
-                </p>
-                <Link to="/consult" className="income-cta-btn">
-                    N잡크루 지원하기 <span className="arrow">→</span>
-                </Link>
+const incomeSlides = [
+    { header: "드림앤조이N잡크루", amount: "1,500,000원", date: "12.20", desc: "드림앤조이N잡크루 12월 입금", historyAmount: "1,500,000원" },
+    { header: "드림앤조이N잡크루", amount: "2,300,000원", date: "11.20", desc: "드림앤조이N잡크루 11월 입금", historyAmount: "2,300,000원" },
+    { header: "드림앤조이N잡크루", amount: "800,000원", date: "10.20", desc: "드림앤조이N잡크루 10월 입금", historyAmount: "800,000원" },
+    { header: "드림앤조이N잡크루", amount: "3,100,000원", date: "09.20", desc: "드림앤조이N잡크루 9월 입금", historyAmount: "3,100,000원" },
+];
+
+const IncomeSection = () => {
+    const [current, setCurrent] = useState(0);
+    const [isAnimating, setIsAnimating] = useState(false);
+
+    const goTo = useCallback((idx) => {
+        if (isAnimating) return;
+        setIsAnimating(true);
+        setCurrent(idx);
+        setTimeout(() => setIsAnimating(false), 500);
+    }, [isAnimating]);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            goTo((current + 1) % incomeSlides.length);
+        }, 3000);
+        return () => clearInterval(timer);
+    }, [current, goTo]);
+
+    return (
+        <section className="njob-income-section">
+            <div className="hero-bg-shapes">
+                <div className="shape shape-ring"></div>
+                <div className="shape shape-coin coin-1">⭐</div>
+                <div className="shape shape-coin coin-2">🪙</div>
+                <div className="shape shape-cone"></div>
             </div>
-            <div className="income-visual">
-                <div className="phone-mockup">
-                    <div className="phone-screen">
-                        <div className="phone-header">드림앤조이N잡크루</div>
-                        <div className="phone-amount">1,500,000원</div>
-                        <div className="phone-history">
-                            <div className="history-item">
-                                <span className="date">12.20</span>
-                                <span className="desc">드림앤조이N잡크루 12월 입금</span>
-                                <span className="amount">1,500,000원</span>
+            <div className="income-container">
+                <div className="income-content">
+                    <h2 className="income-title">
+                        <span className="title-job">N잡도 찾고, </span>수익도 찾았다
+                    </h2>
+                    <p className="income-subtitle">
+                        <b>
+                        출퇴근 없이, 내 일정에 맞춰<br/>
+                        부담 없이 시작하는 N잡 보험!<br/>
+                        </b>
+                    </p>
+                    <Link to="/consult" className="income-cta-btn">
+                        N잡크루 지원하기 <span className="arrow">→</span>
+                    </Link>
+                </div>
+                <div className="income-visual">
+                    <div className="phone-mockup">
+                        <div className="phone-screen">
+                            <div className="phone-slider">
+                                {incomeSlides.map((slide, idx) => (
+                                    <div
+                                        className={`phone-slide ${idx === current ? 'active' : ''}`}
+                                        key={idx}
+                                    >
+                                        <div className="phone-header">{slide.header}</div>
+                                        <div className="phone-amount">{slide.amount}</div>
+                                        <div className="phone-history">
+                                            <div className="history-item">
+                                                <span className="date">{slide.date}</span>
+                                                <span className="desc">{slide.desc}</span>
+                                                <span className="amount">{slide.historyAmount}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                            <div className="slide-dots">
+                                {incomeSlides.map((_, idx) => (
+                                    <button
+                                        className={`slide-dot ${idx === current ? 'active' : ''}`}
+                                        key={idx}
+                                        onClick={() => goTo(idx)}
+                                    />
+                                ))}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <p className="income-disclaimer">*수익은 개인의 활동에 따라 달라질 수 있으며, 해당 금액은 예시입니다.</p>
-    </section>
-);
+            <p className="income-disclaimer">*수익은 개인의 활동에 따라 달라질 수 있으며, 해당 금액은 예시입니다.</p>
+        </section>
+    );
+};
 
 // 섹션 2: 고민
 const ConcernSection = () => {

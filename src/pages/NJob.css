@@ -326,6 +326,53 @@
     border-radius: 20px;
     padding: 20px;
     min-height: 350px;
+    overflow: hidden;
+}
+
+.phone-slider {
+    position: relative;
+    min-height: 280px;
+}
+
+.phone-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
+}
+
+.phone-slide.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+    position: relative;
+}
+
+.slide-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.slide-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: #ddd;
+    cursor: pointer;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+.slide-dot.active {
+    background: #1a5cd6;
+    transform: scale(1.3);
 }
 
 .phone-header {
