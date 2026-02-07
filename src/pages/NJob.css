@@ -71,9 +71,21 @@
 }
 
 .nav-icon {
-    color: #333;
-    font-size: 22px;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-sns-img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    border-radius: 6px;
+    transition: transform 0.2s;
+}
+
+.nav-sns-img:hover {
+    transform: scale(1.15);
 }
 
 /* ========================
@@ -428,7 +440,7 @@
     text-align: center;
     color: rgba(255, 255, 255, 0.7);
     font-size: 13px;
-    margin-top: 160px;
+    margin-top: 50px;
     position: relative;
     z-index: 1;
 }

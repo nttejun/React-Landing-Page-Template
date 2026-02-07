@@ -82,11 +82,11 @@ const NJobNav = () => (
             </div>
             <div className="nav-links">
                 <a href="#faq" className="nav-link">FAQ</a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="nav-icon">
-                    <i className="fa fa-instagram"></i>
+                <a href="https://www.instagram.com/dreamnjoy_official/" target="_blank" rel="noopener noreferrer" className="nav-icon">
+                    <img src="/img/sns/insta.jpeg" alt="인스타그램" className="nav-sns-img" />
                 </a>
-                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="nav-icon">
-                    <i className="fa fa-youtube-play"></i>
+                <a href="https://www.youtube.com/@%EB%93%9C%EB%A6%BC%EC%95%A4%EC%A1%B0%EC%9D%B4N%EC%9E%A1%ED%8C%8C%ED%8A%B8%EB%84%88" target="_blank" rel="noopener noreferrer" className="nav-icon">
+                    <img src="/img/sns/youtube.svg" alt="유튜브" className="nav-sns-img" />
                 </a>
             </div>
         </div>
