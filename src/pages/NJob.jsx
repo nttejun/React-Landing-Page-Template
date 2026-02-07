@@ -483,9 +483,9 @@ const FloatingButtons = ({ onApply }) => (
         <button className="float-btn apply-btn" onClick={onApply}>
             N잡크루<br />지원하기
         </button>
-        <a href="#top" className="float-btn scroll-btn">
+        <button className="float-btn scroll-btn" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             맨 위로<br />올라가기
-        </a>
+        </button>
     </div>
 );
 

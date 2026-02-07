@@ -396,9 +396,11 @@
 
 .phone-header {
     font-size: 12px;
-    color: #666;
-    margin-bottom: 15px;
+    color: #888;
+    margin-bottom: 12px;
     text-align: center;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
 }
 
 .phone-amount {
@@ -406,34 +408,41 @@
     font-weight: 800;
     color: #1a5cd6;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 24px;
+    white-space: nowrap;
+    line-height: 1.2;
 }
 
 .phone-history {
     background: #f5f7fa;
     border-radius: 12px;
-    padding: 15px;
+    padding: 12px;
 }
 
 .history-item {
     display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    font-size: 12px;
+    align-items: baseline;
+    gap: 6px;
+    font-size: 11px;
+    white-space: nowrap;
 }
 
 .history-item .date {
     color: #999;
+    flex-shrink: 0;
 }
 
 .history-item .desc {
-    color: #333;
+    color: #555;
     flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .history-item .amount {
     color: #1a5cd6;
     font-weight: 700;
+    flex-shrink: 0;
 }
 
 .income-disclaimer {
@@ -1382,7 +1391,7 @@ button.float-btn {
     }
 
     .phone-mockup {
-        width: 240px;
+        width: 280px;
         transform: none;
     }
 
@@ -1448,6 +1457,25 @@ button.float-btn {
 
     .modal-title-sub {
         font-size: 18px;
+    }
+
+    .phone-mockup {
+        width: 260px;
+        padding: 12px;
+    }
+
+    .phone-screen {
+        padding: 16px;
+        min-height: 300px;
+    }
+
+    .phone-amount {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .phone-slider {
+        min-height: 240px;
     }
 
     .nav-container {
