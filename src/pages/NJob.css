@@ -1816,43 +1816,50 @@ button.float-btn {
     }
 
     .review-card {
-        padding: 20px 16px;
-        gap: 14px;
+        padding: 22px 18px;
+        gap: 16px;
         border-radius: 18px;
     }
 
     .review-card::before {
-        font-size: 60px;
-        top: -4px;
-        right: 8px;
+        display: none;
     }
 
     .review-card-head {
-        gap: 8px;
+        gap: 10px;
     }
 
     .review-tag {
         font-size: 11px;
-        padding: 4px 10px;
+        padding: 5px 12px;
     }
 
     .review-profile {
-        font-size: 12px;
+        font-size: 11px;
+        color: #999;
     }
 
     .review-quote {
-        font-size: 13px;
-        padding-left: 10px;
+        font-size: 13.5px;
+        padding-left: 12px;
+        border-left-width: 3px;
+        line-height: 1.7;
+    }
+
+    .review-points {
+        gap: 10px;
     }
 
     .review-points li {
-        font-size: 12px;
-        padding-left: 26px;
+        font-size: 12.5px;
+        padding-left: 28px;
+        line-height: 1.6;
     }
 
     .review-points li::before {
         width: 18px;
         height: 18px;
+        top: 1px;
     }
 
     .review-points li::after {
@@ -1865,8 +1872,10 @@ button.float-btn {
 
     .review-highlight {
         font-size: 13px;
-        padding: 12px 14px;
+        padding: 14px 16px;
+        margin: 10px 20px 10px 20px;
         border-radius: 12px;
+        line-height: 1.5;
     }
 
     .review-insta-link {
