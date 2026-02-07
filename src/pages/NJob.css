@@ -595,18 +595,30 @@
     font-size: 13px;
     color: #666;
     line-height: 1.65;
-    padding-left: 22px;
+    padding-left: 30px;
     position: relative;
 }
 
 .review-points li::before {
-    content: "✓";
+    content: '';
     position: absolute;
     left: 0;
-    top: 0;
-    color: #2196f3;
-    font-weight: 700;
-    font-size: 13px;
+    top: 2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.review-points li::after {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 5px;
+    width: 4px;
+    height: 9px;
+    border: solid #2196f3;
+    border-width: 0 2.5px 2.5px 0;
+    transform: rotate(40deg);
 }
 
 .review-highlight {
@@ -809,16 +821,31 @@
     font-size: 15px;
     color: #555;
     line-height: 1.7;
-    padding-left: 20px;
+    padding-left: 32px;
     position: relative;
 }
 
 .benefit-list li::before {
-    content: "✓";
+    content: '';
     position: absolute;
     left: 0;
-    color: #2196f3;
-    font-weight: 700;
+    top: 3px;
+    width: 22px;
+    height: 22px;
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border-radius: 50%;
+}
+
+.benefit-list li::after {
+    content: '';
+    position: absolute;
+    left: 9px;
+    top: 6px;
+    width: 4px;
+    height: 9px;
+    border: solid #2196f3;
+    border-width: 0 2.5px 2.5px 0;
+    transform: rotate(40deg);
 }
 
 .benefit-emoji {
@@ -1793,7 +1820,20 @@ button.float-btn {
 
     .review-points li {
         font-size: 12px;
-        padding-left: 18px;
+        padding-left: 26px;
+    }
+
+    .review-points li::before {
+        width: 18px;
+        height: 18px;
+    }
+
+    .review-points li::after {
+        left: 7px;
+        top: 4px;
+        width: 4px;
+        height: 8px;
+        border-width: 0 2px 2px 0;
     }
 
     .review-highlight {
