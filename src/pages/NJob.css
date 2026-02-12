@@ -944,28 +944,33 @@
     color: #999;
 }
 
-.company-logos-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 16px;
+.company-logos-section {
     max-width: 900px;
     margin: 0 auto;
-}
-
-.company-logo-item {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 120px;
-    padding: 12px 20px;
+    flex-direction: column;
+    gap: 48px;
 }
 
-.company-logo-text {
-    font-size: 14px;
-    font-weight: 600;
-    color: #666;
-    white-space: nowrap;
+.company-logos-group {
+    text-align: center;
+}
+
+.logos-group-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: #111;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #eee;
+    display: inline-block;
+}
+
+.logos-group-img {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: block;
 }
 
 /* ═══════════════════════════════════════════════
@@ -1909,17 +1914,8 @@ button.income-cta-btn {
         font-size: 22px;
     }
 
-    .company-logos-grid {
-        gap: 10px;
-    }
-
-    .company-logo-item {
-        min-width: 100px;
-        padding: 10px 14px;
-    }
-
-    .company-logo-text {
-        font-size: 12px;
+    .logos-group-img {
+        max-width: 100%;
     }
 
     .floating-buttons {

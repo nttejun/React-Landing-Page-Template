@@ -449,18 +449,6 @@ const IncomeCalcSection = () => {
 // ═══════════════════════════════════════════════
 // 섹션 6: 무기가 32개인 설계사 vs 무기가 1개인 설계사
 // ═══════════════════════════════════════════════
-const companyLogos = [
-    // 생명보험
-    "한화생명", "ABL", "흥국생명", "교보생명", "신한라이프", "KB라이프",
-    "NH농협생명", "라이나생명", "더리얼생명", "하나생명", "DB생명", "MetLife",
-    "BNP파리바카디프", "삼성생명", "iM라이프", "KDB생명", "미래에셋생명", "IBK연금보험",
-    "동양생명", "CHUBB", "푸본현대생명",
-    // 손해보험
-    "KB손해보험", "DB손해보험", "메리츠화재",
-    "한화손해보험", "롯데손해보험", "MG손해보험", "흥국화재", "삼성화재",
-    "현대해상", "AIG", "라이나손보", "하나손해보험", "NH농협손해보험",
-];
-
 const CompanySection = () => (
     <section id="reasons" className="njob-company-section">
         <div className="section-container">
@@ -503,12 +491,15 @@ const CompanySection = () => (
                 </div>
             </div>
 
-            <div className="company-logos-grid">
-                {companyLogos.map((name, idx) => (
-                    <div className="company-logo-item" key={idx}>
-                        <span className="company-logo-text">{name}</span>
-                    </div>
-                ))}
+            <div className="company-logos-section">
+                <div className="company-logos-group">
+                    <h3 className="logos-group-title">생명보험사</h3>
+                    <img src="/img/insurance-life.png" alt="제휴 생명보험사 로고" className="logos-group-img" />
+                </div>
+                <div className="company-logos-group">
+                    <h3 className="logos-group-title">손해보험사</h3>
+                    <img src="/img/insurance-nonlife.png" alt="제휴 손해보험사 로고" className="logos-group-img" />
+                </div>
             </div>
         </div>
     </section>
