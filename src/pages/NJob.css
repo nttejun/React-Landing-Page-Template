@@ -1816,6 +1816,26 @@ button.income-cta-btn {
 
 /* 모바일 */
 @media (max-width: 768px) {
+    /* ─── 섹션 패딩 일괄 축소 ─── */
+    .njob-activity-section,
+    .njob-insurance-section,
+    .njob-calc-section,
+    .njob-company-section,
+    .njob-lifelong-section,
+    .njob-step-section,
+    .njob-faq-section {
+        padding: 60px 20px;
+    }
+
+    /* ─── 히어로 ─── */
+    .hero-container {
+        padding-top: 70px;
+    }
+
+    .hero-subtitle {
+        margin-bottom: 32px;
+    }
+
     .banner-inner {
         flex-direction: column;
         text-align: center;
@@ -1839,9 +1859,46 @@ button.income-cta-btn {
         text-align: center;
     }
 
+    .hero-scroll-indicator {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        transform: none;
+        margin-top: 10px;
+    }
+
+    /* ─── 활동 섹션 ─── */
     .activity-cards {
         grid-template-columns: repeat(2, 1fr);
         gap: 16px;
+    }
+
+    .activity-card {
+        padding: 24px 16px 20px;
+    }
+
+    .activity-card-img {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 14px;
+    }
+
+    .activity-card-title {
+        font-size: 15px;
+        margin-bottom: 8px;
+    }
+
+    .activity-card-desc {
+        font-size: 13px;
+    }
+
+    .activity-subtitle {
+        margin-bottom: 36px;
+    }
+
+    /* ─── 수입 섹션 (블루) ─── */
+    .njob-income-section {
+        padding: 60px 16px 40px;
     }
 
     .income-title-banner {
@@ -1864,17 +1921,22 @@ button.income-cta-btn {
         order: 1;
     }
 
+    .income-feature-card {
+        text-align: left;
+    }
+
     .income-visual {
         order: -1;
     }
 
     .phone-mockup {
-        width: 280px;
+        width: 260px;
         transform: none;
     }
 
     .income-cta-buttons {
         gap: 12px;
+        margin-top: 28px;
     }
 
     .income-cta-btn {
@@ -1883,69 +1945,250 @@ button.income-cta-btn {
         min-width: 170px;
     }
 
+    .income-disclaimer {
+        font-size: 12px;
+        margin-top: 20px;
+    }
+
+    /* ─── 보험설계 섹션 ─── */
     .insurance-content {
         flex-direction: column;
+        gap: 32px;
+    }
+
+    .insurance-subtitle {
+        margin-bottom: 36px;
     }
 
     .insurance-table-img {
-        max-width: 320px;
+        max-width: 300px;
+        transform: rotate(-1deg);
     }
 
-    .lifelong-content {
-        flex-direction: column;
+    .insurance-card {
+        padding: 20px;
+        gap: 16px;
     }
 
-    .step-item {
-        flex: 0 0 calc(50% - 10px);
+    .insurance-card-img {
+        width: 64px;
+        height: 64px;
     }
 
-    .company-compare {
-        gap: 24px;
+    .insurance-card-text h3 {
+        font-size: 15px;
     }
 
-    .compare-circle-small {
-        width: 50px;
-        height: 50px;
+    .insurance-card-text p {
+        font-size: 13px;
+    }
+
+    /* ─── 수입계산기 섹션 ─── */
+    .calc-subtitle {
+        margin-bottom: 32px;
+    }
+
+    .calc-card {
+        padding: 36px 24px;
+    }
+
+    .calc-label {
+        font-size: 19px;
+    }
+
+    .calc-disclaimer {
         font-size: 12px;
     }
 
+    /* ─── 회사비교 섹션 ─── */
+    .company-subtitle {
+        margin-bottom: 32px;
+    }
+
+    .company-compare {
+        gap: 16px;
+        margin-bottom: 40px;
+    }
+
+    .compare-circles-row {
+        gap: 8px;
+    }
+
+    .compare-circle-small {
+        width: 44px;
+        height: 44px;
+        font-size: 11px;
+    }
+
     .compare-circle-big {
-        width: 140px;
-        height: 140px;
+        width: 120px;
+        height: 120px;
     }
 
     .compare-big-number {
-        font-size: 36px;
+        font-size: 32px;
+    }
+
+    .compare-big-unit {
+        font-size: 13px;
     }
 
     .compare-vs {
-        font-size: 22px;
+        font-size: 20px;
+    }
+
+    .compare-label {
+        font-size: 13px;
+    }
+
+    .compare-desc {
+        font-size: 11px;
+    }
+
+    .company-logos-section {
+        gap: 32px;
+    }
+
+    .logos-group-title {
+        font-size: 15px;
+        margin-bottom: 16px;
     }
 
     .logos-group-img {
         max-width: 100%;
     }
 
+    /* ─── 평생직업 섹션 ─── */
+    .lifelong-content {
+        flex-direction: column;
+        gap: 28px;
+    }
+
+    .lifelong-subtitle {
+        margin-bottom: 36px;
+    }
+
+    .tablet-frame {
+        max-width: 340px;
+    }
+
+    .lifelong-info-card {
+        padding: 28px 24px;
+    }
+
+    .lifelong-card-title {
+        font-size: 22px;
+    }
+
+    .lifelong-card-desc {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .lifelong-card-list li {
+        font-size: 14px;
+    }
+
+    /* ─── 스텝 섹션 ─── */
+    .step-subtitle {
+        margin-bottom: 36px;
+    }
+
+    .step-item {
+        flex: 0 0 calc(50% - 10px);
+    }
+
+    .step-circle {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+    }
+
+    .step-name {
+        font-size: 13px;
+    }
+
+    .step-sub {
+        font-size: 11px;
+    }
+
+    /* ─── FAQ 섹션 ─── */
+    .faq-subtitle {
+        margin-bottom: 32px;
+    }
+
+    .faq-item {
+        border-radius: 12px;
+    }
+
+    .a-text {
+        font-size: 14px;
+    }
+
+    /* ─── 플로팅 버튼 ─── */
     .floating-buttons {
-        right: 16px;
-        bottom: 16px;
+        right: 12px;
+        bottom: 12px;
+        gap: 8px;
     }
 
     .float-btn {
-        width: 80px;
-        padding: 12px 8px;
-        font-size: 12px;
+        width: 72px;
+        padding: 10px 8px;
+        font-size: 11px;
+        border-radius: 12px;
+    }
+
+    /* ─── 모달 ─── */
+    .apply-overlay {
+        padding: 24px 16px;
+    }
+
+    .apply-modal {
+        border-radius: 16px;
     }
 }
 
 /* 소형 모바일 */
 @media (max-width: 480px) {
+    /* ─── 섹션 패딩 추가 축소 ─── */
+    .njob-activity-section,
+    .njob-insurance-section,
+    .njob-calc-section,
+    .njob-company-section,
+    .njob-lifelong-section,
+    .njob-step-section,
+    .njob-faq-section {
+        padding: 48px 16px;
+    }
+
+    /* ─── 히어로 ─── */
     .njob-hero-section {
         padding: 0 16px;
+        min-height: auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .hero-container {
+        padding-top: 60px;
     }
 
     .hero-title {
-        font-size: 26px;
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+
+    .hero-subtitle {
+        font-size: 14px;
+        margin-bottom: 28px;
+    }
+
+    .banner-inner {
+        margin: 10px 8px 0;
+        padding: 10px 14px;
+        gap: 10px;
+        border-radius: 10px;
     }
 
     .banner-text {
@@ -1957,24 +2200,58 @@ button.income-cta-btn {
         padding: 8px 16px;
     }
 
-    .activity-cards {
-        grid-template-columns: 1fr;
-        max-width: 360px;
-        margin: 0 auto 40px;
+    .hero-buttons {
+        padding: 0 8px;
     }
 
+    .hero-btn {
+        max-width: 280px;
+        padding: 14px 20px;
+        font-size: 14px;
+    }
+
+    /* ─── 활동 섹션 ─── */
+    .activity-cards {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+        margin: 0 auto 28px;
+    }
+
+    .activity-card {
+        padding: 20px 16px 18px;
+    }
+
+    .activity-card-img {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 12px;
+    }
+
+    .activity-card-title {
+        font-size: 14px;
+    }
+
+    .activity-card-desc {
+        font-size: 12px;
+    }
+
+    .activity-bottom-text {
+        font-size: 17px;
+    }
+
+    /* ─── 수입 섹션 (블루) ─── */
     .njob-income-section {
-        padding: 50px 12px 30px;
+        padding: 40px 12px 28px;
     }
 
     .income-title-banner {
-        padding: 16px 16px;
-        border-radius: 12px;
+        padding: 14px 14px;
+        border-radius: 10px;
         margin-bottom: 20px;
     }
 
     .income-title-banner h2 {
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .income-features-grid {
@@ -1983,18 +2260,17 @@ button.income-cta-btn {
     }
 
     .income-feature-card {
-        padding: 18px 16px;
+        padding: 16px 14px;
     }
 
     .income-feature-img {
-        width: 56px;
-        height: 56px;
+        width: 48px;
+        height: 48px;
         margin-bottom: 10px;
     }
 
     .income-feature-badge {
         font-size: 13px;
-        padding: 6px 14px;
     }
 
     .income-feature-desc {
@@ -2009,65 +2285,299 @@ button.income-cta-btn {
 
     .income-cta-btn {
         width: 100%;
-        max-width: 300px;
+        max-width: 280px;
         padding: 14px 24px;
-        font-size: 15px;
+        font-size: 14px;
         min-width: unset;
     }
 
     .phone-mockup {
-        width: 260px;
-        padding: 12px;
+        width: 240px;
+        padding: 10px;
+        border-radius: 24px;
     }
 
     .phone-screen {
-        padding: 16px;
-        min-height: 300px;
+        padding: 14px;
+        min-height: 280px;
+        border-radius: 16px;
     }
 
     .phone-amount {
-        font-size: 28px;
-        margin-bottom: 20px;
+        font-size: 26px;
+        margin-bottom: 16px;
     }
 
     .phone-slider {
-        min-height: 240px;
+        min-height: 220px;
     }
 
-    .calc-card {
-        padding: 36px 24px;
+    /* ─── 보험설계 섹션 ─── */
+    .insurance-title {
+        font-size: 22px;
+    }
+
+    .insurance-subtitle {
+        font-size: 14px;
+        margin-bottom: 28px;
+    }
+
+    .insurance-table-img {
+        max-width: 260px;
+        transform: none;
     }
 
     .insurance-card {
         flex-direction: column;
         text-align: center;
+        padding: 20px 16px;
+    }
+
+    .insurance-card-img {
+        width: 56px;
+        height: 56px;
+    }
+
+    /* ─── 수입계산기 섹션 ─── */
+    .calc-title {
+        font-size: 22px;
+    }
+
+    .calc-subtitle {
+        font-size: 14px;
+        margin-bottom: 24px;
+    }
+
+    .calc-card {
+        padding: 28px 20px;
+        border-radius: 18px;
+    }
+
+    .calc-label {
+        font-size: 17px;
+    }
+
+    .calc-input {
+        width: 120px;
+    }
+
+    .calc-result-label {
+        font-size: 15px;
+    }
+
+    /* ─── 회사비교 섹션 ─── */
+    .company-badge {
+        font-size: 12px;
+        padding: 8px 18px;
+        margin-bottom: 16px;
+    }
+
+    .company-title {
+        font-size: 22px;
+        margin-bottom: 14px;
+    }
+
+    .company-vs {
+        font-size: 24px;
+    }
+
+    .company-subtitle {
+        font-size: 14px;
+        margin-bottom: 24px;
+    }
+
+    .company-compare {
+        gap: 12px;
+        margin-bottom: 32px;
+    }
+
+    .compare-circle-small {
+        width: 38px;
+        height: 38px;
+        font-size: 10px;
+    }
+
+    .compare-circles-row {
+        gap: 6px;
+        margin-bottom: 10px;
+    }
+
+    .compare-circle-big {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 10px;
+    }
+
+    .compare-big-number {
+        font-size: 28px;
+    }
+
+    .compare-big-unit {
+        font-size: 11px;
+    }
+
+    .compare-vs {
+        font-size: 18px;
+    }
+
+    .compare-label {
+        font-size: 12px;
+    }
+
+    .compare-desc {
+        font-size: 10px;
+    }
+
+    .company-logos-section {
+        gap: 24px;
+    }
+
+    .logos-group-title {
+        font-size: 14px;
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+    }
+
+    /* ─── 평생직업 섹션 ─── */
+    .lifelong-title {
+        font-size: 22px;
+    }
+
+    .lifelong-subtitle {
+        font-size: 14px;
+        margin-bottom: 28px;
+    }
+
+    .tablet-frame {
+        max-width: 300px;
+        border-radius: 16px;
+        padding: 10px;
+    }
+
+    .lifelong-info-card {
+        padding: 24px 20px;
+        border-radius: 16px;
+    }
+
+    .lifelong-card-title {
+        font-size: 20px;
+        margin-bottom: 14px;
+    }
+
+    .lifelong-card-desc {
+        font-size: 13px;
+        margin-bottom: 16px;
+    }
+
+    .lifelong-card-list li {
+        font-size: 13px;
+        gap: 8px;
+    }
+
+    .check-icon {
+        width: 18px;
+        height: 18px;
+        font-size: 9px;
+    }
+
+    /* ─── 스텝 섹션 ─── */
+    .step-title {
+        font-size: 22px;
+    }
+
+    .step-subtitle {
+        font-size: 14px;
+        margin-bottom: 28px;
     }
 
     .step-item {
         flex: 0 0 100%;
     }
 
+    .step-circle {
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+
+    .step-name {
+        font-size: 13px;
+    }
+
+    .step-sub {
+        font-size: 11px;
+    }
+
+    /* ─── FAQ 섹션 ─── */
+    .faq-title {
+        font-size: 24px;
+    }
+
+    .faq-subtitle {
+        font-size: 14px;
+        margin-bottom: 28px;
+    }
+
     .faq-question {
-        padding: 18px 20px;
+        padding: 16px 16px;
+        gap: 12px;
     }
 
     .faq-answer {
-        padding: 0 20px 18px;
+        padding: 0 16px 16px;
     }
 
     .q-text {
         font-size: 14px;
     }
 
+    .a-text {
+        font-size: 13px;
+    }
+
+    /* ─── 플로팅 버튼 ─── */
+    .floating-buttons {
+        right: 10px;
+        bottom: 10px;
+    }
+
+    .float-btn {
+        width: 64px;
+        padding: 10px 6px;
+        font-size: 10px;
+        border-radius: 10px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* ─── 모달 ─── */
     .apply-overlay {
-        padding: 20px 12px;
+        padding: 16px 10px;
+    }
+
+    .apply-modal {
+        border-radius: 14px;
+    }
+
+    .apply-modal-header {
+        padding: 18px 20px 0;
     }
 
     .apply-modal-body {
-        padding: 16px 20px 24px;
+        padding: 14px 18px 24px;
     }
 
     .modal-title-sub {
-        font-size: 18px;
+        font-size: 17px;
+    }
+
+    .form-input {
+        padding: 12px 14px;
+        font-size: 14px;
+    }
+
+    .apply-submit-btn {
+        padding: 16px;
+        font-size: 16px;
     }
 }
