@@ -70,7 +70,7 @@ const jobOptions = ["직장인", "자영업", "프리랜서", "대학생", "주�
 // ═══════════════════════════════════════════════
 // 섹션 1: 히어로
 // ═══════════════════════════════════════════════
-const HeroSection = () => {
+const HeroSection = ({ onApply }) => {
     const scrollDown = () => {
         window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
     };
@@ -108,10 +108,9 @@ const HeroSection = () => {
                     >
                         카톡으로 편하게 질문하기
                     </a>
-                    <a href="#" className="hero-btn hero-btn-ebook">
-                        <span className="ebook-icon">&#127963;</span>
-                        어느 보험사도 말해주지 않는 이야기 (무료 전자책)
-                    </a>
+                    <button className="hero-btn hero-btn-ebook" onClick={onApply}>
+                        디앤제이 보험 N잡크루 지원하기
+                    </button>
                 </div>
             </div>
 
@@ -951,7 +950,7 @@ const NJob = () => {
 
     return (
         <div id="top" className="njob-page">
-            <HeroSection />
+            <HeroSection onApply={openModal} />
             <ActivitySection />
             <IncomeSection onApply={openModal} />
             <InsuranceDesignSection />
