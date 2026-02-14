@@ -21,6 +21,18 @@
     font-weight: 700;
 }
 
+/* 스크롤 등장 애니메이션 */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.scroll-reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .logo-brand {
     color: #222;
     font-weight: 700;
@@ -1079,6 +1091,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    animation: infoCardFadeIn 0.5s ease;
+}
+
+@keyframes infoCardFadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .lifelong-badge-row {

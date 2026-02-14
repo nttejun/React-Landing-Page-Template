@@ -67,6 +67,35 @@ const regionData = {
 
 const jobOptions = ["직장인", "자영업", "프리랜서", "대학생", "주부", "무직/구직중", "기타"];
 
+// ─── 스크롤 등장 훅 ───
+const useScrollReveal = (delay = 0) => {
+    const ref = useRef(null);
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const el = ref.current;
+        if (!el) return;
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    if (delay > 0) {
+                        setTimeout(() => setIsVisible(true), delay);
+                    } else {
+                        setIsVisible(true);
+                    }
+                } else {
+                    setIsVisible(false);
+                }
+            },
+            { threshold: 0.15 }
+        );
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, [delay]);
+
+    return [ref, isVisible];
+};
+
 // ═══════════════════════════════════════════════
 // 섹션 1: 히어로
 // ═══════════════════════════════════════════════
@@ -74,6 +103,10 @@ const HeroSection = ({ onApply }) => {
     const scrollDown = () => {
         window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
     };
+
+    const [subtitleRef, subtitleVisible] = useScrollReveal(200);
+    const [buttonsRef, buttonsVisible] = useScrollReveal(500);
+    const [arrowRef, arrowVisible] = useScrollReveal(800);
 
     return (
         <section className="njob-hero-section">
@@ -95,11 +128,11 @@ const HeroSection = ({ onApply }) => {
                     디앤제이 보험N잡<br />
                     이 곳에서 시작하는 이유가 있습니다.
                 </h1>
-                <p className="hero-subtitle">
+                <p ref={subtitleRef} className={`hero-subtitle scroll-reveal ${subtitleVisible ? "revealed" : ""}`}>
                     업계 최고 수준의 수수료, 영업 강요없는 분위기,<br />
                     지속적이고 체계적인 교육까지...
                 </p>
-                <div className="hero-buttons">
+                <div ref={buttonsRef} className={`hero-buttons scroll-reveal ${buttonsVisible ? "revealed" : ""}`}>
                     <a
                         href="https://pf.kakao.com/"
                         target="_blank"
@@ -114,7 +147,7 @@ const HeroSection = ({ onApply }) => {
                 </div>
             </div>
 
-            <button className="hero-scroll-indicator" onClick={scrollDown}>
+            <button ref={arrowRef} className={`hero-scroll-indicator scroll-reveal ${arrowVisible ? "revealed" : ""}`} onClick={scrollDown}>
                 <span className="scroll-arrow">&darr;</span>
             </button>
         </section>
@@ -447,69 +480,102 @@ const IncomeCalcSection = () => {
 // ═══════════════════════════════════════════════
 // 섹션 6: 무기가 32개인 설계사 vs 무기가 1개인 설계사
 // ═══════════════════════════════════════════════
-const CompanySection = () => (
-    <section id="reasons" className="njob-company-section">
-        <div className="section-container">
-            <span className="company-badge">디앤제이가 특별한 이유 &#9313;</span>
-            <h2 className="company-title">
-                선택지 1개인 설계사 <span className="company-vs">vs</span> 선택지 30개인 설계사
-            </h2>
-            <p className="company-subtitle">
-                고객에게 딱 맞는 상품은 A사인데, 내가 속한 곳은 B사만 팔아야 한다면?
-                <br />
-                디앤제이는 모든 보험사의 상품을 비교/분석할 수 있습니다.
-            </p>
+const CompanySection = () => {
+    const [compareRef, compareVisible] = useScrollReveal();
+    const [lifeRef, lifeVisible] = useScrollReveal();
+    const [nonlifeRef, nonlifeVisible] = useScrollReveal();
 
-            <div className="company-compare">
-                <div className="compare-side compare-others">
-                    <div className="compare-circles-row">
-                        <div className="compare-circle-small">
-                            <span>A사</span>
+    return (
+        <section id="reasons" className="njob-company-section">
+            <div className="section-container">
+                <span className="company-badge">디앤제이가 특별한 이유 &#9313;</span>
+                <h2 className="company-title">
+                    선택지가 하나뿐인 설계사 <span className="company-vs">vs</span> 선택지 30개를 보유한 설계사
+                </h2>
+                <p className="company-subtitle">
+                    고객에게 딱 맞는 상품은 A사인데, 내가 속한 곳은 B사만 팔아야 한다면?
+                    <br />
+                    디앤제이는 모든 보험사의 상품을 비교/분석할 수 있습니다.
+                </p>
+
+                <div
+                    ref={compareRef}
+                    className={`company-compare scroll-reveal ${compareVisible ? "revealed" : ""}`}
+                >
+                    <div className="compare-side compare-others">
+                        <div className="compare-circles-row">
+                            <div className="compare-circle-small">
+                                <span>A사</span>
+                            </div>
+                            <div className="compare-circle-small">
+                                <span>B사</span>
+                            </div>
+                            <div className="compare-circle-small">
+                                <span>C사</span>
+                            </div>
                         </div>
-                        <div className="compare-circle-small">
-                            <span>B사</span>
-                        </div>
-                        <div className="compare-circle-small">
-                            <span>C사</span>
-                        </div>
+                        <p className="compare-label">타사 설계사</p>
+                        <p className="compare-desc">1개 보험사 상품만 판매</p>
                     </div>
-                    <p className="compare-label">타사 설계사</p>
-                    <p className="compare-desc">1개 보험사 상품만 판매</p>
+
+                    <div className="compare-vs">VS</div>
+
+                    <div className="compare-side compare-dnj">
+                        <div className="compare-circle-big">
+                            <span className="compare-big-number">30곳</span>
+                            <span className="compare-big-unit">보험회사</span>
+                        </div>
+                        <p className="compare-label compare-label-dnj">디앤제이</p>
+                        <p className="compare-desc">30개 보험사 상품 비교·분석</p>
+                    </div>
                 </div>
 
-                <div className="compare-vs">VS</div>
-
-                <div className="compare-side compare-dnj">
-                    <div className="compare-circle-big">
-                        <span className="compare-big-number">30곳</span>
-                        <span className="compare-big-unit">보험회사</span>
+                <div className="company-logos-section">
+                    <div
+                        ref={lifeRef}
+                        className={`company-logos-group scroll-reveal ${lifeVisible ? "revealed" : ""}`}
+                    >
+                        <h3 className="logos-group-title">생명보험사</h3>
+                        <img src="/img/insurance-life.png" alt="제휴 생명보험사 로고" className="logos-group-img" />
                     </div>
-                    <p className="compare-label compare-label-dnj">디앤제이</p>
-                    <p className="compare-desc">30개 보험사 상품 비교·분석</p>
+                    <div
+                        ref={nonlifeRef}
+                        className={`company-logos-group scroll-reveal ${nonlifeVisible ? "revealed" : ""}`}
+                    >
+                        <h3 className="logos-group-title">손해보험사</h3>
+                        <img src="/img/insurance-nonlife.png" alt="제휴 손해보험사 로고" className="logos-group-img" />
+                    </div>
                 </div>
             </div>
-
-            <div className="company-logos-section">
-                <div className="company-logos-group">
-                    <h3 className="logos-group-title">생명보험사</h3>
-                    <img src="/img/insurance-life.png" alt="제휴 생명보험사 로고" className="logos-group-img" />
-                </div>
-                <div className="company-logos-group">
-                    <h3 className="logos-group-title">손해보험사</h3>
-                    <img src="/img/insurance-nonlife.png" alt="제휴 손해보험사 로고" className="logos-group-img" />
-                </div>
-            </div>
-        </div>
-    </section>
-);
+        </section>
+    );
+};
 
 // ═══════════════════════════════════════════════
 // 섹션 7: 평생 직업이 되도록 돕습니다
 // ═══════════════════════════════════════════════
 const eduSlides = [
-    "/img/edu/class-01.png",
-    "/img/edu/class-02.png",
-    "/img/edu/class-03.png",
+    {
+        image: "/img/edu/class-01.png",
+        badge: "격주 줌 세미나 진행",
+        title: <>등록하면 끝?<br /><span className="text-orange">방치하지 않습니다.</span></>,
+        desc: <>부업이라고 대충 알려주지 않습니다.<br />매월 2회, Live 줌 세미나를 통해 최신 트렌드와 판매 화법을 체계적으로 교육합니다.</>,
+        list: ["매월 2회 정기 교육", "최신 트렌드 및 판매 화법 공유", "실시간 Q&A 및 피드백"],
+    },
+    {
+        image: "/img/edu/class-02.png",
+        badge: "1:1 전담 멘토링",
+        title: <>혼자가 아닙니다.<br /><span className="text-orange">전담 매니저가 함께합니다.</span></>,
+        desc: <>제안서 작성부터 고객 상담까지,<br />베테랑 지점장이 1:1로 밀착 케어하여 실전에서 바로 성과를 낼 수 있도록 돕습니다.</>,
+        list: ["1:1 전담 매니저 배정", "제안서·상담 실전 코칭", "성과 분석 및 맞춤 피드백"],
+    },
+    {
+        image: "/img/edu/class-03.png",
+        badge: "체계적 교육 커리큘럼",
+        title: <>보험 지식 제로?<br /><span className="text-orange">걱정하지 마세요.</span></>,
+        desc: <>보험 기초부터 세금, 법인, 건강보험까지<br />단계별 커리큘럼으로 금융 전문가로 성장할 수 있습니다.</>,
+        list: ["기초부터 심화까지 단계별 교육", "건강·세금·법인 등 전문 분야 학습", "교육 자료 및 영상 무제한 제공"],
+    },
 ];
 
 const LifelongSection = () => {
@@ -518,9 +584,11 @@ const LifelongSection = () => {
     useEffect(() => {
         const timer = setInterval(() => {
             setEduIdx((prev) => (prev + 1) % eduSlides.length);
-        }, 3000);
+        }, 5000);
         return () => clearInterval(timer);
     }, []);
+
+    const current = eduSlides[eduIdx];
 
     return (
         <section className="njob-lifelong-section">
@@ -534,10 +602,10 @@ const LifelongSection = () => {
                     <div className="lifelong-image-wrap">
                         <div className="tablet-frame">
                             <div className="edu-slider">
-                                {eduSlides.map((src, i) => (
+                                {eduSlides.map((slide, i) => (
                                     <img
                                         key={i}
-                                        src={src}
+                                        src={slide.image}
                                         alt={`디앤제이 교육 ${i + 1}`}
                                         className={`edu-slide ${i === eduIdx ? "active" : ""}`}
                                     />
@@ -555,34 +623,22 @@ const LifelongSection = () => {
                         </div>
                     </div>
 
-                    <div className="lifelong-info-card">
+                    <div className="lifelong-info-card" key={eduIdx}>
                         <div className="lifelong-badge-row">
                             <span className="lifelong-check-badge">&#10004;</span>
-                            <span className="lifelong-badge-text">격주 줌 세미나 진행</span>
+                            <span className="lifelong-badge-text">{current.badge}</span>
                         </div>
 
-                        <h3 className="lifelong-card-title">
-                            등록하면 끝?
-                            <br />
-                            <span className="text-orange">방치하지 않습니다.</span>
-                        </h3>
+                        <h3 className="lifelong-card-title">{current.title}</h3>
 
-                        <p className="lifelong-card-desc">
-                            부업이라고 대충 알려주지 않습니다.
-                            <br />
-                            매월 2회, Live 줌 세미나를 통해 최신 트렌드와 판매 화법을 체계적으로 교육합니다.
-                        </p>
+                        <p className="lifelong-card-desc">{current.desc}</p>
 
                         <ul className="lifelong-card-list">
-                            <li>
-                                <span className="check-icon">&#10004;</span> 매월 2회 정기 교육
-                            </li>
-                            <li>
-                                <span className="check-icon">&#10004;</span> 최신 트렌드 및 판매 화법 공유
-                            </li>
-                            <li>
-                                <span className="check-icon">&#10004;</span> 실시간 Q&A 및 피드백
-                            </li>
+                            {current.list.map((item, i) => (
+                                <li key={i}>
+                                    <span className="check-icon">&#10004;</span> {item}
+                                </li>
+                            ))}
                         </ul>
                     </div>
                 </div>
