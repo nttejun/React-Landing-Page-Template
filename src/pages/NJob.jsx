@@ -128,23 +128,23 @@ const HeroSection = () => {
 const activityFeatures = [
     {
         image: "/img/njob/activity-subway.png",
-        title: "출퇴근 압박 No",
-        desc: "정해진 출근 시간도, 퇴근 시간도 없습니다. 나의 라이프스타일에 맞춰 자유롭게 일정을 조율하세요.",
+        title: "출퇴근 자유 · 시간 자유",
+        desc: "정해진 출근도, 퇴근도 없습니다. 내 일정에 맞춰 자유롭게 일하고, 원하는 만큼 수익을 만들어보세요.",
     },
     {
         image: "/img/njob/activity-phone.png",
-        title: "노트북이나 스마트폰만 있으면 OK",
-        desc: "별도의 사무실이나 장비가 필요 없습니다. 카페에서, 집에서, 어디서든 업무가 가능합니다.",
+        title: "준비물은 단 하나!",
+        desc: "노트북 또는 스마트폰만 있으면 사무실, 집, 카페 등 장소에 상관없이 언제든 업무가 가능합니다.",
     },
     {
         image: "/img/njob/activity-manager.png",
-        title: "전담 매니저님이 밀착 지원합니다",
-        desc: "혼자가 아닙니다. 고객 응대부터 계약까지, 경험 많은 전담 매니저가 1:1로 서포트해 드립니다.",
+        title: "어려움? 걱정하지 마세요!",
+        desc: "활동 중 생기는 궁금증이나 어려움은 매니저들이 언제든 안내해 드립니다.",
     },
     {
         image: "/img/njob/activity-growth.png",
-        title: "꾸준한 교육으로 성장을 돕습니다",
-        desc: "처음이라 막막해도 괜찮습니다. 체계적인 교육 커리큘럼으로 누구나 전문가로 성장할 수 있습니다.",
+        title: "배울 기회는 항상 Open!",
+        desc: "매주 평일 교육이 열리며 가능한 시간에 맞춰 선택적으로 참여할 수 있습니다.",
     },
 ];
 
@@ -153,9 +153,9 @@ const ActivitySection = () => (
         <div className="section-container">
             <h2 className="activity-title">실제로 활동이 가능할까요?</h2>
             <p className="activity-subtitle">
-                <span className="text-orange">가능합니다.</span> 현재 활동중인 디앤제이 멤버 100% 모두
+                <span className="text-orange">가능합니다.</span> 현재 활동중인 디앤제이 멤버는 자유롭게
                 <br />
-                <strong>재택으로 근무</strong>하고 있습니다.
+                <strong>출퇴근 · 재택근무</strong>를 하고 있습니다.
             </p>
 
             <div className="activity-cards">
@@ -328,18 +328,18 @@ const IncomeSection = ({ onApply }) => {
 const insuranceCards = [
     {
         image: "/img/njob/person-woman.png",
-        title: "내 보험 먼저 꼼꼼하게 살펴보기",
-        desc: "가입한 보험이 나에게 맞는지, 보장은 충분한지 직접 분석해 보세요.",
+        title: "내 보험부터 차근차근",
+        desc: "내가 가입한 보험을 분석해보고 점검하는 것에서 시작합니다.",
     },
     {
         image: "/img/njob/person-family.png",
-        title: "우리 가족보험 점검하기",
-        desc: "부모님, 배우자, 자녀까지 온 가족의 보험을 한눈에 점검하세요.",
+        title: "가족의 보장까지 함께",
+        desc: "배우자, 자녀, 부모, 형제까지 가입한 보험을 살펴볼 수 있습니다.",
     },
     {
         image: "/img/njob/person-friends.png",
-        title: "주변 지인과 동료의 보험 체크",
-        desc: "소중한 사람들의 보험도 함께 살펴보고, 더 나은 선택을 도와주세요.",
+        title: "주변 사람들에게까지",
+        desc: "보험을 이해하게 되면 지인과 동료에게도 도움을 줄 수 있습니다.",
     },
 ];
 
@@ -347,12 +347,11 @@ const InsuranceDesignSection = () => (
     <section className="njob-insurance-section">
         <div className="section-container">
             <h2 className="insurance-title">
-                내 보험, <span className="text-orange">우리가족</span> 보험 설계는 이제 직접하세요.
+                내 <span className="text-orange">보험</span>을 점검하는 것부터 시작입니다.
             </h2>
             <p className="insurance-subtitle">
-                우리 가족의 보장 내역을 꼼꼼하게 분석하고, 가장 가성비 있는 상품을 선택하세요.
-                <br />
-                새로 가입하기 전에 기존의 비효율적인 보험료를 먼저 다이어트 하세요.
+                직접 보장내용을 살펴보고 설계를 경험하면서 가족과 지인에게도 필요한 정보를 나눌 수 있습니다.
+                <br />새로 준비하기 전에, 현재 보험부터 점검하세요. 불필요한 과한 보험료는 없는지 먼저 확인하는 것이 중요합니다.
             </p>
 
             <div className="insurance-content">
@@ -386,7 +385,7 @@ const InsuranceDesignSection = () => (
 // ═══════════════════════════════════════════════
 const IncomeCalcSection = () => {
     const [desiredIncome, setDesiredIncome] = useState("");
-    const requiredPremium = desiredIncome ? Math.ceil(Number(desiredIncome) / 14) : 0;
+    const requiredPremium = desiredIncome ? Math.ceil(Number(desiredIncome) / 12) : 0;
 
     const handleInputChange = (e) => {
         const val = e.target.value.replace(/[^0-9]/g, "");
@@ -398,7 +397,7 @@ const IncomeCalcSection = () => {
     return (
         <section className="njob-calc-section">
             <div className="section-container">
-                <h2 className="calc-title">얼마나 벌 수 있는데요?</h2>
+                <h2 className="calc-title">얼마를 벌 수 있을까요?</h2>
                 <p className="calc-subtitle">
                     디앤제이는 수수료로 장난치지 않습니다.
                     <br />
@@ -429,7 +428,7 @@ const IncomeCalcSection = () => {
 
                     {desiredIncome && Number(desiredIncome) > 0 && (
                         <div className="calc-result">
-                            <span className="calc-result-label">월 보험계약료</span>
+                            <span className="calc-result-label">필요한 월 보험계약료</span>
                             <span className="calc-result-value">{requiredPremium}만원</span>
                             <span className="calc-result-sub">정도면 달성할 수 있어요!</span>
                         </div>
@@ -454,7 +453,7 @@ const CompanySection = () => (
         <div className="section-container">
             <span className="company-badge">디앤제이가 특별한 이유 &#9313;</span>
             <h2 className="company-title">
-                무기가 30개인 설계사 <span className="company-vs">vs</span> 무기가 1개인 설계사
+                선택지 1개인 설계사 <span className="company-vs">vs</span> 선택지 30개인 설계사
             </h2>
             <p className="company-subtitle">
                 고객에게 딱 맞는 상품은 A사인데, 내가 속한 곳은 B사만 팔아야 한다면?
