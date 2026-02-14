@@ -413,6 +413,100 @@ const InsuranceDesignSection = () => (
 );
 
 // ═══════════════════════════════════════════════
+// 섹션 4.5: N잡크루 리얼 후기
+// ═══════════════════════════════════════════════
+const reviews = [
+    {
+        tag: "경력단절 → N잡 설계사",
+        profile: "40대 / 前 외국계 은행 근무",
+        quote: "내 보험은 내가 공부해 드는 시대, N잡 설계사로 건강과 노후를 동시에 챙기고 있어요",
+        points: [
+            "결혼·출산·육아 후 경력단절, 시간 자유로운 N잡을 찾다 설계사 도전",
+            "과거 가입한 간병보험이 중증만 보장 → 공부 후 직접 리모델링 성공",
+            "초고령화 시대, 어르신 간병보험 컨설팅으로 보람과 수익을 함께",
+        ],
+        highlight: "내 보험을 직접 점검하고 노후 건강까지 챙길 수 있었어요!",
+        link: "https://www.instagram.com/reel/DH2S398hWyz/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    },
+    {
+        tag: "프리랜서 블로거의 선택",
+        profile: "30대 / 패션 블로거",
+        quote: "연봉 8천 회사를 퇴사하고 프리랜서가 됐는데, N잡 설계사가 인생을 바꿨어요",
+        points: [
+            "멋지게 퇴사했지만 블로그 수익만으론 부족, N잡을 고민하던 중 설계사 도전",
+            "1주 집중 공부로 생명·손해보험 자격증 동시 취득",
+            "내 보험 분석해보니 엉망 → 직접 리모델링 후 맞춤 설계로 전환",
+        ],
+        highlight: "월 6~8일 투자로 월 수익 최대 1,000만원 달성!",
+        link: "https://www.instagram.com/reel/DGKV8z_BD2v/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    },
+    {
+        tag: "가족 보험 전문가",
+        profile: "30대 / 육아맘",
+        quote: "월 80만원 보험료를 내면서도 받을 수 있는 게 없었던 언니를 보고 시작했어요",
+        points: [
+            "미국 거주 언니의 보험 — 사망·중증만 보장되는 엉터리 설계 발견",
+            "분노를 계기로 설계사 자격증 취득, 6자매 가족 보험을 직접 리모델링",
+            "디앤제이 지원으로 교재·시험비 무료, 한 번에 합격",
+        ],
+        highlight: "월 최대 500만원 부수입, 가족 보험은 내가 책임지는 시대!",
+        link: "https://www.instagram.com/reel/DHpXdCthUzI/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    },
+    {
+        tag: "부모님 걱정에서 시작",
+        profile: "30대 / 직장인 겸업",
+        quote: "80대 부모님 간병보험을 알아보다 보험에 대해 얼마나 무지했는지 깨달았어요",
+        points: [
+            "부모님 간병·치매 보험 설명을 들어도 이해가 안 돼 직접 공부 결심",
+            "생명·손해보험 자격증 취득 후 가족 보험 전면 점검",
+            "주 1~2회 투자, 시간 대비 매우 만족스러운 성과",
+        ],
+        highlight: "월 부수입 100~200만원, 건강도 챙기고 돈도 버는 N잡!",
+        link: "https://www.instagram.com/reel/DIc8NtDBx8a/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+    },
+];
+
+const ReviewSection = () => (
+    <section className="njob-review-section">
+        <div className="section-container">
+            <h2 className="review-section-title">N잡크루원들의 <em>리얼 후기</em></h2>
+            <div className="review-cards">
+                {reviews.map((r, idx) => (
+                    <div className="review-card" key={idx}>
+                        <div className="review-card-head">
+                            <span className="review-tag">{r.tag}</span>
+                            <span className="review-profile">{r.profile}</span>
+                        </div>
+                        <p className="review-quote">"{r.quote}"</p>
+                        <ul className="review-points">
+                            {r.points.map((p, i) => (
+                                <li key={i}>{p}</li>
+                            ))}
+                        </ul>
+                        {r.link ? (
+                            <a href={r.link} target="_blank" rel="noopener noreferrer" className="review-highlight review-highlight-link">
+                                {r.highlight}
+                            </a>
+                        ) : (
+                            <div className="review-highlight">{r.highlight}</div>
+                        )}
+                    </div>
+                ))}
+            </div>
+            <a
+                href="https://www.instagram.com/dreamnjoy_official/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="review-insta-link"
+            >
+                자세한 후기를 확인하실 수 있습니다
+                <img src="/img/sns/insta.jpeg" alt="Instagram" className="review-insta-icon" />
+            </a>
+        </div>
+    </section>
+);
+
+// ═══════════════════════════════════════════════
 // 섹션 5: 얼마나 벌 수 있는데요?
 // ═══════════════════════════════════════════════
 const IncomeCalcSection = () => {
@@ -1010,6 +1104,7 @@ const NJob = () => {
             <ActivitySection />
             <IncomeSection onApply={openModal} />
             <InsuranceDesignSection />
+            <ReviewSection />
             <IncomeCalcSection />
             <CompanySection />
             <LifelongSection />
