@@ -159,24 +159,24 @@ const HeroSection = ({ onApply }) => {
 // ═══════════════════════════════════════════════
 const activityFeatures = [
     {
-        image: "/img/njob/activity-subway.png",
+        image: "/img/njob/time.png",
         title: "출퇴근 자유 · 시간 자유",
         desc: "정해진 출근도, 퇴근도 없습니다. 내 일정에 맞춰 자유롭게 일하고, 원하는 만큼 수익을 만들어보세요.",
     },
     {
-        image: "/img/njob/activity-phone.png",
+        image: "/img/njob/house.png",
         title: "준비물은 단 하나!",
         desc: "노트북 또는 스마트폰만 있으면 사무실, 집, 카페 등 장소에 상관없이 언제든 업무가 가능합니다.",
     },
     {
-        image: "/img/njob/activity-manager.png",
-        title: "어려움? 걱정하지 마세요!",
-        desc: "활동 중 생기는 궁금증이나 어려움은 매니저들이 언제든 안내해 드립니다.",
-    },
-    {
-        image: "/img/njob/activity-growth.png",
+        image: "/img/njob/edu.png",
         title: "배울 기회는 항상 Open!",
         desc: "매주 평일 교육이 열리며 가능한 시간에 맞춰 선택적으로 참여할 수 있습니다.",
+    },
+    {
+        image: "/img/njob/support.png",
+        title: "어려움? 걱정하지 마세요!",
+        desc: "활동 중 생기는 궁금증이나 어려움은 매니저들이 언제든 안내해 드립니다.",
     },
 ];
 
