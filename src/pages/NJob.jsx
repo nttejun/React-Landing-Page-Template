@@ -466,45 +466,71 @@ const reviews = [
     },
 ];
 
-const ReviewSection = () => (
-    <section className="njob-review-section">
-        <div className="section-container">
-            <h2 className="review-section-title">N잡크루원들의 <em>리얼 후기</em></h2>
-            <div className="review-cards">
-                {reviews.map((r, idx) => (
-                    <div className="review-card" key={idx}>
-                        <div className="review-card-head">
-                            <span className="review-tag">{r.tag}</span>
-                            <span className="review-profile">{r.profile}</span>
-                        </div>
-                        <p className="review-quote">"{r.quote}"</p>
-                        <ul className="review-points">
-                            {r.points.map((p, i) => (
-                                <li key={i}>{p}</li>
+const ReviewSection = () => {
+    const [current, setCurrent] = useState(0);
+    const total = reviews.length;
+
+    const prev = () => setCurrent((c) => (c - 1 + total) % total);
+    const next = () => setCurrent((c) => (c + 1) % total);
+
+    return (
+        <section className="njob-review-section">
+            <div className="section-container">
+                <h2 className="review-section-title">N잡크루원들의 <em>리얼 후기</em></h2>
+                <div className="review-slider">
+                    <div className="review-track-wrap">
+                        <div className="review-track" style={{ transform: `translateX(-${current * 100}%)` }}>
+                            {reviews.map((r, idx) => (
+                                <div className="review-card" key={idx}>
+                                    <div className="review-card-head">
+                                        <span className="review-tag">{r.tag}</span>
+                                        <span className="review-profile">{r.profile}</span>
+                                    </div>
+                                    <p className="review-quote">"{r.quote}"</p>
+                                    <ul className="review-points">
+                                        {r.points.map((p, i) => (
+                                            <li key={i}>{p}</li>
+                                        ))}
+                                    </ul>
+                                    {r.link ? (
+                                        <a href={r.link} target="_blank" rel="noopener noreferrer" className="review-highlight review-highlight-link">
+                                            {r.highlight}
+                                        </a>
+                                    ) : (
+                                        <div className="review-highlight">{r.highlight}</div>
+                                    )}
+                                </div>
                             ))}
-                        </ul>
-                        {r.link ? (
-                            <a href={r.link} target="_blank" rel="noopener noreferrer" className="review-highlight review-highlight-link">
-                                {r.highlight}
-                            </a>
-                        ) : (
-                            <div className="review-highlight">{r.highlight}</div>
-                        )}
+                        </div>
                     </div>
-                ))}
+                </div>
+                <div className="review-controls">
+                    <button className="review-nav" onClick={prev} aria-label="이전">&#8249;</button>
+                    <div className="review-dots">
+                        {reviews.map((_, idx) => (
+                            <button
+                                key={idx}
+                                className={`review-dot${idx === current ? " active" : ""}`}
+                                onClick={() => setCurrent(idx)}
+                                aria-label={`후기 ${idx + 1}`}
+                            />
+                        ))}
+                    </div>
+                    <button className="review-nav" onClick={next} aria-label="다음">&#8250;</button>
+                </div>
+                <a
+                    href="https://www.instagram.com/dreamnjoy_official/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="review-insta-link"
+                >
+                    자세한 후기를 확인하실 수 있습니다
+                    <img src="/img/sns/insta.jpeg" alt="Instagram" className="review-insta-icon" />
+                </a>
             </div>
-            <a
-                href="https://www.instagram.com/dreamnjoy_official/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="review-insta-link"
-            >
-                자세한 후기를 확인하실 수 있습니다
-                <img src="/img/sns/insta.jpeg" alt="Instagram" className="review-insta-icon" />
-            </a>
-        </div>
-    </section>
-);
+        </section>
+    );
+};
 
 // ═══════════════════════════════════════════════
 // 섹션 5: 얼마나 벌 수 있는데요?
