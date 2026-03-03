@@ -118,7 +118,7 @@ const HeroSection = ({ onApply }) => {
                         결국 <span className="banner-highlight">디앤제이</span>로 정착하는 이유는?
                     </span>
                     <a href="#reasons" className="banner-cta">
-                        바로 이 3가지 이유 때문입니다 &rarr;
+                        바로 이 2가지 이유 때문입니다 &rarr;
                     </a>
                 </div>
             </div>
@@ -134,7 +134,7 @@ const HeroSection = ({ onApply }) => {
                 </p>
                 <div ref={buttonsRef} className={`hero-buttons scroll-reveal ${buttonsVisible ? "revealed" : ""}`}>
                     <a
-                        href="https://pf.kakao.com/"
+                        href="https://open.kakao.com/o/szaJYuji"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hero-btn hero-btn-kakao"
@@ -330,7 +330,7 @@ const IncomeSection = ({ onApply }) => {
             {/* 하단 CTA 버튼 */}
             <div className="income-cta-buttons">
                 <a
-                    href="https://pf.kakao.com/"
+                    href="https://open.kakao.com/o/szaJYuji"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="income-cta-btn income-cta-kakao"
