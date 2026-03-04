@@ -186,9 +186,7 @@ const ActivitySection = () => (
         <div className="section-container">
             <h2 className="activity-title">실제로 활동이 가능할까요?</h2>
             <p className="activity-subtitle">
-                <span className="text-orange">가능합니다.</span> 현재 활동중인 디앤제이 멤버는 자유롭게
-                <br />
-                <strong>출퇴근 · 재택근무</strong>를 하고 있습니다.
+                <span className="text-orange">가능합니다.</span> 현재 활동중인 디앤제이 멤버는 자유롭게 <strong>출퇴근 · 재택근무</strong>를 하고 있습니다.
             </p>
 
             <div className="activity-cards">
