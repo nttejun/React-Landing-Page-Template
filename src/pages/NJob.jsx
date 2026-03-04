@@ -709,7 +709,7 @@ const LifelongSection = () => {
     return (
         <section className="njob-lifelong-section">
             <div className="section-container">
-                <h2 className="lifelong-title">두 번째 직업으로 새로운 수익을 만듭니다.</h2>
+                <h2 className="lifelong-title">두 번째 직업으로<br/>새로운 수익을 만듭니다.</h2>
                 <p className="lifelong-subtitle">
                     월 1,000만원의 환상보다, 월 100만원이 끊기지 않는 평생 부업을 만들어 갑니다.
                 </p>
