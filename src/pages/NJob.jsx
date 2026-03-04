@@ -129,8 +129,9 @@ const HeroSection = ({ onApply }) => {
                     이 곳에서 시작하는 이유가 있습니다.
                 </h1>
                 <p ref={subtitleRef} className={`hero-subtitle scroll-reveal ${subtitleVisible ? "revealed" : ""}`}>
-                    업계 최고 수준의 수수료, 영업 강요없는 분위기,<br />
-                    지속적이고 체계적인 교육까지...
+                    보험료의 최대 10배 이상 소득가능!<br/>
+                    탄력적인 자율출근제 자유로운 분위기!<br/>
+                    상품교육 외 나만의 전문교육까지<br/>
                 </p>
                 <div ref={buttonsRef} className={`hero-buttons scroll-reveal ${buttonsVisible ? "revealed" : ""}`}>
                     <a
@@ -234,11 +235,6 @@ const incomeFeatures = [
         image: "/img/njob/feature-education.png",
         badge: "N잡 눈높이 교육! 금융 지식 성장!",
         desc: "보험지식이 없어도 괜찮아요. 건강, 세금, 법인 등 체계적인 교육과정을 통해 금융 부가 성장할 수 있습니다",
-    },
-    {
-        image: "/img/njob/feature-nopressure.png",
-        badge: "실적 걱정은 No! No!",
-        desc: "최소 실적 조건이 전혀 없습니다. 보험N잡에게 맞게 자유로운 참여와 전문가의 상담시스템을 통해 전혀 부담이 없습니다.",
     },
 ];
 
