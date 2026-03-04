@@ -606,12 +606,12 @@ const CompanySection = () => {
             <div className="section-container">
                 <span className="company-badge">디앤제이가 특별한 이유 &#9313;</span>
                 <h2 className="company-title">
-                    선택지가 하나뿐인 설계사 <span className="company-vs">vs</span> 선택지 30개를 보유한 설계사
+                    고객에게 맞는 상품이 따로 있는데<br/>
+                    한 회사 상품만 추천받는다면?
                 </h2>
                 <p className="company-subtitle">
-                    고객에게 딱 맞는 상품은 A사인데, 내가 속한 곳은 B사만 팔아야 한다면?
-                    <br />
-                    디앤제이는 모든 보험사의 상품을 비교/분석할 수 있습니다.
+                    디엔제이는 여러 보험사를 비교해
+                    내게 맞는 가장 합리적인 보험 설계를 제공합니다
                 </p>
 
                 <div
@@ -709,7 +709,7 @@ const LifelongSection = () => {
     return (
         <section className="njob-lifelong-section">
             <div className="section-container">
-                <h2 className="lifelong-title">평생 직업이 되도록 돕습니다.</h2>
+                <h2 className="lifelong-title">두 번째 직업으로 새로운 수익을 만듭니다.</h2>
                 <p className="lifelong-subtitle">
                     월 1,000만원의 환상보다, 월 100만원이 끊기지 않는 평생 부업을 만들어 갑니다.
                 </p>
@@ -829,8 +829,8 @@ const faqData = [
         a: "손해보험협회, 생명보험 협회에서 주관하는 보험 설계사 자격시험에 합격하면 바로 시작할 수 있어요.",
     },
     {
-        q: "시작하는데 비용이 들어가나요?",
-        a: "교육비는 전액 지원됩니다. 자격시험 응시료(약 2만원)만 발생하며, 그 외 초기 비용은 없습니다.",
+        q: "시작하는데 초기 자본이 필요한가요?",
+        a: "초기 자본은 필요 없으며, 시험응시료와 보증보험 비용만 일부 발생합니다.",
     },
     {
         q: "수수료는 어떤 방식으로 지급되나요?",
