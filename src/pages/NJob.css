@@ -291,7 +291,7 @@
    섹션 3: 자유로운 보험N잡 크루활동
    ═══════════════════════════════════════════════ */
 .njob-income-section {
-    background: linear-gradient(180deg,#ff7245 15%,#ff7a4f 25%,#ff6b3c 60%,#ff7a4f);
+    background: linear-gradient(180deg,#ff4f17 15%,#ff4f17 25%,#ff4f17 60%,#ff4f17);
     padding: 80px 20px 60px;
     position: relative;
     overflow: hidden;
@@ -380,7 +380,7 @@
 .income-feature-card {
     background: #f7f8fa;
     border-radius: 4px;
-    border-left: 4px solid #ffae0e;
+    border-left: 4px solid #f40e0e;
     padding: 20px 24px;
     text-align: left;
     transition: all 0.3s ease;
