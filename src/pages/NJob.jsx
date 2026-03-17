@@ -786,105 +786,158 @@ const ChajipsaSection = () => {
             <div className="section-container">
                 <h2 className="chajipsa-title">디앤제이와 자동차보험 소득기회를 열어보세요!</h2>
                 <div className="chajipsa-steps">
-                    {/* STEP 1 */}
+
+                    {/* STEP 1: 고객 전달 */}
                     <div className={`chajipsa-step ${visible ? "chajipsa-visible" : ""}`} style={{ transitionDelay: "0ms" }}>
                         <div className="chajipsa-illust">
-                            <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                {/* Body */}
-                                <ellipse cx="52" cy="115" rx="22" ry="8" fill="#c8dff5" opacity="0.5"/>
-                                <rect x="36" y="82" width="32" height="36" rx="8" fill="#4a90d9"/>
+                            <svg viewBox="0 0 160 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                {/* Shadow */}
+                                <ellipse cx="72" cy="168" rx="30" ry="6" fill="#b8d4ee" opacity="0.6"/>
                                 {/* Legs */}
-                                <rect x="41" y="112" width="9" height="18" rx="4" fill="#3a7bc8"/>
-                                <rect x="54" y="112" width="9" height="18" rx="4" fill="#3a7bc8"/>
+                                <rect x="58" y="128" width="13" height="38" rx="6" fill="#2563a8"/>
+                                <rect x="75" y="128" width="13" height="38" rx="6" fill="#1e54a0"/>
+                                {/* Shoes */}
+                                <ellipse cx="64" cy="166" rx="9" ry="5" fill="#1a3a6e"/>
+                                <ellipse cx="81" cy="166" rx="9" ry="5" fill="#1a3a6e"/>
+                                {/* Body / Torso */}
+                                <rect x="50" y="88" width="46" height="46" rx="12" fill="#3b82d4"/>
+                                {/* Left arm (down) */}
+                                <rect x="34" y="92" width="18" height="11" rx="5.5" fill="#3b82d4" transform="rotate(12 34 92)"/>
+                                <ellipse cx="35" cy="108" rx="7" ry="7" fill="#f7c59e"/>
+                                {/* Right arm (gesturing up) */}
+                                <rect x="93" y="84" width="18" height="11" rx="5.5" fill="#3b82d4" transform="rotate(-40 93 84)"/>
+                                <ellipse cx="105" cy="72" rx="7" ry="7" fill="#f7c59e"/>
+                                {/* Neck */}
+                                <rect x="67" y="74" width="12" height="16" rx="4" fill="#f7c59e"/>
                                 {/* Head */}
-                                <circle cx="52" cy="68" r="18" fill="#f9c784"/>
+                                <ellipse cx="73" cy="60" rx="22" ry="22" fill="#f7c59e"/>
                                 {/* Hair */}
-                                <path d="M34 64 Q35 48 52 46 Q69 48 70 64 Q65 54 52 53 Q39 54 34 64Z" fill="#4a3728"/>
+                                <path d="M51 54 Q52 34 73 31 Q94 34 95 54 Q90 42 73 41 Q56 42 51 54Z" fill="#2c1e0f"/>
                                 {/* Eyes */}
-                                <circle cx="46" cy="68" r="2.5" fill="#333"/>
-                                <circle cx="58" cy="68" r="2.5" fill="#333"/>
+                                <ellipse cx="65" cy="60" rx="3" ry="3.2" fill="#333"/>
+                                <ellipse cx="81" cy="60" rx="3" ry="3.2" fill="#333"/>
                                 {/* Smile */}
-                                <path d="M46 75 Q52 80 58 75" stroke="#c0884a" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
-                                {/* Arms */}
-                                <rect x="18" y="84" width="20" height="8" rx="4" fill="#4a90d9" transform="rotate(15 18 84)"/>
-                                <rect x="66" y="84" width="20" height="8" rx="4" fill="#4a90d9" transform="rotate(-15 86 84)"/>
+                                <path d="M65 70 Q73 77 81 70" stroke="#c47a3a" strokeWidth="2" fill="none" strokeLinecap="round"/>
                                 {/* Speech bubble */}
-                                <rect x="68" y="28" width="42" height="28" rx="8" fill="white" stroke="#4a90d9" strokeWidth="2"/>
-                                <polygon points="74,56 80,56 76,66" fill="white" stroke="#4a90d9" strokeWidth="1.5" strokeLinejoin="round"/>
-                                <circle cx="80" cy="42" r="3" fill="#4a90d9"/>
-                                <circle cx="89" cy="42" r="3" fill="#4a90d9"/>
-                                <circle cx="98" cy="42" r="3" fill="#4a90d9"/>
+                                <rect x="100" y="20" width="52" height="40" rx="10" fill="white" stroke="#3b82d4" strokeWidth="2.5"/>
+                                {/* Bubble tail */}
+                                <path d="M108 60 L104 72 L118 62" fill="white" stroke="#3b82d4" strokeWidth="2" strokeLinejoin="round"/>
+                                {/* Dots in bubble */}
+                                <circle cx="114" cy="40" r="4" fill="#3b82d4"/>
+                                <circle cx="126" cy="40" r="4" fill="#3b82d4"/>
+                                <circle cx="138" cy="40" r="4" fill="#3b82d4"/>
                             </svg>
                         </div>
                         <p className="chajipsa-step-text">고객 이름과 전화번호를<br /><strong>제휴사로 전달</strong>하면,</p>
                     </div>
 
-                    <div className="chajipsa-arrow">›</div>
-
-                    {/* STEP 2 */}
+                    {/* STEP 2: 직접 통화 + 계약 */}
                     <div className={`chajipsa-step ${visible ? "chajipsa-visible" : ""}`} style={{ transitionDelay: "200ms" }}>
                         <div className="chajipsa-illust">
-                            <svg viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                {/* Desk */}
-                                <rect x="20" y="100" width="100" height="8" rx="4" fill="#a0c4e8"/>
-                                <rect x="32" y="108" width="8" height="22" rx="3" fill="#a0c4e8"/>
-                                <rect x="100" y="108" width="8" height="22" rx="3" fill="#a0c4e8"/>
+                            <svg viewBox="0 0 200 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                {/* Desk surface */}
+                                <rect x="28" y="118" width="148" height="10" rx="5" fill="#9ac5e8"/>
+                                <rect x="42" y="128" width="10" height="36" rx="5" fill="#9ac5e8"/>
+                                <rect x="152" y="128" width="10" height="36" rx="5" fill="#9ac5e8"/>
+                                {/* Monitor stand */}
+                                <rect x="94" y="112" width="16" height="10" rx="3" fill="#7ab2dc"/>
+                                <rect x="86" y="118" width="32" height="5" rx="2.5" fill="#7ab2dc"/>
                                 {/* Monitor */}
-                                <rect x="48" y="62" width="52" height="36" rx="5" fill="#1a3a5c" stroke="#4a90d9" strokeWidth="2"/>
-                                <rect x="52" y="66" width="44" height="26" rx="3" fill="#e8f4fd"/>
-                                <rect x="66" y="98" width="16" height="5" rx="2" fill="#a0c4e8"/>
-                                {/* Checkmark on screen */}
-                                <circle cx="74" cy="79" r="10" fill="#4a90d9"/>
-                                <path d="M68 79 L72 84 L80 73" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-                                {/* Person */}
-                                <circle cx="30" cy="68" r="14" fill="#f9c784"/>
-                                <path d="M16 65 Q17 53 30 51 Q43 53 44 65 Q40 57 30 56 Q20 57 16 65Z" fill="#4a3728"/>
-                                <circle cx="25" cy="68" r="2" fill="#333"/>
-                                <circle cx="35" cy="68" r="2" fill="#333"/>
-                                <path d="M25 74 Q30 78 35 74" stroke="#c0884a" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+                                <rect x="58" y="46" width="88" height="68" rx="8" fill="#1e3a5c" stroke="#3b82d4" strokeWidth="2.5"/>
+                                <rect x="64" y="52" width="76" height="56" rx="5" fill="#e8f4fb"/>
+                                {/* Checkmark circle on screen */}
+                                <circle cx="102" cy="80" r="18" fill="#3b82d4"/>
+                                <path d="M92 80 L99 88 L113 68" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                {/* Left person (agent, sitting) */}
+                                {/* Head */}
+                                <ellipse cx="32" cy="64" rx="16" ry="16" fill="#f7c59e"/>
+                                <path d="M16 59 Q17 44 32 42 Q47 44 48 59 Q44 50 32 49 Q20 50 16 59Z" fill="#4a3728"/>
+                                <ellipse cx="27" cy="64" rx="2.5" ry="2.5" fill="#333"/>
+                                <ellipse cx="37" cy="64" rx="2.5" ry="2.5" fill="#333"/>
+                                <path d="M27 71 Q32 76 37 71" stroke="#c47a3a" strokeWidth="1.8" fill="none" strokeLinecap="round"/>
                                 {/* Body */}
-                                <rect x="18" y="82" width="24" height="28" rx="6" fill="#4a90d9"/>
-                                {/* Arm pointing */}
-                                <path d="M42 90 Q55 85 58 82" stroke="#4a90d9" strokeWidth="7" strokeLinecap="round"/>
-                                <rect x="8" y="84" width="16" height="7" rx="3.5" fill="#4a90d9" transform="rotate(20 8 84)"/>
+                                <rect x="20" y="80" width="24" height="38" rx="8" fill="#3b82d4"/>
+                                {/* Neck */}
+                                <rect x="26" y="72" width="12" height="12" rx="4" fill="#f7c59e"/>
+                                {/* Arm pointing at screen */}
+                                <path d="M44 92 Q52 86 60 80" stroke="#3b82d4" strokeWidth="9" strokeLinecap="round"/>
+                                {/* Hand */}
+                                <ellipse cx="60" cy="80" rx="7" ry="7" fill="#f7c59e"/>
+                                {/* Other arm */}
+                                <rect x="8" y="82" width="16" height="9" rx="4.5" fill="#3b82d4" transform="rotate(15 8 82)"/>
+                                {/* Right person (standing) */}
+                                {/* Shadow */}
+                                <ellipse cx="170" cy="168" rx="18" ry="5" fill="#b8d4ee" opacity="0.5"/>
+                                {/* Legs */}
+                                <rect x="161" y="130" width="10" height="36" rx="5" fill="#1e54a0"/>
+                                <rect x="174" y="130" width="10" height="36" rx="5" fill="#2563a8"/>
+                                {/* Shoes */}
+                                <ellipse cx="166" cy="165" rx="8" ry="4.5" fill="#1a3a6e"/>
+                                <ellipse cx="179" cy="165" rx="8" ry="4.5" fill="#1a3a6e"/>
+                                {/* Body */}
+                                <rect x="155" y="92" width="36" height="42" rx="10" fill="#2563a8"/>
+                                {/* Neck */}
+                                <rect x="167" y="78" width="10" height="16" rx="4" fill="#f7c59e"/>
+                                {/* Head */}
+                                <ellipse cx="172" cy="64" rx="18" ry="18" fill="#f7c59e"/>
+                                {/* Hair */}
+                                <path d="M154 59 Q155 42 172 39 Q189 42 190 59 Q185 48 172 47 Q159 48 154 59Z" fill="#2c1e0f"/>
+                                <ellipse cx="165" cy="63" rx="3" ry="3" fill="#333"/>
+                                <ellipse cx="179" cy="63" rx="3" ry="3" fill="#333"/>
+                                <path d="M165 72 Q172 78 179 72" stroke="#c47a3a" strokeWidth="2" fill="none" strokeLinecap="round"/>
+                                {/* Arms */}
+                                <rect x="138" y="96" width="20" height="10" rx="5" fill="#2563a8" transform="rotate(10 138 96)"/>
+                                <rect x="188" y="96" width="18" height="10" rx="5" fill="#2563a8" transform="rotate(-10 188 96)"/>
                             </svg>
                         </div>
                         <p className="chajipsa-step-text">제휴사가 고객에게 <strong>직접 통화</strong>하여<br />보험 비교 견적 및 계약 진행하고,</p>
                     </div>
 
-                    <div className="chajipsa-arrow">›</div>
-
-                    {/* STEP 3 */}
+                    {/* STEP 3: 수수료 지급 */}
                     <div className={`chajipsa-step ${visible ? "chajipsa-visible" : ""}`} style={{ transitionDelay: "400ms" }}>
                         <div className="chajipsa-illust">
-                            <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                {/* Body */}
-                                <ellipse cx="52" cy="115" rx="22" ry="8" fill="#c8dff5" opacity="0.5"/>
-                                <rect x="36" y="82" width="32" height="36" rx="8" fill="#2e6da4"/>
+                            <svg viewBox="0 0 160 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                {/* Shadow */}
+                                <ellipse cx="72" cy="168" rx="30" ry="6" fill="#b8d4ee" opacity="0.6"/>
                                 {/* Legs */}
-                                <rect x="41" y="112" width="9" height="18" rx="4" fill="#1e5a8c"/>
-                                <rect x="54" y="112" width="9" height="18" rx="4" fill="#1e5a8c"/>
+                                <rect x="58" y="128" width="13" height="38" rx="6" fill="#1e54a0"/>
+                                <rect x="75" y="128" width="13" height="38" rx="6" fill="#2563a8"/>
+                                {/* Shoes */}
+                                <ellipse cx="64" cy="166" rx="9" ry="5" fill="#1a3a6e"/>
+                                <ellipse cx="81" cy="166" rx="9" ry="5" fill="#1a3a6e"/>
+                                {/* Body / Suit */}
+                                <rect x="50" y="88" width="46" height="46" rx="12" fill="#1e54a0"/>
+                                {/* Suit lapels */}
+                                <path d="M73 88 L65 100 L73 106 L81 100 Z" fill="#184a8e"/>
+                                {/* Neck */}
+                                <rect x="67" y="74" width="12" height="16" rx="4" fill="#f7c59e"/>
                                 {/* Head */}
-                                <circle cx="52" cy="68" r="18" fill="#f9c784"/>
-                                <path d="M34 64 Q35 48 52 46 Q69 48 70 64 Q65 54 52 53 Q39 54 34 64Z" fill="#2c1e0f"/>
-                                <circle cx="46" cy="68" r="2.5" fill="#333"/>
-                                <circle cx="58" cy="68" r="2.5" fill="#333"/>
-                                <path d="M46 75 Q52 80 58 75" stroke="#c0884a" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
-                                {/* Right arm holding document */}
-                                <rect x="62" y="80" width="18" height="8" rx="4" fill="#2e6da4" transform="rotate(-30 62 80)"/>
+                                <ellipse cx="73" cy="58" rx="22" ry="22" fill="#f7c59e"/>
+                                {/* Hair */}
+                                <path d="M51 52 Q52 32 73 29 Q94 32 95 52 Q90 40 73 39 Q56 40 51 52Z" fill="#1a1a1a"/>
+                                {/* Eyes */}
+                                <ellipse cx="65" cy="58" rx="3" ry="3.2" fill="#333"/>
+                                <ellipse cx="81" cy="58" rx="3" ry="3.2" fill="#333"/>
+                                {/* Smile */}
+                                <path d="M65 67 Q73 74 81 67" stroke="#c47a3a" strokeWidth="2" fill="none" strokeLinecap="round"/>
+                                {/* Left arm (holding doc) */}
+                                <rect x="30" y="90" width="24" height="12" rx="6" fill="#1e54a0" transform="rotate(20 30 90)"/>
                                 {/* Document */}
-                                <rect x="72" y="52" width="32" height="40" rx="4" fill="white" stroke="#4a90d9" strokeWidth="2"/>
-                                <rect x="77" y="60" width="22" height="3" rx="1.5" fill="#4a90d9"/>
-                                <rect x="77" y="67" width="16" height="3" rx="1.5" fill="#a0c4e8"/>
-                                {/* W badge */}
-                                <circle cx="88" cy="82" r="8" fill="#ffa726"/>
-                                <text x="84" y="86" fontSize="9" fontWeight="bold" fill="white">W</text>
-                                {/* Left arm */}
-                                <rect x="16" y="84" width="22" height="8" rx="4" fill="#2e6da4"/>
+                                <rect x="4" y="58" width="44" height="56" rx="6" fill="white" stroke="#3b82d4" strokeWidth="2.5"/>
+                                <rect x="11" y="68" width="30" height="4" rx="2" fill="#3b82d4"/>
+                                <rect x="11" y="77" width="22" height="4" rx="2" fill="#9ac5e8"/>
+                                <rect x="11" y="86" width="26" height="4" rx="2" fill="#9ac5e8"/>
+                                {/* Money badge on document */}
+                                <circle cx="38" cy="100" rx="13" ry="13" fill="#ffa726"/>
+                                <text x="31" y="105" fontSize="13" fontWeight="900" fill="white" fontFamily="Arial">W</text>
+                                {/* Right arm (side) */}
+                                <rect x="94" y="90" width="22" height="12" rx="6" fill="#1e54a0" transform="rotate(-15 94 90)"/>
+                                <ellipse cx="114" cy="106" rx="8" ry="8" fill="#f7c59e"/>
                             </svg>
                         </div>
-                        <p className="chajipsa-step-text">계약이 완료되면<br/><strong>수수료 익월 초 지급!</strong></p>
+                        <p className="chajipsa-step-text">계약이 완료되면<br /><strong>수수료 익월 초 지급!</strong></p>
                     </div>
+
                 </div>
             </div>
         </section>
