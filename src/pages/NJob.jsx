@@ -761,6 +761,137 @@ const LifelongSection = () => {
 };
 
 // ═══════════════════════════════════════════════
+// 섹션 7.5: 차집사와 새로운 영업 기회
+// ═══════════════════════════════════════════════
+const ChajipsaSection = () => {
+    const sectionRef = useRef(null);
+    const [visible, setVisible] = useState(false);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setVisible(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.2 }
+        );
+        if (sectionRef.current) observer.observe(sectionRef.current);
+        return () => observer.disconnect();
+    }, []);
+
+    return (
+        <section className="chajipsa-section" ref={sectionRef}>
+            <div className="section-container">
+                <h2 className="chajipsa-title">디앤제이와 자동차보험 소득기회를 열어보세요!</h2>
+                <div className="chajipsa-steps">
+                    {/* STEP 1 */}
+                    <div className={`chajipsa-step ${visible ? "chajipsa-visible" : ""}`} style={{ transitionDelay: "0ms" }}>
+                        <div className="chajipsa-illust">
+                            <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                {/* Body */}
+                                <ellipse cx="52" cy="115" rx="22" ry="8" fill="#c8dff5" opacity="0.5"/>
+                                <rect x="36" y="82" width="32" height="36" rx="8" fill="#4a90d9"/>
+                                {/* Legs */}
+                                <rect x="41" y="112" width="9" height="18" rx="4" fill="#3a7bc8"/>
+                                <rect x="54" y="112" width="9" height="18" rx="4" fill="#3a7bc8"/>
+                                {/* Head */}
+                                <circle cx="52" cy="68" r="18" fill="#f9c784"/>
+                                {/* Hair */}
+                                <path d="M34 64 Q35 48 52 46 Q69 48 70 64 Q65 54 52 53 Q39 54 34 64Z" fill="#4a3728"/>
+                                {/* Eyes */}
+                                <circle cx="46" cy="68" r="2.5" fill="#333"/>
+                                <circle cx="58" cy="68" r="2.5" fill="#333"/>
+                                {/* Smile */}
+                                <path d="M46 75 Q52 80 58 75" stroke="#c0884a" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+                                {/* Arms */}
+                                <rect x="18" y="84" width="20" height="8" rx="4" fill="#4a90d9" transform="rotate(15 18 84)"/>
+                                <rect x="66" y="84" width="20" height="8" rx="4" fill="#4a90d9" transform="rotate(-15 86 84)"/>
+                                {/* Speech bubble */}
+                                <rect x="68" y="28" width="42" height="28" rx="8" fill="white" stroke="#4a90d9" strokeWidth="2"/>
+                                <polygon points="74,56 80,56 76,66" fill="white" stroke="#4a90d9" strokeWidth="1.5" strokeLinejoin="round"/>
+                                <circle cx="80" cy="42" r="3" fill="#4a90d9"/>
+                                <circle cx="89" cy="42" r="3" fill="#4a90d9"/>
+                                <circle cx="98" cy="42" r="3" fill="#4a90d9"/>
+                            </svg>
+                        </div>
+                        <p className="chajipsa-step-text">고객 이름과 전화번호를<br /><strong>제휴사로 전달</strong>하면,</p>
+                    </div>
+
+                    <div className="chajipsa-arrow">›</div>
+
+                    {/* STEP 2 */}
+                    <div className={`chajipsa-step ${visible ? "chajipsa-visible" : ""}`} style={{ transitionDelay: "200ms" }}>
+                        <div className="chajipsa-illust">
+                            <svg viewBox="0 0 140 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                {/* Desk */}
+                                <rect x="20" y="100" width="100" height="8" rx="4" fill="#a0c4e8"/>
+                                <rect x="32" y="108" width="8" height="22" rx="3" fill="#a0c4e8"/>
+                                <rect x="100" y="108" width="8" height="22" rx="3" fill="#a0c4e8"/>
+                                {/* Monitor */}
+                                <rect x="48" y="62" width="52" height="36" rx="5" fill="#1a3a5c" stroke="#4a90d9" strokeWidth="2"/>
+                                <rect x="52" y="66" width="44" height="26" rx="3" fill="#e8f4fd"/>
+                                <rect x="66" y="98" width="16" height="5" rx="2" fill="#a0c4e8"/>
+                                {/* Checkmark on screen */}
+                                <circle cx="74" cy="79" r="10" fill="#4a90d9"/>
+                                <path d="M68 79 L72 84 L80 73" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                                {/* Person */}
+                                <circle cx="30" cy="68" r="14" fill="#f9c784"/>
+                                <path d="M16 65 Q17 53 30 51 Q43 53 44 65 Q40 57 30 56 Q20 57 16 65Z" fill="#4a3728"/>
+                                <circle cx="25" cy="68" r="2" fill="#333"/>
+                                <circle cx="35" cy="68" r="2" fill="#333"/>
+                                <path d="M25 74 Q30 78 35 74" stroke="#c0884a" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+                                {/* Body */}
+                                <rect x="18" y="82" width="24" height="28" rx="6" fill="#4a90d9"/>
+                                {/* Arm pointing */}
+                                <path d="M42 90 Q55 85 58 82" stroke="#4a90d9" strokeWidth="7" strokeLinecap="round"/>
+                                <rect x="8" y="84" width="16" height="7" rx="3.5" fill="#4a90d9" transform="rotate(20 8 84)"/>
+                            </svg>
+                        </div>
+                        <p className="chajipsa-step-text">제휴사가 고객에게 <strong>직접 통화</strong>하여<br />보험 비교 견적 및 계약 진행하고,</p>
+                    </div>
+
+                    <div className="chajipsa-arrow">›</div>
+
+                    {/* STEP 3 */}
+                    <div className={`chajipsa-step ${visible ? "chajipsa-visible" : ""}`} style={{ transitionDelay: "400ms" }}>
+                        <div className="chajipsa-illust">
+                            <svg viewBox="0 0 120 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                {/* Body */}
+                                <ellipse cx="52" cy="115" rx="22" ry="8" fill="#c8dff5" opacity="0.5"/>
+                                <rect x="36" y="82" width="32" height="36" rx="8" fill="#2e6da4"/>
+                                {/* Legs */}
+                                <rect x="41" y="112" width="9" height="18" rx="4" fill="#1e5a8c"/>
+                                <rect x="54" y="112" width="9" height="18" rx="4" fill="#1e5a8c"/>
+                                {/* Head */}
+                                <circle cx="52" cy="68" r="18" fill="#f9c784"/>
+                                <path d="M34 64 Q35 48 52 46 Q69 48 70 64 Q65 54 52 53 Q39 54 34 64Z" fill="#2c1e0f"/>
+                                <circle cx="46" cy="68" r="2.5" fill="#333"/>
+                                <circle cx="58" cy="68" r="2.5" fill="#333"/>
+                                <path d="M46 75 Q52 80 58 75" stroke="#c0884a" strokeWidth="1.5" fill="none" strokeLinecap="round"/>
+                                {/* Right arm holding document */}
+                                <rect x="62" y="80" width="18" height="8" rx="4" fill="#2e6da4" transform="rotate(-30 62 80)"/>
+                                {/* Document */}
+                                <rect x="72" y="52" width="32" height="40" rx="4" fill="white" stroke="#4a90d9" strokeWidth="2"/>
+                                <rect x="77" y="60" width="22" height="3" rx="1.5" fill="#4a90d9"/>
+                                <rect x="77" y="67" width="16" height="3" rx="1.5" fill="#a0c4e8"/>
+                                {/* W badge */}
+                                <circle cx="88" cy="82" r="8" fill="#ffa726"/>
+                                <text x="84" y="86" fontSize="9" fontWeight="bold" fill="white">W</text>
+                                {/* Left arm */}
+                                <rect x="16" y="84" width="22" height="8" rx="4" fill="#2e6da4"/>
+                            </svg>
+                        </div>
+                        <p className="chajipsa-step-text">계약이 완료되면<br/><strong>수수료 익월 초 지급!</strong></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+};
+
+// ═══════════════════════════════════════════════
 // 섹션 8: 디앤제이 어떻게 시작하나요?
 // ═══════════════════════════════════════════════
 const startSteps = [
@@ -1127,6 +1258,7 @@ const NJob = () => {
             <IncomeCalcSection />
             <CompanySection />
             <LifelongSection />
+            <ChajipsaSection />
             <StepSection />
             <FAQSection />
             <FloatingButtons onApply={openModal} />
