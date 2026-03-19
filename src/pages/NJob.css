@@ -291,7 +291,7 @@
    섹션 3: 자유로운 보험N잡 크루활동
    ═══════════════════════════════════════════════ */
 .njob-income-section {
-    background: linear-gradient(180deg,#ff4f17 15%,#ff4f17 25%,#ff4f17 60%,#ff4f17);
+    background: linear-gradient(180deg, #fa8249 15%, #fa8d50 25%, #f88153 60%, #f48c5c);
     padding: 80px 20px 60px;
     position: relative;
     overflow: hidden;
@@ -1580,7 +1580,7 @@
    섹션 9: 자주 묻는 질문 (FAQ)
    ═══════════════════════════════════════════════ */
 .njob-faq-section {
-    background: #ff4f17;
+    background: #fe9368;
     padding: 100px 20px;
 }
 
